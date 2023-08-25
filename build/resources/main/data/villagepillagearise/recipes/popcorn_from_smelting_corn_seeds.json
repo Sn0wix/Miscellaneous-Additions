@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 10,
+  "experience": 0.1,
+  "group": "translation{key='item.villagepillagearise.popcorn', args=[]}",
+  "ingredient": {
+    "item": "villagepillagearise:corn_seeds"
+  },
+  "result": "villagepillagearise:popcorn"
+}

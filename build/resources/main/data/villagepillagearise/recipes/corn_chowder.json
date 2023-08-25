@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sms",
+    "pbp"
+  ],
+  "key": {
+    "s": {
+      "item": "villagepillagearise:corn_seeds"
+    },
+    "b": {
+      "item": "minecraft:bowl"
+    },
+    "p": {
+      "item": "minecraft:potato"
+    },
+    "m": {
+      "item": "minecraft:milk_bucket"
+    }
+  },
+  "result": {
+    "item": "villagepillagearise:corn_chowder"
+  }
+}

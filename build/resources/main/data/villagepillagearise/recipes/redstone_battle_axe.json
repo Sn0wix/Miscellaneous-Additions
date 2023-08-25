@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:redstone"
+  },
+  "base": {
+    "item": "villagepillagearise:netherite_battle_axe"
+  },
+  "result": {
+    "item": "villagepillagearise:redstone_battle_axe"
+  },
+  "template": {
+    "item": "villagepillagearise:redstone_shard"
+  }
+}

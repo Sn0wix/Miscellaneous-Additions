@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "villagepillagearise:block/citrine_cluster"
+  }
+}

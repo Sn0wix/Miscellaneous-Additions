@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "villagepillagearise:golden_chainmail_helmet",
+    "villagepillagearise:golden_chainmail_chestplate",
+    "villagepillagearise:golden_chainmail_leggings",
+    "villagepillagearise:golden_chainmail_boots",
+    "villagepillagearise:lapis_lazuli_helmet",
+    "villagepillagearise:lapis_lazuli_chestplate",
+    "villagepillagearise:lapis_lazuli_leggings",
+    "villagepillagearise:lapis_lazuli_boots",
+    "villagepillagearise:redstone_helmet",
+    "villagepillagearise:redstone_chestplate",
+    "villagepillagearise:redstone_leggings",
+    "villagepillagearise:redstone_boots"
+  ]
+}

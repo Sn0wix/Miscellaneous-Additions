@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "villagepillagearise:block/corn_block_stage5"
+  }
+}

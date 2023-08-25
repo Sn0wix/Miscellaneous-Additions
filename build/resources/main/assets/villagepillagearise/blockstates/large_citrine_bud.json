@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "villagepillagearise:block/large_citrine_bud",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "villagepillagearise:block/large_citrine_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "villagepillagearise:block/large_citrine_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "villagepillagearise:block/large_citrine_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "villagepillagearise:block/large_citrine_bud"
+    },
+    "facing=west": {
+      "model": "villagepillagearise:block/large_citrine_bud",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

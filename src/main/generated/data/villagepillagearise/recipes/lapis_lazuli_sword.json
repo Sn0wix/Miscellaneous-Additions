@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "base": {
+    "item": "minecraft:netherite_sword"
+  },
+  "result": {
+    "item": "villagepillagearise:lapis_lazuli_sword"
+  },
+  "template": {
+    "item": "villagepillagearise:lapis_shard"
+  }
+}

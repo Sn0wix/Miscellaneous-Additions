@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": [
+    {
+      "item": "minecraft:small_amethyst_bud"
+    }
+  ],
+  "result": "villagepillagearise:small_citrine_bud",
+  "experience": 0.3,
+  "cookingtime": 300
+}

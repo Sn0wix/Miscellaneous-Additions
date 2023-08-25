@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:redstone"
+  },
+  "base": {
+    "item": "minecraft:netherite_pickaxe"
+  },
+  "result": {
+    "item": "villagepillagearise:redstone_pickaxe"
+  },
+  "template": {
+    "item": "villagepillagearise:redstone_shard"
+  }
+}

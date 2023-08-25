@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "villagepillagearise:item/iron_battle_axe"
+  }
+}

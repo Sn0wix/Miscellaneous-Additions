@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "villagepillagearise:block/golden_chain",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "villagepillagearise:block/golden_chain"
+    },
+    "axis=z": {
+      "model": "villagepillagearise:block/golden_chain",
+      "x": 90
+    }
+  }
+}

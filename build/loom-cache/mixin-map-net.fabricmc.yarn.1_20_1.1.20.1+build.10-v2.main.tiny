@@ -1,0 +1,5 @@
+v1	named	intermediary
+FIELD	net/sn0wix_/villagePillageArise/mixin/LapisArmorEnchantMixin	Lnet/minecraft/inventory/Inventory;	inventory	field_7809
+FIELD	net/sn0wix_/villagePillageArise/mixin/LapisArmorEnchantMixin	Lnet/minecraft/screen/ScreenHandlerContext;	context	field_7813
+FIELD	net/sn0wix_/villagePillageArise/mixin/LapisArmorEnchantMixin	[I	enchantmentPower	field_7808
+METHOD	net/sn0wix_/villagePillageArise/mixin/LapisArmorEnchantMixin	(Lnet/minecraft/item/ItemStack;II)Ljava/util/List;	generateEnchantments	method_7637

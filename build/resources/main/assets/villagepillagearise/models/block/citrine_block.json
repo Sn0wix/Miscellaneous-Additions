@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "villagepillagearise:block/citrine_block"
-  }
-}

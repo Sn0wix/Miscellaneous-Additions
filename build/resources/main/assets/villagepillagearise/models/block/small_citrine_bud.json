@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "villagepillagearise:block/small_citrine_bud"
-  }
-}

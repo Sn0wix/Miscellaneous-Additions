@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "villagepillagearise:block/azalea_slab"
+    },
+    "type=double": {
+      "model": "villagepillagearise:block/azalea_planks"
+    },
+    "type=top": {
+      "model": "villagepillagearise:block/azalea_slab_top"
+    }
+  }
+}

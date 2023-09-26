@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right",
+  "textures": {
+    "bottom": "villagepillagearise:block/azalea_door_bottom",
+    "top": "villagepillagearise:block/azalea_door_top"
+  }
+}

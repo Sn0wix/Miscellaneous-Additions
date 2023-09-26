@@ -9,6 +9,7 @@ import net.sn0wix_.villagePillageArise.VillagePillageAriseMain;
 
 public class ModTags {
     public static final TagKey<Block> REDSTONE_EQUIPMENT_RECHARGEABLE = createBlockTag("redstone_equipment_rechargeable");
+    public static final TagKey<Block> AZALEA_LOGS = createBlockTag("azalea_logs");
 
     private static TagKey<Block> createBlockTag(String name) {
         return TagKey.of(RegistryKeys.BLOCK, new Identifier(VillagePillageAriseMain.MOD_ID, name));

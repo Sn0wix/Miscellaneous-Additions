@@ -98,5 +98,27 @@
   "block.villagepillagearise.medium_citrine_bud": "Medium Citrine Bud",
   "block.villagepillagearise.small_citrine_bud": "Small Citrine Bud",
   "block.villagepillagearise.golden_chain": "Golden Chain",
-  "block.villagepillagearise.corn_block": "Corn"
+  "block.villagepillagearise.corn_block": "Corn",
+
+
+
+  "block.villagepillagearise.azalea_button": "Azalea Button",
+  "block.villagepillagearise.azalea_door": "Azalea Door",
+  "block.villagepillagearise.azalea_fence": "Azalea Fence",
+  "block.villagepillagearise.azalea_fence_gate": "Azalea Fence Gate",
+  "block.villagepillagearise.azalea_hanging_sign": "Azalea Hanging Sign",
+  "block.villagepillagearise.azalea_log": "Azalea Log",
+  "block.villagepillagearise.azalea_planks": "Azalea Planks",
+  "block.villagepillagearise.azalea_pressure_plate": "Azalea Pressure Plate",
+  "block.villagepillagearise.azalea_sign": "Azalea Sign",
+  "block.villagepillagearise.azalea_slab": "Azalea Slab",
+  "block.villagepillagearise.azalea_stairs": "Azalea Stairs",
+  "block.villagepillagearise.azalea_trapdoor": "Azalea Trapdoor",
+  "block.villagepillagearise.azalea_wall_hanging_sign": "Azalea Wall Hanging Sign",
+  "block.villagepillagearise.azalea_wall_sign": "Azalea Wall Sign",
+  "block.villagepillagearise.azalea_wood": "Azalea Wood",
+  "block.villagepillagearise.stripped_azalea_log": "Stripped Azalea Log",
+  "block.villagepillagearise.stripped_azalea_wood": "Stripped Azalea Wood",
+  "item.villagepillagearise.azalea_boat": "Azalea Boat",
+  "item.villagepillagearise.azalea_chest_boat": "Azalea Boat with Chest"
 }

@@ -1,4 +1,4 @@
-// 1.20.1	2023-08-25T19:11:59.6544301	Village & Pillage Arise/Recipes
+// 1.20.1	2023-09-26T21:03:22.2033654	Village & Pillage Arise/Recipes
 af3d1853a70ca0b718afa19185f7a92e7db069ac data\villagepillagearise\recipes\redstone_hoe.json
 681b25aaa6384b35173865422ad9a6c8d80cb77f data\villagepillagearise\advancements\recipes\tools\lapis_lazuli_pickaxe.json
 a4582866363fcc79f86301c363d4a8311241c9df data\villagepillagearise\advancements\recipes\tools\lapis_lazuli_shovel.json
@@ -22,8 +22,8 @@ a2ffb36cae155bf93e5644f70916345ef4675e50 data\villagepillagearise\advancements\r
 cf072bcfe29385b41a9c33773b6cc338110b54a2 data\villagepillagearise\recipes\redstone_battle_axe.json
 704e306e2a51e4c2726349f563286d653a486255 data\villagepillagearise\recipes\redstone_axe.json
 672da3b0a0811bf25bd740d3b8a48ff245b501d2 data\villagepillagearise\recipes\redstone_boots.json
-abcdd3a378dffb51d64f5429b0aa1afb2e43ca63 data\villagepillagearise\advancements\recipes\combat\redstone_leggings.json
 856021390fcc67648a2867aafcfff069a48d4244 data\villagepillagearise\advancements\recipes\tools\lapis_lazuli_hoe.json
+abcdd3a378dffb51d64f5429b0aa1afb2e43ca63 data\villagepillagearise\advancements\recipes\combat\redstone_leggings.json
 87e20e4f2ac70ced920625f155249a0266e29a61 data\villagepillagearise\recipes\lapis_lazuli_chestplate.json
 803c0d3bb4574cf90767c8da2411c44c4b4c489b data\villagepillagearise\advancements\recipes\combat\redstone_battle_axe.json
 a4a55f837060562ee23fc7924165bafdfd2bf7f1 data\villagepillagearise\advancements\recipes\misc\music_disc_shrieker_x_brute.json

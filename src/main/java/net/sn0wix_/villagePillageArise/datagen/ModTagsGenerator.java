@@ -3,9 +3,12 @@ package net.sn0wix_.villagePillageArise.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.util.Identifier;
+import net.sn0wix_.villagePillageArise.VillagePillageAriseMain;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.item.ModItems;
 import net.sn0wix_.villagePillageArise.util.ModTags;
@@ -24,6 +27,7 @@ public class ModTagsGenerator {
             addPickaxeMineable();
             addNeedsStoneTool();
             addRedstoneEquipmentRechargeable();
+            addAzaleaWoodSet();
         }
 
         private void addPickaxeMineable() {
@@ -45,6 +49,31 @@ public class ModTagsGenerator {
                     .add(ModBlocks.LARGE_CITRINE_BUD)
                     .add(ModBlocks.MEDIUM_CITRINE_BUD)
                     .add(ModBlocks.SMALL_CITRINE_BUD);
+        }
+        
+        private void addAzaleaWoodSet() {
+            getOrCreateTagBuilder(BlockTags.PLANKS).add(ModBlocks.AZALEA_PLANKS);
+            getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(ModBlocks.AZALEA_STAIRS);
+            getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES).add(ModBlocks.AZALEA_PRESSURE_PLATE);
+            getOrCreateTagBuilder(BlockTags.WOODEN_SLABS).add(ModBlocks.AZALEA_SLAB);
+            getOrCreateTagBuilder(BlockTags.WOODEN_FENCES).add(ModBlocks.AZALEA_FENCE);
+            getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS).add(ModBlocks.AZALEA_TRAPDOOR);
+            getOrCreateTagBuilder(BlockTags.WOODEN_DOORS).add(ModBlocks.AZALEA_DOOR);
+            getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS).add(ModBlocks.AZALEA_BUTTON);
+
+            getOrCreateTagBuilder(BlockTags.FENCE_GATES).add(ModBlocks.AZALEA_FENCE_GATE);
+
+            getOrCreateTagBuilder(BlockTags.STANDING_SIGNS).add(ModBlocks.AZALEA_SIGN);
+            getOrCreateTagBuilder(BlockTags.WALL_SIGNS).add(ModBlocks.AZALEA_WALL_SIGN);
+            getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS).add(ModBlocks.AZALEA_HANGING_SIGN);
+            getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS).add(ModBlocks.AZALEA_WALL_HANGING_SIGN);
+
+            getOrCreateTagBuilder(ModTags.AZALEA_LOGS).add(ModBlocks.AZALEA_LOG)
+                    .add(ModBlocks.STRIPPED_AZALEA_LOG)
+                    .add(ModBlocks.AZALEA_WOOD)
+                    .add(ModBlocks.STRIPPED_AZALEA_WOOD);
+
+            getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN).forceAddTag(ModTags.AZALEA_LOGS);
         }
 
         private void addRedstoneEquipmentRechargeable() {

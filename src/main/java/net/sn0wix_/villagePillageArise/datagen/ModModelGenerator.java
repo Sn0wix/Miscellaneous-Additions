@@ -6,6 +6,12 @@ import net.minecraft.block.Block;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.data.client.TexturedModel;
+import net.minecraft.data.family.BlockFamilies;
+import net.minecraft.data.family.BlockFamily;
+import net.minecraft.util.Identifier;
+import net.sn0wix_.villagePillageArise.VillagePillageAriseMain;
+import net.sn0wix_.villagePillageArise.block.ModBlockFamilies;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.block.custom.CornBlock;
 import net.sn0wix_.villagePillageArise.item.ModItems;
@@ -26,6 +32,19 @@ public class ModModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BUDDING_CITRINE);
 
         blockStateModelGenerator.registerCrop(ModBlocks.CORN_BLOCK, CornBlock.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
+
+        registerAzaleaWoodSet(blockStateModelGenerator);
+    }
+
+    private void registerAzaleaWoodSet(BlockStateModelGenerator blockStateModelGenerator) {
+        BlockStateModelGenerator.BlockTexturePool azaleaTexturePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.AZALEA_PLANKS);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.AZALEA_LOG, TexturedModel.CUBE_COLUMN, TexturedModel.CUBE_COLUMN_HORIZONTAL);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.STRIPPED_AZALEA_LOG, TexturedModel.CUBE_COLUMN, TexturedModel.CUBE_COLUMN_HORIZONTAL);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.AZALEA_WOOD, new Identifier(VillagePillageAriseMain.MOD_ID, "block/azalea_wood"));
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.STRIPPED_AZALEA_WOOD, new Identifier(VillagePillageAriseMain.MOD_ID, "block/stripped_azalea_wood"));
+        blockStateModelGenerator.registerHangingSign(ModBlocks.STRIPPED_AZALEA_LOG, ModBlocks.AZALEA_HANGING_SIGN, ModBlocks.AZALEA_WALL_HANGING_SIGN);
+
+        azaleaTexturePool.family(ModBlockFamilies.AZALEA_FAMILY);
     }
 
     @Override
@@ -86,6 +105,9 @@ public class ModModelGenerator extends FabricModelProvider {
         itemModelGenerator.register(ModItems.LAPIS_LAZULI_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.LAPIS_LAZULI_HOE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.LAPIS_LAZULI_SHOVEL, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.AZALEA_HANGING_SIGN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.AZALEA_SIGN, Models.GENERATED);
     }
 
     private void registerCitrine(Block block, BlockStateModelGenerator blockStateModelGenerator) {

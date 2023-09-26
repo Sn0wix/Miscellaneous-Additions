@@ -7,6 +7,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.sn0wix_.villagePillageArise.VillagePillageAriseMain;
+import net.sn0wix_.villagePillageArise.block.ModBlockFamilies;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.item.custom.*;
 import net.minecraft.util.Identifier;
@@ -183,6 +184,14 @@ public class ModItems {
 
     public static final Item MUSIC_DISC_SOULESS = registerItem("music_disc_souless",
             new MusicDiscItem(13, ModSoundEvents.SOULESS, new FabricItemSettings().maxCount(1), 140), ItemGroups.TOOLS);
+
+
+
+    public static final Item AZALEA_SIGN = registerItem("azalea_sing",
+            new SignItem(new FabricItemSettings().maxCount(16), ModBlocks.AZALEA_SIGN, ModBlocks.AZALEA_WALL_SIGN), ItemGroups.FUNCTIONAL);
+
+    public static final Item AZALEA_HANGING_SIGN = registerItem("azalea_hanging_sing",
+            new HangingSignItem(ModBlocks.AZALEA_HANGING_SIGN, ModBlocks.AZALEA_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)), ItemGroups.FUNCTIONAL);
 
 
     //idk safe varargs

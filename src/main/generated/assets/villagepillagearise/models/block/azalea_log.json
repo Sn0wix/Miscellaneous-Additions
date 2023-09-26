@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "villagepillagearise:block/azalea_log_top",
+    "side": "villagepillagearise:block/azalea_log_side"
+  }
+}

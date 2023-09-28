@@ -120,5 +120,8 @@
   "block.villagepillagearise.stripped_azalea_log": "Stripped Azalea Log",
   "block.villagepillagearise.stripped_azalea_wood": "Stripped Azalea Wood",
   "item.villagepillagearise.azalea_boat": "Azalea Boat",
-  "item.villagepillagearise.azalea_chest_boat": "Azalea Boat with Chest"
+  "item.villagepillagearise.azalea_chest_boat": "Azalea Boat with Chest",
+
+  "entity.villagepillagearise.azalea_boat": "Azalea Boat",
+  "entity.villagepillagearise.azalea_chest_boat": "Azalea Boat with Chest"
 }

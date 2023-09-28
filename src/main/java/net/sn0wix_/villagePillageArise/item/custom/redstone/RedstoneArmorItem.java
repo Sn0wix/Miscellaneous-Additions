@@ -14,7 +14,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.sn0wix_.villagePillageArise.item.ModItems;
-import net.sn0wix_.villagePillageArise.util.ModTags;
+import net.sn0wix_.villagePillageArise.util.tags.ModBlockTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -84,7 +84,7 @@ public class RedstoneArmorItem extends ArmorItem {
     }
 
     public static boolean isValidBlock(BlockState state) {
-        return state.isIn(ModTags.REDSTONE_EQUIPMENT_RECHARGEABLE);
+        return state.isIn(ModBlockTags.REDSTONE_EQUIPMENT_RECHARGEABLE);
     }
 
     private static void spawnParticles(World world, BlockPos pos) {

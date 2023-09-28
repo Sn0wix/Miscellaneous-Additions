@@ -1,4 +1,4 @@
-// 1.20.1	2023-09-26T21:03:22.1963842	Village & Pillage Arise/Tags for minecraft:block
+// 1.20.1	2023-09-28T20:57:18.7383437	Village & Pillage Arise/Tags for minecraft:block
 14161b0d6f294453e6280b91e12c6d86ff1248fb data\minecraft\tags\blocks\mineable\pickaxe.json
 0d4d7e759ba10edc5df7d48a508f9873b60fcf3f data\minecraft\tags\blocks\wooden_stairs.json
 271fe861d39ac399f3a557f77122920f48fcfd52 data\minecraft\tags\blocks\wooden_pressure_plates.json
@@ -6,14 +6,14 @@ d0f11d09c4a347c437dc922d64b5a31a44d0ca67 data\villagepillagearise\tags\blocks\az
 6d3fb583431c156f4c8d2fb9ea62f1bb38d168c4 data\minecraft\tags\blocks\wooden_slabs.json
 a5ac81848cd27d8bb946a2e212d45ce192b4f102 data\minecraft\tags\blocks\wooden_doors.json
 7e0d33951ab0d92fa0d86aa3cf57e82a98462679 data\minecraft\tags\blocks\planks.json
-cca54fe094c539ce123b8cb00e22d0729c5633e4 data\minecraft\tags\blocks\wooden_buttons.json
 a3717164532aece7b00cb59e3b9b871446179035 data\minecraft\tags\blocks\logs_that_burn.json
-e127f85a06d51da2148e83daccfde0866f40ffca data\minecraft\tags\blocks\wall_signs.json
+cca54fe094c539ce123b8cb00e22d0729c5633e4 data\minecraft\tags\blocks\wooden_buttons.json
+5b5ba00b0e42d04ed45016c9e146fae8cf483c89 data\minecraft\tags\blocks\wall_signs.json
 437787de9aa103938748bfe2c2780f4543b5754f data\minecraft\tags\blocks\wooden_trapdoors.json
 a50091f0f01fb5f1564591ecf146354e26f9429f data\villagepillagearise\tags\blocks\redstone_equipment_rechargeable.json
 3ff5073215515ce1d8e653539d6007ae6e05fa8e data\minecraft\tags\blocks\wooden_fences.json
 a920c7ae96c98d32c5d11646fdc7383efb238977 data\minecraft\tags\blocks\needs_stone_tool.json
-31ddc2970de75c4e56a043d88c16225f61d95a84 data\minecraft\tags\blocks\ceiling_hanging_signs.json
-a7bf3909f041d602df14919777d3fd615071aa06 data\minecraft\tags\blocks\wall_hanging_signs.json
+f0aefa61c5c113a66abf29e59bb88149aa2e7edf data\minecraft\tags\blocks\ceiling_hanging_signs.json
+174f217614599ea133b723996268e1ee5bbb0df0 data\minecraft\tags\blocks\wall_hanging_signs.json
 ae76a10a9d4b0390173b13d91a93a5e66eb9ce0d data\minecraft\tags\blocks\fence_gates.json
-b2219f1ddfbd66b0e0e5087e2759e4ef2bd4554f data\minecraft\tags\blocks\standing_signs.json
+ee5a0c9523b7e92806c71f5da848f5528e711c0b data\minecraft\tags\blocks\standing_signs.json

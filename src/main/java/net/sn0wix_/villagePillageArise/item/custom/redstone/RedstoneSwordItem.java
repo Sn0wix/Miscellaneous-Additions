@@ -2,12 +2,8 @@ package net.sn0wix_.villagePillageArise.item.custom.redstone;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.EntityAttributeModifier;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.SwordItem;
@@ -19,11 +15,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-import net.sn0wix_.villagePillageArise.VillagePillageAriseMain;
-import net.sn0wix_.villagePillageArise.util.ModTags;
+import net.sn0wix_.villagePillageArise.util.tags.ModBlockTags;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Collection;
 import java.util.List;
 
 public class RedstoneSwordItem extends SwordItem {
@@ -89,7 +83,7 @@ public class RedstoneSwordItem extends SwordItem {
 
 
     private boolean isValidBlock(BlockState state) {
-        return state.isIn(ModTags.REDSTONE_EQUIPMENT_RECHARGEABLE);
+        return state.isIn(ModBlockTags.REDSTONE_EQUIPMENT_RECHARGEABLE);
     }
 
     private static void spawnParticles(World world, BlockPos pos) {

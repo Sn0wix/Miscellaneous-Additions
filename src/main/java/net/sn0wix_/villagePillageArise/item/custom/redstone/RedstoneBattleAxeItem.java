@@ -14,7 +14,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.sn0wix_.villagePillageArise.util.ModTags;
+import net.sn0wix_.villagePillageArise.util.tags.ModBlockTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -98,7 +98,7 @@ public class RedstoneBattleAxeItem extends MiningToolItem implements Vanishable 
 
 
     private boolean isValidBlock(BlockState state) {
-        return state.isIn(ModTags.REDSTONE_EQUIPMENT_RECHARGEABLE);
+        return state.isIn(ModBlockTags.REDSTONE_EQUIPMENT_RECHARGEABLE);
     }
 
     private static void spawnParticles(World world, BlockPos pos) {

@@ -3,15 +3,13 @@ package net.sn0wix_.villagePillageArise.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
-import net.minecraft.util.Identifier;
-import net.sn0wix_.villagePillageArise.VillagePillageAriseMain;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.item.ModItems;
-import net.sn0wix_.villagePillageArise.util.ModTags;
+import net.sn0wix_.villagePillageArise.util.tags.ModBlockTags;
+import net.sn0wix_.villagePillageArise.util.tags.ModItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -26,7 +24,7 @@ public class ModTagsGenerator {
         protected void configure(RegistryWrapper.WrapperLookup arg) {
             addPickaxeMineable();
             addNeedsStoneTool();
-            addRedstoneEquipmentRechargeable();
+            addRedstoneRechargeable();
             addAzaleaWoodSet();
         }
 
@@ -68,16 +66,16 @@ public class ModTagsGenerator {
             getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS).add(ModBlocks.AZALEA_HANGING_SIGN);
             getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS).add(ModBlocks.AZALEA_WALL_HANGING_SIGN);
 
-            getOrCreateTagBuilder(ModTags.AZALEA_LOGS).add(ModBlocks.AZALEA_LOG)
+            getOrCreateTagBuilder(ModBlockTags.AZALEA_LOGS).add(ModBlocks.AZALEA_LOG)
                     .add(ModBlocks.STRIPPED_AZALEA_LOG)
                     .add(ModBlocks.AZALEA_WOOD)
                     .add(ModBlocks.STRIPPED_AZALEA_WOOD);
 
-            getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN).forceAddTag(ModTags.AZALEA_LOGS);
+            getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN).forceAddTag(ModBlockTags.AZALEA_LOGS);
         }
 
-        private void addRedstoneEquipmentRechargeable() {
-            getOrCreateTagBuilder(ModTags.REDSTONE_EQUIPMENT_RECHARGEABLE)
+        private void addRedstoneRechargeable() {
+            getOrCreateTagBuilder(ModBlockTags.REDSTONE_EQUIPMENT_RECHARGEABLE)
                     .add(Blocks.REDSTONE_BLOCK)
                     .add(Blocks.REDSTONE_ORE)
                     .add(Blocks.DEEPSLATE_REDSTONE_ORE);
@@ -94,6 +92,8 @@ public class ModTagsGenerator {
         protected void configure(RegistryWrapper.WrapperLookup arg) {
             addTrimmableArmor();
             addMusicDiscs();
+            addAzaleaWoodSet();
+            addRedstoneEquipment();
         }
 
         private void addMusicDiscs(){
@@ -118,6 +118,26 @@ public class ModTagsGenerator {
 
         }
 
+        private void addAzaleaWoodSet() {
+            getOrCreateTagBuilder(ItemTags.PLANKS).add(ModBlocks.AZALEA_PLANKS.asItem());
+            getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS).add(ModBlocks.AZALEA_STAIRS.asItem());
+            getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES).add(ModBlocks.AZALEA_PRESSURE_PLATE.asItem());
+            getOrCreateTagBuilder(ItemTags.WOODEN_SLABS).add(ModBlocks.AZALEA_SLAB.asItem());
+            getOrCreateTagBuilder(ItemTags.WOODEN_FENCES).add(ModBlocks.AZALEA_FENCE.asItem());
+            getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS).add(ModBlocks.AZALEA_TRAPDOOR.asItem());
+            getOrCreateTagBuilder(ItemTags.WOODEN_DOORS).add(ModBlocks.AZALEA_DOOR.asItem());
+            getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS).add(ModBlocks.AZALEA_BUTTON.asItem());
+            getOrCreateTagBuilder(ItemTags.FENCE_GATES).add(ModBlocks.AZALEA_FENCE_GATE.asItem());
+
+
+            getOrCreateTagBuilder(ModItemTags.AZALEA_LOGS).add(ModBlocks.AZALEA_LOG.asItem())
+                    .add(ModBlocks.STRIPPED_AZALEA_LOG.asItem())
+                    .add(ModBlocks.AZALEA_WOOD.asItem())
+                    .add(ModBlocks.STRIPPED_AZALEA_WOOD.asItem());
+
+            getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN).forceAddTag(ModItemTags.AZALEA_LOGS);
+        }
+
         private void addTrimmableArmor() {
             getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
                     .add(ModItems.GOLDEN_CHAINMAIL_HELMET)
@@ -132,6 +152,14 @@ public class ModTagsGenerator {
                     .add(ModItems.REDSTONE_CHESTPLATE)
                     .add(ModItems.REDSTONE_LEGGINGS)
                     .add(ModItems.REDSTONE_BOOTS);
+        }
+
+        private void addRedstoneEquipment() {
+            getOrCreateTagBuilder(ItemTags.PICKAXES).add(ModItems.REDSTONE_PICKAXE).add(ModItems.LAPIS_LAZULI_PICKAXE);
+            getOrCreateTagBuilder(ItemTags.SWORDS).add(ModItems.REDSTONE_SWORD).add(ModItems.LAPIS_LAZULI_SWORD);
+            getOrCreateTagBuilder(ItemTags.AXES).add(ModItems.REDSTONE_AXE).add(ModItems.LAPIS_LAZULI_AXE);
+            getOrCreateTagBuilder(ItemTags.SHOVELS).add(ModItems.REDSTONE_SHOVEL).add(ModItems.LAPIS_LAZULI_SHOVEL);
+            getOrCreateTagBuilder(ItemTags.HOES).add(ModItems.REDSTONE_HOE).add(ModItems.LAPIS_LAZULI_HOE);
         }
     }
 }

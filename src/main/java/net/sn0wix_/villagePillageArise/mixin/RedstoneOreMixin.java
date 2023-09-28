@@ -13,7 +13,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.sn0wix_.villagePillageArise.item.ModItems;
-import net.sn0wix_.villagePillageArise.util.ModTags;
+import net.sn0wix_.villagePillageArise.util.tags.ModBlockTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,7 +24,7 @@ public abstract class RedstoneOreMixin {
 
     @Inject(method = "onUse", at = @At("HEAD"))
     private void injectOnUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir){
-        if (!world.isClient && player.getStackInHand(Hand.MAIN_HAND) != null && isValidItem(player.getStackInHand(Hand.MAIN_HAND).getItem()) && state.isIn(ModTags.REDSTONE_EQUIPMENT_RECHARGEABLE)){
+        if (!world.isClient && player.getStackInHand(Hand.MAIN_HAND) != null && isValidItem(player.getStackInHand(Hand.MAIN_HAND).getItem()) && state.isIn(ModBlockTags.REDSTONE_EQUIPMENT_RECHARGEABLE)){
             player.getStackInHand(Hand.MAIN_HAND).getOrCreateNbt().putInt("Charged", 1);
             spawnParticles(world, pos);
             spawnParticles(world, pos);

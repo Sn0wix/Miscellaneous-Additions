@@ -3,6 +3,7 @@ package net.sn0wix_.villagePillageArise;
 import net.fabricmc.api.ModInitializer;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.block.entities.ModBlockEntities;
+import net.sn0wix_.villagePillageArise.entities.ModEntities;
 import net.sn0wix_.villagePillageArise.item.ModItems;
 import net.sn0wix_.villagePillageArise.painting.ModPainting;
 import net.sn0wix_.villagePillageArise.util.ModLootTableModifiers;
@@ -15,10 +16,10 @@ import java.util.Random;
 public class VillagePillageAriseMain implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(VillagePillageAriseMain.MOD_ID);
     public static final String MOD_ID = "villagepillagearise";
-    //course - https://github.com/Kaupenjoe/Fabric-Course-1.20.X
 
 
     //redstone equipment - trim texture inventory
+    //boat items - dispenser not working
 
     @Override
     public void onInitialize() {
@@ -28,5 +29,6 @@ public class VillagePillageAriseMain implements ModInitializer {
         ModLootTableModifiers.modifyLootTables();
         ModPainting.registerPaintings();
         ModBlockEntities.registerALlBlockEntities();
+        ModEntities.registerModEntities();
     }
 }

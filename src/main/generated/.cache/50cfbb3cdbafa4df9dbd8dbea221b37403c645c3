@@ -1,3 +1,19 @@
-// 1.20.1	2023-09-26T21:03:22.1953863	Village & Pillage Arise/Tags for minecraft:item
-b483541707021271463c10770e4c1aae386895f0 data\minecraft\tags\items\trimmable_armor.json
+// 1.20.1	2023-09-28T20:57:18.7363491	Village & Pillage Arise/Tags for minecraft:item
+d0f11d09c4a347c437dc922d64b5a31a44d0ca67 data\villagepillagearise\tags\items\azalea_logs.json
 d0e62172cef2fa014fd622ec57e30928d1fd8ee8 data\minecraft\tags\items\music_discs.json
+df47ce0a2e0687d21df7c85f1dbd3594e9294c57 data\minecraft\tags\items\pickaxes.json
+437787de9aa103938748bfe2c2780f4543b5754f data\minecraft\tags\items\wooden_trapdoors.json
+ae76a10a9d4b0390173b13d91a93a5e66eb9ce0d data\minecraft\tags\items\fence_gates.json
+75bb77676ca68df22e7affe5af2d5a0ddbddc652 data\minecraft\tags\items\hoes.json
+a5ac81848cd27d8bb946a2e212d45ce192b4f102 data\minecraft\tags\items\wooden_doors.json
+f808e2b220ad4a903bac61815ba025175195d5d4 data\minecraft\tags\items\shovels.json
+271fe861d39ac399f3a557f77122920f48fcfd52 data\minecraft\tags\items\wooden_pressure_plates.json
+b483541707021271463c10770e4c1aae386895f0 data\minecraft\tags\items\trimmable_armor.json
+094c9ed14379833a593c568bcd42b1d2104ed91c data\minecraft\tags\items\swords.json
+b81f436eec4f0f7c2973572350c722d31567e008 data\minecraft\tags\items\axes.json
+6d3fb583431c156f4c8d2fb9ea62f1bb38d168c4 data\minecraft\tags\items\wooden_slabs.json
+3ff5073215515ce1d8e653539d6007ae6e05fa8e data\minecraft\tags\items\wooden_fences.json
+cca54fe094c539ce123b8cb00e22d0729c5633e4 data\minecraft\tags\items\wooden_buttons.json
+0d4d7e759ba10edc5df7d48a508f9873b60fcf3f data\minecraft\tags\items\wooden_stairs.json
+7e0d33951ab0d92fa0d86aa3cf57e82a98462679 data\minecraft\tags\items\planks.json
+a3717164532aece7b00cb59e3b9b871446179035 data\minecraft\tags\items\logs_that_burn.json

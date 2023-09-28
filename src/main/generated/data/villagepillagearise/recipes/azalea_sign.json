@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "sign",
+  "key": {
+    "#": [
+      {
+        "item": "villagepillagearise:azalea_planks"
+      },
+      {
+        "item": "minecraft:stick"
+      }
+    ],
+    "X": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    " X "
+  ],
+  "result": {
+    "count": 3,
+    "item": "villagepillagearise:azalea_sign"
+  },
+  "show_notification": true
+}

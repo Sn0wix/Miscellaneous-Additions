@@ -18,6 +18,7 @@ import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.BiomeKeys;
+import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.item.ModItems;
 
 public class ModLootTableModifiers {
@@ -41,6 +42,7 @@ public class ModLootTableModifiers {
     private static final Identifier UNDERWATER_RUINS_BIG = new Identifier("minecraft", "chests/underwater_ruin_big");
     private static final Identifier ABANDONED_MINESHAFT_ID = new Identifier("minecraft", "chests/abandoned_mineshaft");
     private static final Identifier NETHER_BRIDGE_ID = new Identifier("minecraft", "chests/nether_bridge");
+    private static final Identifier SPAWN_BONUS_CHEST_ID = new Identifier("minecraft", "chests/spawn_bonus_chest");
 
 
     private static final Identifier LAPIS_ORE_ID = new Identifier("minecraft", "blocks/lapis_ore");
@@ -187,6 +189,15 @@ public class ModLootTableModifiers {
                         .conditionally(RandomChanceLootCondition.builder(0.005f))
                         .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(Items.NETHERITE_PICKAXE)))
                         .with(ItemEntry.builder(ModItems.REDSTONE_SHARD));
+                tableBuilder.pool(poolBuilder).build();
+            }
+
+            if (SPAWN_BONUS_CHEST_ID.equals(id)) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1, 3)))
+                        .conditionally(RandomChanceLootCondition.builder(0.262f))
+                        .with(ItemEntry.builder(ModBlocks.AZALEA_LOG));
                 tableBuilder.pool(poolBuilder).build();
             }
         });

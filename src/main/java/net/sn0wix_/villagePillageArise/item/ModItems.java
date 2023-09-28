@@ -2,12 +2,12 @@ package net.sn0wix_.villagePillageArise.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.sn0wix_.villagePillageArise.VillagePillageAriseMain;
-import net.sn0wix_.villagePillageArise.block.ModBlockFamilies;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.item.custom.*;
 import net.minecraft.util.Identifier;
@@ -187,14 +187,16 @@ public class ModItems {
 
 
 
-    public static final Item AZALEA_SIGN = registerItem("azalea_sing",
+    public static final SignItem AZALEA_SIGN = (SignItem) registerItem("azalea_sign",
             new SignItem(new FabricItemSettings().maxCount(16), ModBlocks.AZALEA_SIGN, ModBlocks.AZALEA_WALL_SIGN), ItemGroups.FUNCTIONAL);
 
-    public static final Item AZALEA_HANGING_SIGN = registerItem("azalea_hanging_sing",
+    public static final HangingSignItem AZALEA_HANGING_SIGN = (HangingSignItem) registerItem("azalea_hanging_sign",
             new HangingSignItem(ModBlocks.AZALEA_HANGING_SIGN, ModBlocks.AZALEA_WALL_HANGING_SIGN, new FabricItemSettings().maxCount(16)), ItemGroups.FUNCTIONAL);
 
+    public static final ModBoatItem AZALEA_BOAT = (ModBoatItem) registerItem("azalea_boat", new ModBoatItem(new FabricItemSettings().maxCount(1), false), ItemGroups.TOOLS);
+    public static final ModBoatItem AZALEA_CHEST_BOAT = (ModBoatItem) registerItem("azalea_chest_boat", new ModBoatItem(new FabricItemSettings().maxCount(1), true), ItemGroups.TOOLS);
 
-    //idk safe varargs
+
     @SafeVarargs
     private static Item registerItem(String name, Item item, RegistryKey<ItemGroup>... groups) {
         Item item1 = Registry.register(Registries.ITEM, new Identifier(VillagePillageAriseMain.MOD_ID, name), item);

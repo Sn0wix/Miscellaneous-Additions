@@ -16,6 +16,8 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.Identifier;
 import net.sn0wix_.villagePillageArise.block.custom.*;
 import net.sn0wix_.villagePillageArise.sounds.ModSoundEvents;
+import net.sn0wix_.villagePillageArise.util.ModBlockSetTypes;
+import net.sn0wix_.villagePillageArise.util.ModWoodTypes;
 
 public class ModBlocks {
     //citrine block natural, building
@@ -58,20 +60,17 @@ public class ModBlocks {
 
 
 
-    public static BlockSetType AZALEA_BLOCK_SET_TYPE = new BlockSetType("azalea");
-    public static final WoodType AZALEA_WOOD_TYPE = new WoodType("azalea", AZALEA_BLOCK_SET_TYPE);
-
     public static final Block AZALEA_LOG = registerBlock("azalea_log",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG).requiresTool()), ItemGroups.BUILDING_BLOCKS);
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block STRIPPED_AZALEA_LOG = registerBlock("stripped_azalea_log",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).requiresTool()), ItemGroups.BUILDING_BLOCKS);
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_WOOD = registerBlock("azalea_wood",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD).requiresTool()), ItemGroups.BUILDING_BLOCKS);
+            new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_WOOD)), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block STRIPPED_AZALEA_WOOD = registerBlock("stripped_azalea_wood",
-            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG).requiresTool()), ItemGroups.BUILDING_BLOCKS);
+            new PillarBlock(FabricBlockSettings.copy(Blocks.STRIPPED_OAK_LOG)), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_PLANKS = registerBlock("azalea_planks",
             new Block(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS))), ItemGroups.BUILDING_BLOCKS);
@@ -87,36 +86,36 @@ public class ModBlocks {
             new FenceBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE))), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_FENCE_GATE = registerBlock("azalea_fence_gate",
-            new FenceGateBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE)), AZALEA_WOOD_TYPE), ItemGroups.BUILDING_BLOCKS,
+            new FenceGateBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE)), ModWoodTypes.AZALEA), ItemGroups.BUILDING_BLOCKS,
             ItemGroups.REDSTONE);
 
     public static final Block AZALEA_BUTTON = registerBlock("azalea_button",
-            new ButtonBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON)), AZALEA_BLOCK_SET_TYPE, 30, true),
+            new ButtonBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON)), ModBlockSetTypes.AZALEA, 30, true),
             ItemGroups.BUILDING_BLOCKS, ItemGroups.REDSTONE);
 
     public static final Block AZALEA_PRESSURE_PLATE = registerBlock("azalea_pressure_plate",
             new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING ,FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE)),
-                    AZALEA_BLOCK_SET_TYPE), ItemGroups.BUILDING_BLOCKS, ItemGroups.REDSTONE);
+                    ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS, ItemGroups.REDSTONE);
 
     public static final Block AZALEA_DOOR = registerBlock("azalea_door",
-            new DoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_DOOR)), AZALEA_BLOCK_SET_TYPE), ItemGroups.BUILDING_BLOCKS,
+            new DoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_DOOR)), ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS,
             ItemGroups.REDSTONE);
 
     public static final Block AZALEA_TRAPDOOR = registerBlock("azalea_trapdoor",
-            new TrapdoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR)), AZALEA_BLOCK_SET_TYPE), ItemGroups.BUILDING_BLOCKS,
+            new TrapdoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR)), ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS,
             ItemGroups.REDSTONE);
 
-    public static final Block AZALEA_SIGN = registerBlockWithoutBlockItem("azalea_sing",
-            new SignBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_SIGN)), AZALEA_WOOD_TYPE));
+    public static final Block AZALEA_SIGN = registerBlockWithoutBlockItem("azalea_sign",
+            new ModSignBlock(FabricBlockSettings.copyOf(Blocks.OAK_SIGN), ModWoodTypes.AZALEA));
 
-    public static final Block AZALEA_WALL_SIGN = registerBlockWithoutBlockItem("azalea_wall_sing",
-            new WallSignBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_WALL_SIGN)), AZALEA_WOOD_TYPE));
+    public static final Block AZALEA_WALL_SIGN = registerBlockWithoutBlockItem("azalea_wall_sign",
+            new ModWallSignBlock(FabricBlockSettings.copyOf(Blocks.OAK_WALL_SIGN).dropsLike(ModBlocks.AZALEA_SIGN), ModWoodTypes.AZALEA));
 
-    public static final Block AZALEA_HANGING_SIGN = registerBlockWithoutBlockItem("azalea_hanging_sing",
-            new HangingSignBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_HANGING_SIGN)), AZALEA_WOOD_TYPE));
+    public static final Block AZALEA_HANGING_SIGN = registerBlockWithoutBlockItem("azalea_hanging_sign",
+            new ModHangingSignBlock(FabricBlockSettings.copyOf(Blocks.OAK_HANGING_SIGN), ModWoodTypes.AZALEA));
 
-    public static final Block AZALEA_WALL_HANGING_SIGN = registerBlockWithoutBlockItem("azalea_wall_hanging_sing",
-            new WallHangingSignBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_WALL_HANGING_SIGN)), AZALEA_WOOD_TYPE));
+    public static final Block AZALEA_WALL_HANGING_SIGN = registerBlockWithoutBlockItem("azalea_wall_hanging_sign",
+            new ModWallHangingSignBlock(FabricBlockSettings.copyOf(Blocks.OAK_WALL_HANGING_SIGN).dropsLike(ModBlocks.AZALEA_HANGING_SIGN), ModWoodTypes.AZALEA));
 
 
     @SafeVarargs

@@ -1,12 +1,13 @@
 {
 	"schemaVersion": 1,
 	"id": "villagepillagearise",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"name": "Village & Pillage Arise",
-	"description": "Adds Battle axes, music discs, lapis and redstone armor and a few other things.",
+	"description": "Adds Battle axes, a lot of music discs, lapis and redstone armor and a few other things.",
 	"authors": [
 		"Sn0wix_                                                                             ",
 		"https://www.youtube.com/@TenM",
+		"https://www.youtube.com/@LaudividniYT",
 		"https://www.youtube.com/@CaptainSparklez"
 	],
 	"contact": {

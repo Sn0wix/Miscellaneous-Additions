@@ -55,6 +55,8 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         createSignRecipe(ModItems.AZALEA_SIGN, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS, Items.STICK)).criterion(FabricRecipeProvider.hasItem(ModItems.AZALEA_SIGN), FabricRecipeProvider.conditionsFromItem(ModItems.AZALEA_SIGN)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
         offerHangingSignRecipe(exporter, ModItems.AZALEA_HANGING_SIGN, ModBlocks.AZALEA_PLANKS);
         offerPlanksRecipe(exporter, ModBlocks.AZALEA_PLANKS, ModItemTags.AZALEA_LOGS, 4);
+        offerBoatRecipe(exporter, ModItems.AZALEA_BOAT, ModBlocks.AZALEA_PLANKS);
+        offerChestBoatRecipe(exporter, ModItems.AZALEA_CHEST_BOAT, ModBlocks.AZALEA_PLANKS);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AZALEA_WOOD, 3)
                 .pattern("ll")

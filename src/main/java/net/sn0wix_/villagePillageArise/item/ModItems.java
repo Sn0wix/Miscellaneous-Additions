@@ -134,6 +134,7 @@ public class ModItems {
             new RedstoneHoeItem(ModToolMaterials.REDSTONE, -4, 0.0f, new FabricItemSettings().fireproof()), ItemGroups.TOOLS);
 
 
+
     public static final Item MUSIC_DISC_REVENGE = registerItem("music_disc_revenge",
             new MusicDiscItem(15, ModSoundEvents.REVENGE, new FabricItemSettings().maxCount(1), 218), ItemGroups.TOOLS);
 
@@ -184,6 +185,21 @@ public class ModItems {
 
     public static final Item MUSIC_DISC_SOULESS = registerItem("music_disc_souless",
             new MusicDiscItem(13, ModSoundEvents.SOULESS, new FabricItemSettings().maxCount(1), 140), ItemGroups.TOOLS);
+
+    public static final Item MUSIC_DISC_FADING_MEMORIES = registerItem("music_disc_fading_memories",
+            new MusicDiscItem(12, ModSoundEvents.FADING_MEMORIES, new FabricItemSettings().maxCount(1), 155), ItemGroups.TOOLS);
+
+    public static final Item MUSIC_DISC_HORIZONS = registerItem("music_disc_horizons",
+            new MusicDiscItem(11, ModSoundEvents.HORIZONS, new FabricItemSettings().maxCount(1), 121), ItemGroups.TOOLS);
+
+    public static final Item MUSIC_DISC_IRON_OATH = registerItem("music_disc_iron_oath",
+            new MusicDiscItem(10, ModSoundEvents.IRON_OATH, new FabricItemSettings().maxCount(1), 121), ItemGroups.TOOLS);
+
+    public static final Item MUSIC_DISC_LAST_HALLWAY = registerItem("music_disc_last_hallway",
+            new MusicDiscItem(9, ModSoundEvents.LAST_HALLWAY, new FabricItemSettings().maxCount(1), 154), ItemGroups.TOOLS);
+
+    public static final Item MUSIC_DISC_SAKURA_VALLEY = registerItem("music_disc_sakura_valley",
+            new MusicDiscItem(8, ModSoundEvents.SAKURA_VALLEY, new FabricItemSettings().maxCount(1), 119), ItemGroups.TOOLS);
 
 
 

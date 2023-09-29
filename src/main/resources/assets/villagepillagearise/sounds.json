@@ -134,5 +134,45 @@
         "stream": true
       }
     ]
+  },
+  "fading_memories": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:fading_memories",
+        "stream": true
+      }
+    ]
+  },
+  "horizons": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:horizons",
+        "stream": true
+      }
+    ]
+  },
+  "iron_oath": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:iron_oath",
+        "stream": true
+      }
+    ]
+  },
+  "last_hallway": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:last_hallway",
+        "stream": true
+      }
+    ]
+  },
+  "sakura_valley": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:sakura_valley",
+        "stream": true
+      }
+    ]
   }
 }

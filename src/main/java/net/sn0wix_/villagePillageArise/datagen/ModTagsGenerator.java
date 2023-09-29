@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.EntityTypeTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.item.ModItems;
@@ -48,7 +49,7 @@ public class ModTagsGenerator {
                     .add(ModBlocks.MEDIUM_CITRINE_BUD)
                     .add(ModBlocks.SMALL_CITRINE_BUD);
         }
-        
+
         private void addAzaleaWoodSet() {
             getOrCreateTagBuilder(BlockTags.PLANKS).add(ModBlocks.AZALEA_PLANKS);
             getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS).add(ModBlocks.AZALEA_STAIRS);
@@ -96,7 +97,7 @@ public class ModTagsGenerator {
             addRedstoneEquipment();
         }
 
-        private void addMusicDiscs(){
+        private void addMusicDiscs() {
             getOrCreateTagBuilder(ItemTags.MUSIC_DISCS)
                     .add(ModItems.MUSIC_DISC_REVENGE)
                     .add(ModItems.MUSIC_DISC_GILDED)
@@ -114,8 +115,12 @@ public class ModTagsGenerator {
                     .add(ModItems.MUSIC_DISC_LIGHTNING)
                     .add(ModItems.MUSIC_DISC_MASHUP)
                     .add(ModItems.MUSIC_DISC_NO_ESCAPE)
-                    .add(ModItems.MUSIC_DISC_SOULESS);
-
+                    .add(ModItems.MUSIC_DISC_SOULESS)
+                    .add(ModItems.MUSIC_DISC_FADING_MEMORIES)
+                    .add(ModItems.MUSIC_DISC_HORIZONS)
+                    .add(ModItems.MUSIC_DISC_IRON_OATH)
+                    .add(ModItems.MUSIC_DISC_LAST_HALLWAY)
+                    .add(ModItems.MUSIC_DISC_SAKURA_VALLEY);
         }
 
         private void addAzaleaWoodSet() {
@@ -128,6 +133,8 @@ public class ModTagsGenerator {
             getOrCreateTagBuilder(ItemTags.WOODEN_DOORS).add(ModBlocks.AZALEA_DOOR.asItem());
             getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS).add(ModBlocks.AZALEA_BUTTON.asItem());
             getOrCreateTagBuilder(ItemTags.FENCE_GATES).add(ModBlocks.AZALEA_FENCE_GATE.asItem());
+            getOrCreateTagBuilder(ItemTags.BOATS).add(ModItems.AZALEA_BOAT);
+            getOrCreateTagBuilder(ItemTags.CHEST_BOATS).add(ModItems.AZALEA_CHEST_BOAT);
 
 
             getOrCreateTagBuilder(ModItemTags.AZALEA_LOGS).add(ModBlocks.AZALEA_LOG.asItem())

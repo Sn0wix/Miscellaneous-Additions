@@ -1,25 +1,29 @@
 package net.sn0wix_.villagePillageArise.util;
 
-import net.fabricmc.fabric.api.biome.v1.NetherBiomes;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.*;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.LocationPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.BiomeKeys;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.item.ModItems;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ModLootTableModifiers {
     private static final Identifier CREEPER_ID = new Identifier("minecraft", "entities/creeper");
@@ -29,6 +33,7 @@ public class ModLootTableModifiers {
     private static final Identifier HUSK_ID = new Identifier("minecraft", "entities/husk");
     private static final Identifier WITHER_ID = new Identifier("minecraft", "entities/wither");
     private static final Identifier WARDEN_ID = new Identifier("minecraft", "entities/warden");
+    private static final Identifier IRON_GOLEM_ID = new Identifier("minecraft", "entities/iron_golem");
     private static final Identifier ANCIENT_CITY_ID = new Identifier("minecraft", "chests/ancient_city");
     private static final Identifier BASTION_TREASURE_ID = new Identifier("minecraft", "chests/bastion_treasure");
     private static final Identifier BASTION_OTHER_ID = new Identifier("minecraft", "chests/bastion_other");
@@ -43,12 +48,19 @@ public class ModLootTableModifiers {
     private static final Identifier ABANDONED_MINESHAFT_ID = new Identifier("minecraft", "chests/abandoned_mineshaft");
     private static final Identifier NETHER_BRIDGE_ID = new Identifier("minecraft", "chests/nether_bridge");
     private static final Identifier SPAWN_BONUS_CHEST_ID = new Identifier("minecraft", "chests/spawn_bonus_chest");
+    private static final Identifier BURIED_TREASURE_ID = new Identifier("minecraft", "chests/buried_treasure");
+    private static final Identifier STRONGHOLD_CROSSING_ID = new Identifier("minecraft", "chests/stronghold_crossing");
+    private static final Identifier STRONGHOLD_CORRIDOR_ID = new Identifier("minecraft", "chests/stronghold_corridor");
+    private static final Identifier VILLAGE_CARTOGRAPHER_ID = new Identifier("minecraft", "chests/village/cartographer_house");
 
 
     private static final Identifier LAPIS_ORE_ID = new Identifier("minecraft", "blocks/lapis_ore");
     private static final Identifier DEEPSLATE_LAPIS_ORE_ID = new Identifier("minecraft", "blocks/deepslate_lapis_ore");
     private static final Identifier REDSTONE_ORE_ID = new Identifier("minecraft", "blocks/redstone_ore");
     private static final Identifier DEEPSLATE_REDSTONE_ORE_ID = new Identifier("minecraft", "blocks/deepslate_redstone_ore");
+
+
+    private static final Identifier TRAILS_RUINS_ID = new Identifier("minecraft", "archaeology/trail_ruins_rare");
 
 
     public static void modifyLootTables() {
@@ -91,6 +103,15 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(createLootPoolBuilder(0.5f, ModItems.MUSIC_DISC_WARDEN_RUN).build());
             }
 
+            if (IRON_GOLEM_ID.equals(id)) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.11f))
+                        .conditionally(KilledByPlayerLootCondition.builder())
+                        .with(ItemEntry.builder(ModItems.MUSIC_DISC_IRON_OATH));
+                tableBuilder.pool(poolBuilder).build();
+            }
+
 
             if (ANCIENT_CITY_ID.equals(id)) {
                 tableBuilder.pool(createLootPoolBuilder(0.15f, ModItems.MUSIC_DISC_SHRIEKER).build());
@@ -114,8 +135,14 @@ public class ModLootTableModifiers {
             }
 
             if (VILLAGE_PLAINS_HOUSE_ID.equals(id)) {
-                tableBuilder.pool(createLootPoolBuilderWithCount(0.2f, ModItems.CORN, 1, 4).build());
-                tableBuilder.pool(createLootPoolBuilderWithCount(0.15f, ModItems.CORN_SEEDS, 1, 6).build());
+                tableBuilder.pool(createLootPoolBuilderWithCount(0.3f, ModItems.CORN, 1, 5).build());
+                tableBuilder.pool(createLootPoolBuilderWithCount(0.1f, ModItems.CORN_SEEDS, 1, 7).build());
+
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(LocationCheckLootCondition.builder(new LocationPredicate.Builder().biome(BiomeKeys.CHERRY_GROVE)))
+                        .with(ItemEntry.builder(ModItems.MUSIC_DISC_SAKURA_VALLEY));
+                tableBuilder.pool(poolBuilder).build();
             }
 
             if (VILLAGE_SAVANNA_HOUSE_ID.equals(id)) {
@@ -123,13 +150,18 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(createLootPoolBuilderWithCount(0.08f, ModItems.CORN_SEEDS, 1, 6).build());
             }
 
-            if (SHIPWRECK_SUPPLY_ID.equals(id)) {
-                tableBuilder.pool(createLootPoolBuilderWithCount(0.4f, ModItems.CORN, 1, 8).build());
+            if (VILLAGE_CARTOGRAPHER_ID.equals(id)) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(LocationCheckLootCondition.builder(new LocationPredicate.Builder().biome(BiomeKeys.CHERRY_GROVE)))
+                        .conditionally(RandomChanceLootCondition.builder(0.64f))
+                        .conditionally(KilledByPlayerLootCondition.builder())
+                        .with(ItemEntry.builder(ModItems.MUSIC_DISC_SAKURA_VALLEY));
+                tableBuilder.pool(poolBuilder).build();
             }
 
-            if (VILLAGE_PLAINS_HOUSE_ID.equals(id)) {
-                tableBuilder.pool(createLootPoolBuilderWithCount(0.3f, ModItems.CORN, 1, 5).build());
-                tableBuilder.pool(createLootPoolBuilderWithCount(0.1f, ModItems.CORN_SEEDS, 1, 7).build());
+            if (SHIPWRECK_SUPPLY_ID.equals(id)) {
+                tableBuilder.pool(createLootPoolBuilderWithCount(0.4f, ModItems.CORN, 1, 8).build());
             }
 
             if (WOODLAND_MANSION_ID.equals(id)) {
@@ -145,6 +177,7 @@ public class ModLootTableModifiers {
 
             if (SHIPWRECK_TREASURE_ID.equals(id)) {
                 tableBuilder.pool(createLootPoolBuilder(0.1f, ModItems.MUSIC_DISC_BELOW).build());
+                tableBuilder.pool(createLootPoolBuilder(0.05f, ModItems.MUSIC_DISC_HORIZONS).build());
             }
 
             if (UNDERWATER_RUINS_BIG.equals(id)) {
@@ -155,15 +188,28 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(createLootPoolBuilder(0.16f, ModItems.MUSIC_DISC_NO_ESCAPE).build());
             }
 
+            if (BURIED_TREASURE_ID.equals(id)) {
+                tableBuilder.pool(createLootPoolBuilder(0.18f, ModItems.MUSIC_DISC_HORIZONS).build());
+            }
 
-                if (LAPIS_ORE_ID.equals(id)) {
-                    LootPool.Builder poolBuilder = LootPool.builder()
-                            .rolls(ConstantLootNumberProvider.create(1))
-                            .conditionally(RandomChanceLootCondition.builder(0.005f))
-                            .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(Items.NETHERITE_PICKAXE)))
-                            .with(ItemEntry.builder(ModItems.LAPIS_SHARD));
-                    tableBuilder.pool(poolBuilder).build();
-                }
+            if (STRONGHOLD_CORRIDOR_ID.equals(id)) {
+                tableBuilder.pool(createLootPoolBuilder(0.14f, ModItems.MUSIC_DISC_LAST_HALLWAY).build());
+            }
+
+            if (STRONGHOLD_CROSSING_ID.equals(id)) {
+                tableBuilder.pool(createLootPoolBuilder(0.06f, ModItems.MUSIC_DISC_LAST_HALLWAY).build());
+            }
+
+
+
+            if (LAPIS_ORE_ID.equals(id)) {
+                LootPool.Builder poolBuilder = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.005f))
+                        .conditionally(MatchToolLootCondition.builder(ItemPredicate.Builder.create().items(Items.NETHERITE_PICKAXE)))
+                        .with(ItemEntry.builder(ModItems.LAPIS_SHARD));
+                tableBuilder.pool(poolBuilder).build();
+            }
 
             if (DEEPSLATE_LAPIS_ORE_ID.equals(id)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
@@ -200,6 +246,18 @@ public class ModLootTableModifiers {
                         .with(ItemEntry.builder(ModBlocks.AZALEA_LOG));
                 tableBuilder.pool(poolBuilder).build();
             }
+        });
+
+        LootTableEvents.REPLACE.register((resourceManager, lootManager, id, original, source) -> {
+            if (TRAILS_RUINS_ID.equals(id)) {
+                List<LootPoolEntry> entries = new ArrayList<>(Arrays.asList(original.pools[0].entries));
+                entries.add(ItemEntry.builder(ModItems.MUSIC_DISC_FADING_MEMORIES).build());
+
+                LootPool.Builder pool = LootPool.builder().with(entries);
+                return LootTable.builder().pool(pool).build();
+            }
+
+            return null;
         });
     }
 

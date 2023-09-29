@@ -1,4 +1,4 @@
-// 1.20.1	2023-09-28T20:57:18.7383437	Village & Pillage Arise/Tags for minecraft:block
+// 1.20.1	2023-09-29T16:50:00.9554678	Village & Pillage Arise/Tags for minecraft:block
 14161b0d6f294453e6280b91e12c6d86ff1248fb data\minecraft\tags\blocks\mineable\pickaxe.json
 0d4d7e759ba10edc5df7d48a508f9873b60fcf3f data\minecraft\tags\blocks\wooden_stairs.json
 271fe861d39ac399f3a557f77122920f48fcfd52 data\minecraft\tags\blocks\wooden_pressure_plates.json
@@ -6,8 +6,8 @@ d0f11d09c4a347c437dc922d64b5a31a44d0ca67 data\villagepillagearise\tags\blocks\az
 6d3fb583431c156f4c8d2fb9ea62f1bb38d168c4 data\minecraft\tags\blocks\wooden_slabs.json
 a5ac81848cd27d8bb946a2e212d45ce192b4f102 data\minecraft\tags\blocks\wooden_doors.json
 7e0d33951ab0d92fa0d86aa3cf57e82a98462679 data\minecraft\tags\blocks\planks.json
-a3717164532aece7b00cb59e3b9b871446179035 data\minecraft\tags\blocks\logs_that_burn.json
 cca54fe094c539ce123b8cb00e22d0729c5633e4 data\minecraft\tags\blocks\wooden_buttons.json
+a3717164532aece7b00cb59e3b9b871446179035 data\minecraft\tags\blocks\logs_that_burn.json
 5b5ba00b0e42d04ed45016c9e146fae8cf483c89 data\minecraft\tags\blocks\wall_signs.json
 437787de9aa103938748bfe2c2780f4543b5754f data\minecraft\tags\blocks\wooden_trapdoors.json
 a50091f0f01fb5f1564591ecf146354e26f9429f data\villagepillagearise\tags\blocks\redstone_equipment_rechargeable.json

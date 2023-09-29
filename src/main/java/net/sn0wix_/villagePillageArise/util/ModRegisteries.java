@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
+import net.minecraft.block.dispenser.ItemDispenserBehavior;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.entity.vehicle.ChestBoatEntity;
@@ -16,6 +17,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Position;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.entities.ModEntities;
 import net.sn0wix_.villagePillageArise.entities.boat.ModBoatEntity;
@@ -92,7 +94,12 @@ public class ModRegisteries {
                 } else if (world.getBlockState(blockPos).isAir() && world.getFluidState(blockPos.down()).isIn(FluidTags.WATER)) {
                     h = 0.0;
                 } else {
-                    return this.dispense(pointer, stack);
+                    Position position = DispenserBlock.getOutputLocation(pointer);
+                    ItemStack itemStack = stack.split(1);
+                    ItemDispenserBehavior.spawnItem(pointer.getWorld(), itemStack, 6, direction, position);
+                    this.playSound(pointer);
+                    this.spawnParticles(pointer, pointer.getBlockState().get(DispenserBlock.FACING));
+                    return stack;
                 }
                 BoatEntity boatEntity = new ModChestBoatEntity(ModEntities.AZALEA_BOAT, world);
                 boatEntity.setPosition(e, f + h, g);
@@ -102,6 +109,8 @@ public class ModRegisteries {
                 stack.decrement(1);
                 return stack;
             }
+
+
         });
 
         DispenserBlock.registerBehavior(ModItems.AZALEA_CHEST_BOAT, new FallibleItemDispenserBehavior() {
@@ -120,7 +129,7 @@ public class ModRegisteries {
                 } else if (world.getBlockState(blockPos).isAir() && world.getFluidState(blockPos.down()).isIn(FluidTags.WATER)) {
                     h = 0.0;
                 } else {
-                    return this.dispense(pointer, stack);
+                    return stack;
                 }
                 BoatEntity boatEntity = new ModChestBoatEntity(ModEntities.AZALEA_CHEST_BOAT, world);
                 boatEntity.setPosition(e, f + h, g);

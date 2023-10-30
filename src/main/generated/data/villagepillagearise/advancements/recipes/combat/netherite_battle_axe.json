@@ -46,10 +46,10 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_music_disc_shrieker",
       "has_netherite_ingot",
-      "has_netherite_upgrade_smithing_template",
-      "has_the_recipe"
+      "has_netherite_upgrade_smithing_template"
     ]
   ],
   "rewards": {

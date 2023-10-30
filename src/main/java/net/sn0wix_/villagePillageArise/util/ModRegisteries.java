@@ -1,29 +1,21 @@
 package net.sn0wix_.villagePillageArise.util;
 
-import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
-import net.minecraft.block.dispenser.ItemDispenserBehavior;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.vehicle.BoatEntity;
-import net.minecraft.entity.vehicle.ChestBoatEntity;
+import net.minecraft.entity.projectile.SmallFireballEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.tag.FluidTags;
-import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockPointer;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Position;
+import net.minecraft.util.math.random.Random;
+import net.minecraft.world.World;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
-import net.sn0wix_.villagePillageArise.entities.ModEntities;
-import net.sn0wix_.villagePillageArise.entities.boat.ModBoatEntity;
-import net.sn0wix_.villagePillageArise.entities.boat.ModChestBoatEntity;
 import net.sn0wix_.villagePillageArise.item.ModItems;
-import net.sn0wix_.villagePillageArise.item.custom.ModBoatItem;
 
 public class ModRegisteries {
     public static void registerModStuffs() {
@@ -81,61 +73,42 @@ public class ModRegisteries {
         DispenserBlock.registerBehavior(ModItems.AZALEA_BOAT, new FallibleItemDispenserBehavior() {
             @Override
             protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-                double h;
-                Direction direction = pointer.getBlockState().get(DispenserBlock.FACING);
-                ServerWorld world = pointer.getWorld();
-                double d = 0.5625 + (double) EntityType.BOAT.getWidth() / 2.0;
-                double e = pointer.getX() + (double) direction.getOffsetX() * d;
-                double f = pointer.getY() + (double) ((float) direction.getOffsetY() * 1.125f);
-                double g = pointer.getZ() + (double) direction.getOffsetZ() * d;
-                BlockPos blockPos = pointer.getPos().offset(direction);
-                if (world.getFluidState(blockPos).isIn(FluidTags.WATER)) {
-                    h = 1.0;
-                } else if (world.getBlockState(blockPos).isAir() && world.getFluidState(blockPos.down()).isIn(FluidTags.WATER)) {
-                    h = 0.0;
-                } else {
-                    Position position = DispenserBlock.getOutputLocation(pointer);
-                    ItemStack itemStack = stack.split(1);
-                    ItemDispenserBehavior.spawnItem(pointer.getWorld(), itemStack, 6, direction, position);
-                    this.playSound(pointer);
-                    this.spawnParticles(pointer, pointer.getBlockState().get(DispenserBlock.FACING));
-                    return stack;
-                }
-                BoatEntity boatEntity = new ModChestBoatEntity(ModEntities.AZALEA_BOAT, world);
-                boatEntity.setPosition(e, f + h, g);
-
-                boatEntity.setYaw(direction.asRotation());
-                world.spawnEntity(boatEntity);
+                Direction direction = pointer.state().get(DispenserBlock.FACING);
+                Position position = DispenserBlock.getOutputLocation(pointer);
+                double d = position.getX() + (double)((float)direction.getOffsetX() * 0.3F);
+                double e = position.getY() + (double)((float)direction.getOffsetY() * 0.3F);
+                double f = position.getZ() + (double)((float)direction.getOffsetZ() * 0.3F);
+                World world = pointer.world();
+                Random random = world.random;
+                double g = random.nextTriangular(direction.getOffsetX(), 0.11485000000000001);
+                double h = random.nextTriangular(direction.getOffsetY(), 0.11485000000000001);
+                double i = random.nextTriangular(direction.getOffsetZ(), 0.11485000000000001);
+                SmallFireballEntity smallFireballEntity = new SmallFireballEntity(world, d, e, f, g, h, i);
+                world.spawnEntity( Util.make(smallFireballEntity, (entity) -> {
+                    entity.setItem(stack);
+                }));
                 stack.decrement(1);
                 return stack;
             }
-
-
         });
 
         DispenserBlock.registerBehavior(ModItems.AZALEA_CHEST_BOAT, new FallibleItemDispenserBehavior() {
             @Override
             protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-                double h;
-                Direction direction = pointer.getBlockState().get(DispenserBlock.FACING);
-                ServerWorld world = pointer.getWorld();
-                double d = 0.5625 + (double) EntityType.BOAT.getWidth() / 2.0;
-                double e = pointer.getX() + (double) direction.getOffsetX() * d;
-                double f = pointer.getY() + (double) ((float) direction.getOffsetY() * 1.125f);
-                double g = pointer.getZ() + (double) direction.getOffsetZ() * d;
-                BlockPos blockPos = pointer.getPos().offset(direction);
-                if (world.getFluidState(blockPos).isIn(FluidTags.WATER)) {
-                    h = 1.0;
-                } else if (world.getBlockState(blockPos).isAir() && world.getFluidState(blockPos.down()).isIn(FluidTags.WATER)) {
-                    h = 0.0;
-                } else {
-                    return stack;
-                }
-                BoatEntity boatEntity = new ModChestBoatEntity(ModEntities.AZALEA_CHEST_BOAT, world);
-                boatEntity.setPosition(e, f + h, g);
-
-                boatEntity.setYaw(direction.asRotation());
-                world.spawnEntity(boatEntity);
+                Direction direction = pointer.state().get(DispenserBlock.FACING);
+                Position position = DispenserBlock.getOutputLocation(pointer);
+                double d = position.getX() + (double)((float)direction.getOffsetX() * 0.3F);
+                double e = position.getY() + (double)((float)direction.getOffsetY() * 0.3F);
+                double f = position.getZ() + (double)((float)direction.getOffsetZ() * 0.3F);
+                World world = pointer.world();
+                Random random = world.random;
+                double g = random.nextTriangular(direction.getOffsetX(), 0.11485000000000001);
+                double h = random.nextTriangular(direction.getOffsetY(), 0.11485000000000001);
+                double i = random.nextTriangular(direction.getOffsetZ(), 0.11485000000000001);
+                SmallFireballEntity smallFireballEntity = new SmallFireballEntity(world, d, e, f, g, h, i);
+                world.spawnEntity(Util.make(smallFireballEntity, (entity) -> {
+                    entity.setItem(stack);
+                }));
                 stack.decrement(1);
                 return stack;
             }

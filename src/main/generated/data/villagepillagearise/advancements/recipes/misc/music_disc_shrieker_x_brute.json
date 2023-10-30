@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_music_disc_shrieker",
-      "has_music_disc_brute",
-      "has_the_recipe"
+      "has_music_disc_brute"
     ]
   ],
   "rewards": {

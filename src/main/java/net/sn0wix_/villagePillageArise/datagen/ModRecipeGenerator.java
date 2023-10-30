@@ -2,10 +2,7 @@ package net.sn0wix_.villagePillageArise.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -24,13 +21,13 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     @Override
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
+    public void generate(RecipeExporter exporter) {
         generateSmithingRecipes(exporter);
         generateCraftingRecipes(exporter);
         generateSmeltingRecipes(exporter);
     }
 
-    private void generateCraftingRecipes(Consumer<RecipeJsonProvider> exporter) {
+    private void generateCraftingRecipes(RecipeExporter exporter) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MUSIC_DISC_MASHUP)
                 .input(ModItems.MUSIC_DISC_SOULESS)
                 .input(ModItems.MUSIC_DISC_SHRIEKER)
@@ -80,11 +77,11 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.AZALEA_BUTTON)));
     }
 
-    private void generateSmeltingRecipes(Consumer<RecipeJsonProvider> exporter) {
+    private void generateSmeltingRecipes(RecipeExporter exporter) {
         offerSmelting(exporter, Collections.singletonList(ModItems.CORN_SEEDS), RecipeCategory.FOOD, ModItems.POPCORN, 0.1f, 10, ModItems.POPCORN.getName().toString());
     }
 
-    private void generateSmithingRecipes(Consumer<RecipeJsonProvider> exporter) {
+    private void generateSmithingRecipes(RecipeExporter exporter) {
         SmithingTransformRecipeJsonBuilder.create(Ingredient.EMPTY, Ingredient.ofItems(ModItems.MUSIC_DISC_SHRIEKER), Ingredient.ofItems(ModItems.MUSIC_DISC_BRUTE), RecipeCategory.MISC, ModItems.MUSIC_DISC_SHRIEKER_X_BRUTE)
                 .criterion(FabricRecipeProvider.hasItem(ModItems.MUSIC_DISC_SHRIEKER), FabricRecipeProvider.conditionsFromItem(ModItems.MUSIC_DISC_SHRIEKER))
                 .criterion(FabricRecipeProvider.hasItem(ModItems.MUSIC_DISC_BRUTE), FabricRecipeProvider.conditionsFromItem(ModItems.MUSIC_DISC_BRUTE))

@@ -22,8 +22,8 @@
   },
   "requirements": [
     [
-      "has_corn_seeds",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_corn_seeds"
     ]
   ],
   "rewards": {

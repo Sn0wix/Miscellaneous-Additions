@@ -248,7 +248,7 @@ public class ModLootTableModifiers {
             }
         });
 
-        LootTableEvents.REPLACE.register((resourceManager, lootManager, id, original, source) -> {
+        /*LootTableEvents.REPLACE.register((resourceManager, lootManager, id, original, source) -> {
             if (TRAILS_RUINS_ID.equals(id)) {
                 List<LootPoolEntry> entries = new ArrayList<>(Arrays.asList(original.pools[0].entries));
                 entries.add(ItemEntry.builder(ModItems.MUSIC_DISC_FADING_MEMORIES).build());
@@ -258,7 +258,7 @@ public class ModLootTableModifiers {
             }
 
             return null;
-        });
+        });*/
     }
 
     private static LootPool.Builder createLootPoolBuilder(float chance, Item item) {

@@ -1,16 +1,12 @@
 package net.sn0wix_.villagePillageArise.datagen;
 
-import com.ibm.icu.text.Normalizer2;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
-import net.minecraft.data.client.TexturedModel;
 import net.minecraft.data.family.BlockFamilies;
-import net.minecraft.util.Identifier;
-import net.sn0wix_.villagePillageArise.VillagePillageAriseMain;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.block.custom.CornBlock;
 import net.sn0wix_.villagePillageArise.item.ModItems;
@@ -33,6 +29,16 @@ public class ModModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.CORN_BLOCK, CornBlock.AGE, 0, 1, 2, 3, 4, 5, 6, 7);
 
         registerAzaleaWoodSet(blockStateModelGenerator);
+
+        blockStateModelGenerator.registerDoor(ModBlocks.COPPER_DOOR);
+        blockStateModelGenerator.registerDoor(ModBlocks.EXPOSED_COPPER_DOOR);
+        blockStateModelGenerator.registerDoor(ModBlocks.WEATHERED_COPPER_DOOR);
+        blockStateModelGenerator.registerDoor(ModBlocks.OXIDIZED_COPPER_DOOR);
+
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.COPPER_TRAPDOOR);
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.EXPOSED_COPPER_TRAPDOOR);
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.WEATHERED_COPPER_TRAPDOOR);
+        blockStateModelGenerator.registerTrapdoor(ModBlocks.OXIDIZED_COPPER_TRAPDOOR);
     }
 
     private void registerAzaleaWoodSet(BlockStateModelGenerator blockStateModelGenerator) {

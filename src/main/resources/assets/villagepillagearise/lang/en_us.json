@@ -132,5 +132,30 @@
   "item.villagepillagearise.azalea_chest_boat": "Azalea Boat with Chest",
 
   "entity.villagepillagearise.azalea_boat": "Azalea Boat",
-  "entity.villagepillagearise.azalea_chest_boat": "Azalea Boat with Chest"
+  "entity.villagepillagearise.azalea_chest_boat": "Azalea Boat with Chest",
+
+
+
+  "block.villagepillagearise.copper_door": "Copper Door",
+  "block.villagepillagearise.exposed_copper_door": "Exposed Copper Door",
+  "block.villagepillagearise.weathered_copper_door": "Weathered Copper Door",
+  "block.villagepillagearise.oxidized_copper_door": "Oxidized Copper Door",
+  "block.villagepillagearise.waxed_copper_door": "Waxed Copper Door",
+  "block.villagepillagearise.waxed_exposed_copper_door": "Waxed Exposed Copper Door",
+  "block.villagepillagearise.waxed_weathered_copper_door": "Waxed Weathered Copper Door",
+  "block.villagepillagearise.waxed_oxidized_copper_door": "Waxed Oxidized Copper Door",
+
+  "block.villagepillagearise.copper_trapdoor": "Copper Trapdoor",
+  "block.villagepillagearise.exposed_copper_trapdoor": "Exposed Copper Trapdoor",
+  "block.villagepillagearise.weathered_copper_trapdoor": "Weathered Copper Trapdoor",
+  "block.villagepillagearise.oxidized_copper_trapdoor": "Oxidized Copper Trapdoor",
+  "block.villagepillagearise.waxed_copper_trapdoor": "Waxed Copper Trapdoor",
+  "block.villagepillagearise.waxed_exposed_copper_trapdoor": "Waxed Exposed Copper Trapdoor",
+  "block.villagepillagearise.waxed_weathered_copper_trapdoor": "Waxed Weathered Copper Trapdoor",
+  "block.villagepillagearise.waxed_oxidized_copper_trapdoor": "Waxed Oxidized Copper Trapdoor",
+
+  "link.villagepillagearise.a": "Curseforge",
+  "link.villagepillagearise.b": "Modrinth",
+  "link.villagepillagearise.c": "T_en_M",
+  "link.villagepillagearise.d": "Laudividni"
 }

@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_redstone_shard",
-      "has_netherite_shovel",
-      "has_the_recipe"
+      "has_netherite_shovel"
     ]
   ],
   "rewards": {

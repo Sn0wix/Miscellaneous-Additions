@@ -70,12 +70,12 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_music_disc_souless",
       "has_music_disc_shrieker",
       "has_music_disc_lightning",
       "has_music_disc_the_wither",
-      "has_music_disc_the_ender_dragon",
-      "has_the_recipe"
+      "has_music_disc_the_ender_dragon"
     ]
   ],
   "rewards": {

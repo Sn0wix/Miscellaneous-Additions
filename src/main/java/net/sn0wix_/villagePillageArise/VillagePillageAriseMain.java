@@ -20,6 +20,7 @@ public class VillagePillageAriseMain implements ModInitializer {
 
     //redstone equipment - trim texture inventory
     //boat items - dispenser not working
+    //sus sand not working
 
     @Override
     public void onInitialize() {

@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_azalea_door",
-      "has_azalea_planks",
-      "has_the_recipe"
+      "has_azalea_planks"
     ]
   ],
   "rewards": {

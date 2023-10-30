@@ -1,14 +1,11 @@
 {
 	"schemaVersion": 1,
 	"id": "villagepillagearise",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"name": "Village & Pillage Arise",
 	"description": "Adds Battle axes, a lot of music discs, lapis and redstone armor and a few other things.",
 	"authors": [
-		"Sn0wix_                                                                             ",
-		"https://www.youtube.com/@TenM",
-		"https://www.youtube.com/@LaudividniYT",
-		"https://www.youtube.com/@CaptainSparklez"
+		"Sn0wix_"
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/village-pillage-arise",
@@ -41,5 +38,15 @@
 	},
 	"suggests": {
 		"another-mod": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"link.villagepillagearise.a": "https://curseforge.com/minecraft/mc-mods/village-pillge-arise",
+				"link.villagepillagearise.b": "https://modrinth.com/mod/village-pillage-arise",
+				"link.villagepillagearise.c": "https://www.youtube.com/@TenM",
+				"link.villagepillagearise.d": "https://www.youtube.com/@LaudividniYT"
+			}
+		}
 	}
 }

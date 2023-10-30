@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "villagepillagearise:item/weathered_copper_door"
+  }
+}

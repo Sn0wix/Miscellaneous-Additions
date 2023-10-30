@@ -34,9 +34,9 @@
   },
   "requirements": [
     [
+      "has_the_recipe",
       "has_lapis_shard",
-      "has_netherite_boots",
-      "has_the_recipe"
+      "has_netherite_boots"
     ]
   ],
   "rewards": {

@@ -5,6 +5,7 @@ import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.block.entities.ModBlockEntities;
 import net.sn0wix_.villagePillageArise.entities.ModEntities;
 import net.sn0wix_.villagePillageArise.item.ModItems;
+import net.sn0wix_.villagePillageArise.networking.ModPackets;
 import net.sn0wix_.villagePillageArise.painting.ModPainting;
 import net.sn0wix_.villagePillageArise.util.ModLootTableModifiers;
 import net.sn0wix_.villagePillageArise.util.ModRegisteries;
@@ -31,5 +32,6 @@ public class VillagePillageAriseMain implements ModInitializer {
         ModPainting.registerPaintings();
         ModBlockEntities.registerALlBlockEntities();
         ModEntities.registerModEntities();
+        ModPackets.registerC2SPackets();
     }
 }

@@ -18,7 +18,6 @@ import java.util.List;
 public abstract class LightningMusicDiscMixin {
     @Inject(method = "tick", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/Entity;onStruckByLightning(Lnet/minecraft/server/world/ServerWorld;Lnet/minecraft/entity/LightningEntity;)V", shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILSOFT)
     public void injectTick(CallbackInfo ci, List<Entity> list, Iterator var2, Entity entity) {
-
         if (entity instanceof ItemEntity itemEntity){
             if (itemEntity.getStack().isIn(ItemTags.MUSIC_DISCS)){
                 itemEntity.getWorld().spawnEntity(new ItemEntity(itemEntity.getWorld(), itemEntity.getX(), itemEntity.getY(), itemEntity.getZ(), ModItems.MUSIC_DISC_LIGHTNING.getDefaultStack()));

@@ -1,9 +1,6 @@
 package net.sn0wix_.villagePillageArise.util;
 
-import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
-import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.fabricmc.fabric.api.registry.*;
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.block.dispenser.FallibleItemDispenserBehavior;
 import net.minecraft.entity.projectile.SmallFireballEntity;
@@ -24,6 +21,26 @@ public class ModRegisteries {
         registerCompostable();
         registerFlammables();
         registerDispencerBehaviors();
+        registerOxidizable();
+    }
+
+    private static void registerOxidizable() {
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.COPPER_DOOR, ModBlocks.EXPOSED_COPPER_DOOR);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.EXPOSED_COPPER_DOOR, ModBlocks.WEATHERED_COPPER_DOOR);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.WEATHERED_COPPER_DOOR, ModBlocks.OXIDIZED_COPPER_DOOR);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.COPPER_DOOR, ModBlocks.WAXED_COPPER_DOOR);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.EXPOSED_COPPER_DOOR, ModBlocks.WAXED_EXPOSED_COPPER_DOOR);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.WEATHERED_COPPER_DOOR, ModBlocks.WAXED_WEATHERED_COPPER_DOOR);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.OXIDIZED_COPPER_DOOR, ModBlocks.WAXED_OXIDIZED_COPPER_DOOR);
+
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.COPPER_TRAPDOOR, ModBlocks.EXPOSED_COPPER_TRAPDOOR);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.EXPOSED_COPPER_TRAPDOOR, ModBlocks.WEATHERED_COPPER_TRAPDOOR);
+        OxidizableBlocksRegistry.registerOxidizableBlockPair(ModBlocks.WEATHERED_COPPER_TRAPDOOR, ModBlocks.OXIDIZED_COPPER_TRAPDOOR);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.COPPER_TRAPDOOR, ModBlocks.WAXED_COPPER_TRAPDOOR);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.EXPOSED_COPPER_TRAPDOOR, ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.WEATHERED_COPPER_TRAPDOOR, ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR);
+        OxidizableBlocksRegistry.registerWaxableBlockPair(ModBlocks.OXIDIZED_COPPER_TRAPDOOR, ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR);
+
     }
 
     private static void registerFuels() {
@@ -75,16 +92,16 @@ public class ModRegisteries {
             protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
                 Direction direction = pointer.state().get(DispenserBlock.FACING);
                 Position position = DispenserBlock.getOutputLocation(pointer);
-                double d = position.getX() + (double)((float)direction.getOffsetX() * 0.3F);
-                double e = position.getY() + (double)((float)direction.getOffsetY() * 0.3F);
-                double f = position.getZ() + (double)((float)direction.getOffsetZ() * 0.3F);
+                double d = position.getX() + (double) ((float) direction.getOffsetX() * 0.3F);
+                double e = position.getY() + (double) ((float) direction.getOffsetY() * 0.3F);
+                double f = position.getZ() + (double) ((float) direction.getOffsetZ() * 0.3F);
                 World world = pointer.world();
                 Random random = world.random;
                 double g = random.nextTriangular(direction.getOffsetX(), 0.11485000000000001);
                 double h = random.nextTriangular(direction.getOffsetY(), 0.11485000000000001);
                 double i = random.nextTriangular(direction.getOffsetZ(), 0.11485000000000001);
                 SmallFireballEntity smallFireballEntity = new SmallFireballEntity(world, d, e, f, g, h, i);
-                world.spawnEntity( Util.make(smallFireballEntity, (entity) -> {
+                world.spawnEntity(Util.make(smallFireballEntity, (entity) -> {
                     entity.setItem(stack);
                 }));
                 stack.decrement(1);
@@ -97,9 +114,9 @@ public class ModRegisteries {
             protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
                 Direction direction = pointer.state().get(DispenserBlock.FACING);
                 Position position = DispenserBlock.getOutputLocation(pointer);
-                double d = position.getX() + (double)((float)direction.getOffsetX() * 0.3F);
-                double e = position.getY() + (double)((float)direction.getOffsetY() * 0.3F);
-                double f = position.getZ() + (double)((float)direction.getOffsetZ() * 0.3F);
+                double d = position.getX() + (double) ((float) direction.getOffsetX() * 0.3F);
+                double e = position.getY() + (double) ((float) direction.getOffsetY() * 0.3F);
+                double f = position.getZ() + (double) ((float) direction.getOffsetZ() * 0.3F);
                 World world = pointer.world();
                 Random random = world.random;
                 double g = random.nextTriangular(direction.getOffsetX(), 0.11485000000000001);

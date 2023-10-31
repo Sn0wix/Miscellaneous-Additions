@@ -46,7 +46,8 @@
 				"link.villagepillagearise.b": "https://modrinth.com/mod/village-pillage-arise",
 				"link.villagepillagearise.c": "https://www.youtube.com/@TenM",
 				"link.villagepillagearise.d": "https://www.youtube.com/@LaudividniYT"
-			}
+			},
+			"update_checker": true
 		}
 	}
 }

@@ -1,13 +1,18 @@
 package net.sn0wix_.villagePillageArise.block.custom;
 
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.sn0wix_.villagePillageArise.networking.ModPackets;
 
 public class CopperTrapdoorBlock extends TrapdoorBlock implements Oxidizable {
     private final Oxidizable.OxidationLevel oxidationLevel;
@@ -34,12 +39,24 @@ public class CopperTrapdoorBlock extends TrapdoorBlock implements Oxidizable {
 
         boolean bl = world.isReceivingRedstonePower(pos);
         if (bl != state.get(POWERED)) {
+            spawnParticles(world, pos);
             playToggleSound(null, world, pos, state.get(POWERED));
             world.setBlockState(pos, state.with(POWERED, bl), Block.NOTIFY_LISTENERS);
-            if (state.get(WATERLOGGED).booleanValue()) {
+            if (state.get(WATERLOGGED)) {
                 world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
             }
         }
+    }
+
+    private void spawnParticles(World world, BlockPos pos) {
+        world.getPlayers().forEach(player -> {
+            if (world.isPlayerInRange(pos.getX(), pos.getY(), pos.getZ(), 128)) {
+                PacketByteBuf buffer = PacketByteBufs.create();
+                buffer.writeBlockPos(pos);
+                buffer.writeBoolean(false);
+                ServerPlayNetworking.send((ServerPlayerEntity) player, ModPackets.REDSTONE_PARTICLE_SPAWN, buffer);
+            }
+        });
     }
 
     @Override

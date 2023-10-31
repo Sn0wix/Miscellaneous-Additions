@@ -91,24 +91,21 @@ public class ModBlocks {
             new FenceBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE))), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_FENCE_GATE = registerBlock("azalea_fence_gate",
-            new FenceGateBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE)), ModWoodTypes.AZALEA), ItemGroups.BUILDING_BLOCKS,
-            ItemGroups.REDSTONE);
+            new FenceGateBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE)), ModWoodTypes.AZALEA), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_BUTTON = registerBlock("azalea_button",
             new ButtonBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON)), ModBlockSetTypes.AZALEA, 30, true),
-            ItemGroups.BUILDING_BLOCKS, ItemGroups.REDSTONE);
+            ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_PRESSURE_PLATE = registerBlock("azalea_pressure_plate",
             new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING ,FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE)),
-                    ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS, ItemGroups.REDSTONE);
+                    ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_DOOR = registerBlock("azalea_door",
-            new DoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_DOOR)), ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS,
-            ItemGroups.REDSTONE);
+            new DoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_DOOR)), ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_TRAPDOOR = registerBlock("azalea_trapdoor",
-            new TrapdoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR)), ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS,
-            ItemGroups.REDSTONE);
+            new TrapdoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR)), ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_SIGN = registerBlockWithoutBlockItem("azalea_sign",
             new ModSignBlock(FabricBlockSettings.copyOf(Blocks.OAK_SIGN), ModWoodTypes.AZALEA));

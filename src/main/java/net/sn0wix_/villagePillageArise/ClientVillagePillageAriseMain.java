@@ -16,6 +16,7 @@ import net.sn0wix_.villagePillageArise.block.entities.ModBlockEntities;
 import net.sn0wix_.villagePillageArise.entities.ModEntities;
 import net.sn0wix_.villagePillageArise.entities.boat.client.ModBoatEntityRenderer;
 import net.sn0wix_.villagePillageArise.entities.boat.client.ModChestBoatEntityRenderer;
+import net.sn0wix_.villagePillageArise.networking.ModPackets;
 import net.sn0wix_.villagePillageArise.util.ModModelPredicateProvider;
 import net.sn0wix_.villagePillageArise.util.ModWoodTypes;
 
@@ -62,5 +63,7 @@ public class ClientVillagePillageAriseMain implements ClientModInitializer {
 
 
         TexturedRenderLayers.SIGN_TYPE_TEXTURES.put(ModWoodTypes.AZALEA, TexturedRenderLayers.getSignTextureId(ModWoodTypes.AZALEA));
+
+        ModPackets.registerS2CPackets();
     }
 }

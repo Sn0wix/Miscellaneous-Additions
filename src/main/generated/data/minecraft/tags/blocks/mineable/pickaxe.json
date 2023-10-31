@@ -7,6 +7,22 @@
     "villagepillagearise:citrine_cluster",
     "villagepillagearise:large_citrine_bud",
     "villagepillagearise:medium_citrine_bud",
-    "villagepillagearise:small_citrine_bud"
+    "villagepillagearise:small_citrine_bud",
+    "villagepillagearise:copper_door",
+    "villagepillagearise:exposed_copper_door",
+    "villagepillagearise:weathered_copper_door",
+    "villagepillagearise:oxidized_copper_door",
+    "villagepillagearise:waxed_copper_door",
+    "villagepillagearise:waxed_exposed_copper_door",
+    "villagepillagearise:waxed_weathered_copper_door",
+    "villagepillagearise:waxed_oxidized_copper_door",
+    "villagepillagearise:copper_trapdoor",
+    "villagepillagearise:exposed_copper_trapdoor",
+    "villagepillagearise:weathered_copper_trapdoor",
+    "villagepillagearise:oxidized_copper_trapdoor",
+    "villagepillagearise:waxed_copper_trapdoor",
+    "villagepillagearise:waxed_exposed_copper_trapdoor",
+    "villagepillagearise:waxed_weathered_copper_trapdoor",
+    "villagepillagearise:waxed_oxidized_copper_trapdoor"
   ]
 }

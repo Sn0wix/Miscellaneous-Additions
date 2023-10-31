@@ -8,6 +8,9 @@
     "RedstoneArmorThornsMixin",
     "RedstoneOreMixin"
   ],
+  "client": [
+    "ParticleUtilMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
 	}

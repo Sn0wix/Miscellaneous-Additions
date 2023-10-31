@@ -27,6 +27,7 @@ public class ModTagsGenerator {
             addNeedsStoneTool();
             addRedstoneRechargeable();
             addAzaleaWoodSet();
+            addDoor();
         }
 
         private void addPickaxeMineable() {
@@ -37,9 +38,46 @@ public class ModTagsGenerator {
                     .add(ModBlocks.CITRINE_CLUSTER)
                     .add(ModBlocks.LARGE_CITRINE_BUD)
                     .add(ModBlocks.MEDIUM_CITRINE_BUD)
-                    .add(ModBlocks.SMALL_CITRINE_BUD);
+                    .add(ModBlocks.SMALL_CITRINE_BUD)
+                    .add(ModBlocks.COPPER_DOOR)
+                    .add(ModBlocks.EXPOSED_COPPER_DOOR)
+                    .add(ModBlocks.WEATHERED_COPPER_DOOR)
+                    .add(ModBlocks.OXIDIZED_COPPER_DOOR)
+                    .add(ModBlocks.WAXED_COPPER_DOOR)
+                    .add(ModBlocks.WAXED_EXPOSED_COPPER_DOOR)
+                    .add(ModBlocks.WAXED_WEATHERED_COPPER_DOOR)
+                    .add(ModBlocks.WAXED_OXIDIZED_COPPER_DOOR)
+                    .add(ModBlocks.COPPER_TRAPDOOR)
+                    .add(ModBlocks.EXPOSED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.WEATHERED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.OXIDIZED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.WAXED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR);
         }
 
+        private void addDoor() {
+            getOrCreateTagBuilder(BlockTags.DOORS)
+                    .add(ModBlocks.COPPER_DOOR)
+                    .add(ModBlocks.EXPOSED_COPPER_DOOR)
+                    .add(ModBlocks.WEATHERED_COPPER_DOOR)
+                    .add(ModBlocks.OXIDIZED_COPPER_DOOR)
+                    .add(ModBlocks.WAXED_COPPER_DOOR)
+                    .add(ModBlocks.WAXED_EXPOSED_COPPER_DOOR)
+                    .add(ModBlocks.WAXED_WEATHERED_COPPER_DOOR)
+                    .add(ModBlocks.WAXED_OXIDIZED_COPPER_DOOR);
+
+            getOrCreateTagBuilder(BlockTags.TRAPDOORS)
+                    .add(ModBlocks.COPPER_TRAPDOOR)
+                    .add(ModBlocks.EXPOSED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.WEATHERED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.OXIDIZED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.WAXED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR);
+        }
         private void addNeedsStoneTool() {
             getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                     .add(ModBlocks.CITRINE_BLOCK)
@@ -95,6 +133,29 @@ public class ModTagsGenerator {
             addMusicDiscs();
             addAzaleaWoodSet();
             addRedstoneEquipment();
+            addDoor();
+        }
+
+        private void addDoor() {
+            getOrCreateTagBuilder(ItemTags.DOORS)
+                    .add(ModBlocks.COPPER_DOOR.asItem())
+                    .add(ModBlocks.EXPOSED_COPPER_DOOR.asItem())
+                    .add(ModBlocks.WEATHERED_COPPER_DOOR.asItem())
+                    .add(ModBlocks.OXIDIZED_COPPER_DOOR.asItem())
+                    .add(ModBlocks.WAXED_COPPER_DOOR.asItem())
+                    .add(ModBlocks.WAXED_EXPOSED_COPPER_DOOR.asItem())
+                    .add(ModBlocks.WAXED_WEATHERED_COPPER_DOOR.asItem())
+                    .add(ModBlocks.WAXED_OXIDIZED_COPPER_DOOR.asItem());
+
+            getOrCreateTagBuilder(ItemTags.TRAPDOORS)
+                    .add(ModBlocks.COPPER_TRAPDOOR.asItem())
+                    .add(ModBlocks.EXPOSED_COPPER_TRAPDOOR.asItem())
+                    .add(ModBlocks.WEATHERED_COPPER_TRAPDOOR.asItem())
+                    .add(ModBlocks.OXIDIZED_COPPER_TRAPDOOR.asItem())
+                    .add(ModBlocks.WAXED_COPPER_TRAPDOOR.asItem())
+                    .add(ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR.asItem())
+                    .add(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR.asItem())
+                    .add(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR.asItem());
         }
 
         private void addMusicDiscs() {

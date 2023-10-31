@@ -75,6 +75,9 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .input(ModBlocks.AZALEA_PLANKS)
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.AZALEA_BUTTON)));
+
+        createDoorRecipe(ModBlocks.COPPER_DOOR, Ingredient.ofItems(Items.COPPER_INGOT)).criterion(FabricRecipeProvider.hasItem(Items.COPPER_INGOT), FabricRecipeProvider.conditionsFromItem(Items.COPPER_INGOT)).criterion(FabricRecipeProvider.hasItem(ModBlocks.COPPER_DOOR), FabricRecipeProvider.conditionsFromItem(ModBlocks.COPPER_DOOR)).offerTo(exporter);
+        createTrapdoorRecipe(ModBlocks.COPPER_TRAPDOOR, Ingredient.ofItems(Items.COPPER_INGOT)).criterion(FabricRecipeProvider.hasItem(Items.COPPER_INGOT), FabricRecipeProvider.conditionsFromItem(Items.COPPER_INGOT)).criterion(FabricRecipeProvider.hasItem(ModBlocks.COPPER_TRAPDOOR), FabricRecipeProvider.conditionsFromItem(ModBlocks.COPPER_TRAPDOOR)).offerTo(exporter);
     }
 
     private void generateSmeltingRecipes(RecipeExporter exporter) {

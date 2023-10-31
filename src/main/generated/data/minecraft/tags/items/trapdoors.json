@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "villagepillagearise:copper_trapdoor",
+    "villagepillagearise:exposed_copper_trapdoor",
+    "villagepillagearise:weathered_copper_trapdoor",
+    "villagepillagearise:oxidized_copper_trapdoor",
+    "villagepillagearise:waxed_copper_trapdoor",
+    "villagepillagearise:waxed_exposed_copper_trapdoor",
+    "villagepillagearise:waxed_weathered_copper_trapdoor",
+    "villagepillagearise:waxed_oxidized_copper_trapdoor"
+  ]
+}

@@ -1,10 +1,15 @@
 package net.sn0wix_.villagePillageArise.block.custom;
 
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HoneycombItem;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -13,14 +18,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.sn0wix_.villagePillageArise.networking.ModPackets;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
 import static net.minecraft.item.HoneycombItem.WAXED_TO_UNWAXED_BLOCKS;
 
-public class CopperDoorBlock extends DoorBlock implements Oxidizable{
+public class CopperDoorBlock extends DoorBlock implements Oxidizable {
     private final Oxidizable.OxidationLevel oxidationLevel;
+
     public CopperDoorBlock(Oxidizable.OxidationLevel oxidationLevel, Settings settings, BlockSetType blockSetType) {
         super(settings, blockSetType);
         this.oxidationLevel = oxidationLevel;
@@ -37,16 +44,42 @@ public class CopperDoorBlock extends DoorBlock implements Oxidizable{
 
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-        boolean bl = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.offset(state.get(HALF) == DoubleBlockHalf.LOWER ? Direction.UP : Direction.DOWN)) || (bl = false);
-        if (!this.getDefaultState().isOf(sourceBlock) && bl != state.get(POWERED)) {
-            if (!state.get(POWERED)) {
-                playOpenCloseSound(null, world, pos, false);
-            } else {
-                playOpenCloseSound(null, world, pos, true);
-            }
+        if (!world.isClient()) {
+            boolean bl = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.offset(state.get(HALF) == DoubleBlockHalf.LOWER ? Direction.UP : Direction.DOWN)) || (bl = false);
+            if (!this.getDefaultState().isOf(sourceBlock) && bl != state.get(POWERED)) {
+                if (!state.get(POWERED)) {
+                    playOpenCloseSound(null, world, pos, false);
 
-            world.setBlockState(pos, (state.with(POWERED, bl)).with(OPEN, state.get(OPEN)), Block.NOTIFY_LISTENERS);
+                    if (state.get(HALF).equals(DoubleBlockHalf.LOWER)) {
+                        spawnParticles(world, pos);
+                    }else {
+                        spawnParticles(world, pos.down());
+                    }
+
+                } else {
+                    playOpenCloseSound(null, world, pos, true);
+
+                    if (state.get(HALF).equals(DoubleBlockHalf.LOWER)) {
+                        spawnParticles(world, pos);
+                    }else {
+                        spawnParticles(world, pos.down());
+                    }
+                }
+
+                world.setBlockState(pos, (state.with(POWERED, bl)).with(OPEN, state.get(OPEN)), Block.NOTIFY_LISTENERS);
+            }
         }
+    }
+
+    private void spawnParticles(World world, BlockPos pos) {
+        world.getPlayers().forEach(player -> {
+            if (world.isPlayerInRange(pos.getX(), pos.getY(), pos.getZ(), 128)) {
+                PacketByteBuf buffer = PacketByteBufs.create();
+                buffer.writeBlockPos(pos);
+                buffer.writeBoolean(true);
+                ServerPlayNetworking.send((ServerPlayerEntity) player, ModPackets.REDSTONE_PARTICLE_SPAWN, buffer);
+            }
+        });
     }
 
     public void playOpenCloseSound(@Nullable Entity entity, World world, BlockPos pos, boolean open) {

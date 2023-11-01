@@ -53,7 +53,6 @@ public class CopperTrapdoorBlock extends TrapdoorBlock implements Oxidizable {
             if (world.isPlayerInRange(pos.getX(), pos.getY(), pos.getZ(), 128)) {
                 PacketByteBuf buffer = PacketByteBufs.create();
                 buffer.writeBlockPos(pos);
-                buffer.writeBoolean(false);
                 ServerPlayNetworking.send((ServerPlayerEntity) player, ModPackets.REDSTONE_PARTICLE_SPAWN, buffer);
             }
         });

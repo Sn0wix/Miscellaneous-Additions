@@ -185,7 +185,8 @@ public class ModItems {
 
     public static final Item MUSIC_DISC_SOULESS = registerItem("music_disc_souless",
             new MusicDiscItem(13, ModSoundEvents.SOULESS, new FabricItemSettings().maxCount(1), 140), ItemGroups.TOOLS);
-
+    public static final Item MUSIC_DISC_MINESHAFT = registerItem("music_disc_mineshaft",
+            new MusicDiscItem(7, ModSoundEvents.MINESHAFT, new FabricItemSettings().maxCount(1), 123), ItemGroups.TOOLS);
     public static final Item MUSIC_DISC_FADING_MEMORIES = registerItem("music_disc_fading_memories",
             new MusicDiscItem(12, ModSoundEvents.FADING_MEMORIES, new FabricItemSettings().maxCount(1), 155), ItemGroups.TOOLS);
 
@@ -200,6 +201,15 @@ public class ModItems {
 
     public static final Item MUSIC_DISC_SAKURA_VALLEY = registerItem("music_disc_sakura_valley",
             new MusicDiscItem(8, ModSoundEvents.SAKURA_VALLEY, new FabricItemSettings().maxCount(1), 119), ItemGroups.TOOLS);
+
+    public static final Item MUSIC_DISC_WHISPERING_WOODS = registerItem("music_disc_whispering_woods",
+            new MusicDiscItem(6, ModSoundEvents.WHISPERING_WOODS, new FabricItemSettings().maxCount(1), 139), ItemGroups.TOOLS);
+
+    public static final Item MUSIC_DISC_ADVENTURE_AWAITS = registerItem("music_disc_adventure_awaits",
+            new MusicDiscItem(5, ModSoundEvents.ADVENTURE_AWAITS, new FabricItemSettings().maxCount(1), 95), ItemGroups.TOOLS);
+
+    public static final Item MUSIC_DISC_FINAL_STAGE = registerItem("music_disc_final_stage",
+            new MusicDiscItem(4, ModSoundEvents.FINAL_STAGE, new FabricItemSettings().maxCount(1), 120), ItemGroups.TOOLS);
 
 
 

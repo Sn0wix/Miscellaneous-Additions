@@ -91,10 +91,17 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter, FabricRecipeProvider.getRecipeName(ModItems.MUSIC_DISC_SHRIEKER_X_BRUTE));
 
         SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.ofItems(ModItems.DIAMOND_BATTLE_AXE), Ingredient.ofItems(Items.NETHERITE_INGOT), RecipeCategory.COMBAT, ModItems.NETHERITE_BATTLE_AXE)
-                .criterion(FabricRecipeProvider.hasItem(ModItems.MUSIC_DISC_SHRIEKER), FabricRecipeProvider.conditionsFromItem(ModItems.DIAMOND_BATTLE_AXE))
-                .criterion(FabricRecipeProvider.hasItem(Items.NETHERITE_INGOT), FabricRecipeProvider.conditionsFromItem(ModItems.MUSIC_DISC_BRUTE))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.DIAMOND_BATTLE_AXE), FabricRecipeProvider.conditionsFromItem(ModItems.DIAMOND_BATTLE_AXE))
+                .criterion(FabricRecipeProvider.hasItem(Items.NETHERITE_INGOT), FabricRecipeProvider.conditionsFromItem(Items.NETHERITE_INGOT))
                 .criterion(FabricRecipeProvider.hasItem(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), FabricRecipeProvider.conditionsFromItem(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE))
                 .offerTo(exporter, FabricRecipeProvider.getRecipeName(ModItems.NETHERITE_BATTLE_AXE));
+
+        SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(Items.LAVA_BUCKET), Ingredient.ofItems(ModItems.MUSIC_DISC_THE_ENDER_DRAGON), Ingredient.ofItems(ModItems.MUSIC_DISC_THE_WITHER), RecipeCategory.MISC, ModItems.MUSIC_DISC_FINAL_STAGE)
+                .criterion(FabricRecipeProvider.hasItem(Items.LAVA_BUCKET), FabricRecipeProvider.conditionsFromItem(Items.LAVA_BUCKET))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.MUSIC_DISC_THE_ENDER_DRAGON), FabricRecipeProvider.conditionsFromItem(ModItems.MUSIC_DISC_THE_ENDER_DRAGON))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.MUSIC_DISC_THE_WITHER), FabricRecipeProvider.conditionsFromItem(ModItems.MUSIC_DISC_THE_WITHER))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.MUSIC_DISC_FINAL_STAGE), FabricRecipeProvider.conditionsFromItem(ModItems.MUSIC_DISC_FINAL_STAGE))
+                .offerTo(exporter, FabricRecipeProvider.getRecipeName(ModItems.MUSIC_DISC_FINAL_STAGE));
 
 
 //armor

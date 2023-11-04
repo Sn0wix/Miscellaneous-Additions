@@ -181,7 +181,11 @@ public class ModTagsGenerator {
                     .add(ModItems.MUSIC_DISC_HORIZONS)
                     .add(ModItems.MUSIC_DISC_IRON_OATH)
                     .add(ModItems.MUSIC_DISC_LAST_HALLWAY)
-                    .add(ModItems.MUSIC_DISC_SAKURA_VALLEY);
+                    .add(ModItems.MUSIC_DISC_SAKURA_VALLEY)
+                    .add(ModItems.MUSIC_DISC_MINESHAFT)
+                    .add(ModItems.MUSIC_DISC_WHISPERING_WOODS)
+                    .add(ModItems.MUSIC_DISC_ADVENTURE_AWAITS)
+                    .add(ModItems.MUSIC_DISC_FINAL_STAGE);
         }
 
         private void addAzaleaWoodSet() {

@@ -47,6 +47,8 @@
   "item.villagepillagearise.music_disc_no_escape.desc": "T_en_M feat. Laudividni - No Escape",
   "item.villagepillagearise.music_disc_souless": "§bMusic Disc",
   "item.villagepillagearise.music_disc_souless.desc": "T_en_M - Souless",
+  "item.villagepillagearise.music_disc_mineshaft": "§bMusic Disc",
+  "item.villagepillagearise.music_disc_mineshaft.desc": "T_en_M - Mineshaft",
   "item.villagepillagearise.music_disc_fading_memories": "§bMusic Disc",
   "item.villagepillagearise.music_disc_fading_memories.desc": "Laudividni - Fading Memories",
   "item.villagepillagearise.music_disc_horizons": "§bMusic Disc",
@@ -57,6 +59,12 @@
   "item.villagepillagearise.music_disc_last_hallway.desc": "Laudividni - Last Hallway",
   "item.villagepillagearise.music_disc_sakura_valley": "§bMusic Disc",
   "item.villagepillagearise.music_disc_sakura_valley.desc": "Laudividni - Sakura Valley",
+  "item.villagepillagearise.music_disc_whispering_woods": "§bMusic Disc",
+  "item.villagepillagearise.music_disc_whispering_woods.desc": "Laudividni - Whispering Woods",
+  "item.villagepillagearise.music_disc_adventure_awaits": "§bMusic Disc",
+  "item.villagepillagearise.music_disc_adventure_awaits.desc": "Laudividni - Adventure Awaits",
+  "item.villagepillagearise.music_disc_final_stage": "§bMusic Disc",
+  "item.villagepillagearise.music_disc_final_stage.desc": "Laudividni - Final Stage",
 
 
   "item.villagepillagearise.wooden_battle_axe": "Wooden Battle Axe",
@@ -135,7 +143,6 @@
   "entity.villagepillagearise.azalea_chest_boat": "Azalea Boat with Chest",
 
 
-
   "block.villagepillagearise.copper_door": "Copper Door",
   "block.villagepillagearise.exposed_copper_door": "Exposed Copper Door",
   "block.villagepillagearise.weathered_copper_door": "Weathered Copper Door",
@@ -154,8 +161,8 @@
   "block.villagepillagearise.waxed_weathered_copper_trapdoor": "Waxed Weathered Copper Trapdoor",
   "block.villagepillagearise.waxed_oxidized_copper_trapdoor": "Waxed Oxidized Copper Trapdoor",
 
-  "link.villagepillagearise.a": "Curseforge",
-  "link.villagepillagearise.b": "Modrinth",
-  "link.villagepillagearise.c": "T_en_M",
-  "link.villagepillagearise.d": "Laudividni"
+  "link.villagepillagearise.curseforge": "Curseforge",
+  "link.villagepillagearise.modrinth": "Modrinth",
+  "link.villagepillagearise.t_en_m": "T_en_M",
+  "link.villagepillagearise.laudividni": "Laudividni"
 }

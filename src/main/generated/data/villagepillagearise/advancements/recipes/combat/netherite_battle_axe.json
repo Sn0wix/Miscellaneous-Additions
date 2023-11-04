@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_music_disc_shrieker": {
+    "has_diamond_battle_axe": {
       "conditions": {
         "items": [
           {
@@ -18,7 +18,7 @@
         "items": [
           {
             "items": [
-              "villagepillagearise:music_disc_brute"
+              "minecraft:netherite_ingot"
             ]
           }
         ]
@@ -47,7 +47,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_music_disc_shrieker",
+      "has_diamond_battle_axe",
       "has_netherite_ingot",
       "has_netherite_upgrade_smithing_template"
     ]

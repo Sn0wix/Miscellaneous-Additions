@@ -1,7 +1,7 @@
-// 1.20.2	2023-10-31T16:34:14.7084484	Village & Pillage Arise/Tags for minecraft:item
+// 1.20.2	2023-11-03T19:56:25.6521682	Village & Pillage Arise/Tags for minecraft:item
 d0f11d09c4a347c437dc922d64b5a31a44d0ca67 data\villagepillagearise\tags\items\azalea_logs.json
 8153785497a3f894447c22b2b33d6a583f8d5493 data\minecraft\tags\items\doors.json
-ee0465691f13358433b7842a891f1c13cfb07489 data\minecraft\tags\items\music_discs.json
+465aec75604b931cdc6985be6a56197590d5919e data\minecraft\tags\items\music_discs.json
 871618b47a3bffa2d748a12c1b606146f1a3a4c9 data\minecraft\tags\items\chest_boats.json
 df47ce0a2e0687d21df7c85f1dbd3594e9294c57 data\minecraft\tags\items\pickaxes.json
 437787de9aa103938748bfe2c2780f4543b5754f data\minecraft\tags\items\wooden_trapdoors.json

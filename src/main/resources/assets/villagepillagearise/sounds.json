@@ -174,5 +174,37 @@
         "stream": true
       }
     ]
+  },
+  "mineshaft": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:mineshaft",
+        "stream": true
+      }
+    ]
+  },
+  "whispering_woods": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:whispering_woods",
+        "stream": true
+      }
+    ]
+  },
+  "adventure_awaits": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:adventure_awaits",
+        "stream": true
+      }
+    ]
+  },
+  "final_stage": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:final_stage",
+        "stream": true
+      }
+    ]
   }
 }

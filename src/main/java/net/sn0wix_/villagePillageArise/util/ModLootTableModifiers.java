@@ -51,7 +51,7 @@ public class ModLootTableModifiers {
     private static final Identifier BURIED_TREASURE_ID = new Identifier("minecraft", "chests/buried_treasure");
     private static final Identifier STRONGHOLD_CROSSING_ID = new Identifier("minecraft", "chests/stronghold_crossing");
     private static final Identifier STRONGHOLD_CORRIDOR_ID = new Identifier("minecraft", "chests/stronghold_corridor");
-    private static final Identifier VILLAGE_CARTOGRAPHER_ID = new Identifier("minecraft", "chests/village/cartographer_house");
+    private static final Identifier VILLAGE_CARTOGRAPHER_ID = new Identifier("minecraft", "chests/village/village_cartographer");
 
 
     private static final Identifier LAPIS_ORE_ID = new Identifier("minecraft", "blocks/lapis_ore");
@@ -143,6 +143,34 @@ public class ModLootTableModifiers {
                         .conditionally(LocationCheckLootCondition.builder(new LocationPredicate.Builder().biome(BiomeKeys.CHERRY_GROVE)))
                         .with(ItemEntry.builder(ModItems.MUSIC_DISC_SAKURA_VALLEY));
                 tableBuilder.pool(poolBuilder).build();
+
+                LootPool.Builder poolBuilder1 = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.12f))
+                        .conditionally(LocationCheckLootCondition.builder(new LocationPredicate.Builder().biome(BiomeKeys.FOREST)))
+                        .with(ItemEntry.builder(ModItems.MUSIC_DISC_WHISPERING_WOODS));
+                tableBuilder.pool(poolBuilder1).build();
+
+                LootPool.Builder poolBuilder2 = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.10f))
+                        .conditionally(LocationCheckLootCondition.builder(new LocationPredicate.Builder().biome(BiomeKeys.BIRCH_FOREST)))
+                        .with(ItemEntry.builder(ModItems.MUSIC_DISC_WHISPERING_WOODS));
+                tableBuilder.pool(poolBuilder2).build();
+
+                LootPool.Builder poolBuilder3 = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.15f))
+                        .conditionally(LocationCheckLootCondition.builder(new LocationPredicate.Builder().biome(BiomeKeys.DARK_FOREST)))
+                        .with(ItemEntry.builder(ModItems.MUSIC_DISC_WHISPERING_WOODS));
+                tableBuilder.pool(poolBuilder3).build();
+
+                LootPool.Builder poolBuilder4 = LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.8f))
+                        .conditionally(LocationCheckLootCondition.builder(new LocationPredicate.Builder().biome(BiomeKeys.FLOWER_FOREST)))
+                        .with(ItemEntry.builder(ModItems.MUSIC_DISC_WHISPERING_WOODS));
+                tableBuilder.pool(poolBuilder4).build();
             }
 
             if (VILLAGE_SAVANNA_HOUSE_ID.equals(id)) {
@@ -158,6 +186,8 @@ public class ModLootTableModifiers {
                         .conditionally(KilledByPlayerLootCondition.builder())
                         .with(ItemEntry.builder(ModItems.MUSIC_DISC_SAKURA_VALLEY));
                 tableBuilder.pool(poolBuilder).build();
+
+                tableBuilder.pool(createLootPoolBuilder(0.2f, ModItems.MUSIC_DISC_ADVENTURE_AWAITS));
             }
 
             if (SHIPWRECK_SUPPLY_ID.equals(id)) {
@@ -173,6 +203,7 @@ public class ModLootTableModifiers {
             if (ABANDONED_MINESHAFT_ID.equals(id)) {
                 tableBuilder.pool(createLootPoolBuilderWithCount(0.17f, ModItems.CORN, 1, 5).build());
                 tableBuilder.pool(createLootPoolBuilderWithCount(0.20f, ModItems.CORN_SEEDS, 1, 8).build());
+                tableBuilder.pool(createLootPoolBuilder(0.06f, ModItems.MUSIC_DISC_MINESHAFT).build());
             }
 
             if (SHIPWRECK_TREASURE_ID.equals(id)) {

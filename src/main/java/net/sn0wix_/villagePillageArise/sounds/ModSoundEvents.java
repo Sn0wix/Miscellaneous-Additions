@@ -31,6 +31,10 @@ public class ModSoundEvents {
     public static SoundEvent IRON_OATH = registerSoundEvent("iron_oath");
     public static SoundEvent LAST_HALLWAY = registerSoundEvent("last_hallway");
     public static SoundEvent SAKURA_VALLEY = registerSoundEvent("sakura_valley");
+    public static SoundEvent MINESHAFT = registerSoundEvent("mineshaft");
+    public static SoundEvent WHISPERING_WOODS = registerSoundEvent("whispering_woods");
+    public static SoundEvent ADVENTURE_AWAITS = registerSoundEvent("adventure_awaits");
+    public static SoundEvent FINAL_STAGE = registerSoundEvent("final_stage");
 
     public static final BlockSoundGroup GOLDEN_CHAIN_SOUNDS_GROUP = new BlockSoundGroup(1.0f, 1.4f, SoundEvents.BLOCK_CHAIN_BREAK, SoundEvents.BLOCK_CHAIN_STEP, SoundEvents.BLOCK_CHAIN_PLACE, SoundEvents.BLOCK_CHAIN_HIT, SoundEvents.BLOCK_CHAIN_FALL);
 

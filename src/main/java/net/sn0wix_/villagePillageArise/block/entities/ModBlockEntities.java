@@ -13,7 +13,6 @@ public class ModBlockEntities {
             FabricBlockEntityTypeBuilder.create(ModSignBlockEntity::new, ModBlocks.AZALEA_SIGN, ModBlocks.AZALEA_WALL_SIGN).build());;
     public static BlockEntityType<ModHangingSignBlockEntity> MOD_HANGING_SIGN_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(VillagePillageAriseMain.MOD_ID, "hanging_sign"),
             FabricBlockEntityTypeBuilder.create(ModHangingSignBlockEntity::new, ModBlocks.AZALEA_HANGING_SIGN, ModBlocks.AZALEA_WALL_HANGING_SIGN).build());
-
     public static void registerALlBlockEntities() {
         VillagePillageAriseMain.LOGGER.info("Registering Block Entities for " + VillagePillageAriseMain.MOD_ID);
     }

@@ -13,6 +13,9 @@ import net.minecraft.client.render.entity.model.BoatEntityModel;
 import net.minecraft.client.render.entity.model.ChestBoatEntityModel;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.block.entities.ModBlockEntities;
+import net.sn0wix_.villagePillageArise.block.entities.ModSignBlockEntity;
+import net.sn0wix_.villagePillageArise.block.entities.renderers.ModHangingSignBlockEntityRenderer;
+import net.sn0wix_.villagePillageArise.block.entities.renderers.ModSignBlockEntityRenderer;
 import net.sn0wix_.villagePillageArise.entities.ModEntities;
 import net.sn0wix_.villagePillageArise.entities.boat.client.ModBoatEntityRenderer;
 import net.sn0wix_.villagePillageArise.entities.boat.client.ModChestBoatEntityRenderer;
@@ -51,9 +54,11 @@ public class ClientVillagePillageAriseMain implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, RenderLayer.getCutout());
 
+        EntityModelLayerRegistry.registerModelLayer(ModSignBlockEntityRenderer.LAYER_LOCATION, ModSignBlockEntityRenderer::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(ModHangingSignBlockEntityRenderer.LAYER_LOCATION, ModHangingSignBlockEntityRenderer::getTexturedModelData);
 
-        BlockEntityRendererFactories.register(ModBlockEntities.MOD_SIGN_BLOCK_ENTITY, SignBlockEntityRenderer::new);
-        BlockEntityRendererFactories.register(ModBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, HangingSignBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.MOD_SIGN_BLOCK_ENTITY, ModSignBlockEntityRenderer::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY, ModHangingSignBlockEntityRenderer::new);
 
 
         EntityModelLayerRegistry.registerModelLayer(ModBoatEntityRenderer.LAYER_LOCATION, BoatEntityModel::getTexturedModelData);

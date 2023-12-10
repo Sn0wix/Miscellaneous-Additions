@@ -2,7 +2,6 @@ package net.sn0wix_.villagePillageArise.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -38,7 +37,12 @@ public class ModItems {
             new AliasedBlockItem(ModBlocks.CORN_BLOCK, new FabricItemSettings().food(ModFoodComponents.CORN_SEEDS)), ItemGroups.NATURAL, ItemGroups.FOOD_AND_DRINK);
 
     public static final Item CORN_CHOWDER = registerItem("corn_chowder",
-            new Item(new FabricItemSettings().food(ModFoodComponents.CORN_CHOWDER).maxCount(1)), ItemGroups.FOOD_AND_DRINK);
+            new StewItem(new FabricItemSettings().food(ModFoodComponents.CORN_CHOWDER).maxCount(1)), ItemGroups.FOOD_AND_DRINK);
+
+    public static final Item CRUSHED_DIAMOND = registerItem("crushed_diamond",
+            new Item(new FabricItemSettings()), ItemGroups.INGREDIENTS, ItemGroups.NATURAL);
+
+
 
 
     public static final Item WOODEN_BATTLE_AXE = registerItem("wooden_battle_axe",
@@ -210,6 +214,7 @@ public class ModItems {
 
     public static final Item MUSIC_DISC_FINAL_STAGE = registerItem("music_disc_final_stage",
             new MusicDiscItem(4, ModSoundEvents.FINAL_STAGE, new FabricItemSettings().maxCount(1), 120), ItemGroups.TOOLS);
+
 
 
 

@@ -9,7 +9,7 @@ import net.sn0wix_.villagePillageArise.block.entities.ModSignBlockEntity;
 
 public class ModWallSignBlock extends WallSignBlock {
     public ModWallSignBlock(Settings settings, WoodType woodType) {
-        super(settings, woodType);
+        super(woodType, settings);
     }
 
     @Override

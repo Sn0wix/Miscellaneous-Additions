@@ -58,6 +58,7 @@ public class ModLootTableModifiers {
     private static final Identifier DEEPSLATE_LAPIS_ORE_ID = new Identifier("minecraft", "blocks/deepslate_lapis_ore");
     private static final Identifier REDSTONE_ORE_ID = new Identifier("minecraft", "blocks/redstone_ore");
     private static final Identifier DEEPSLATE_REDSTONE_ORE_ID = new Identifier("minecraft", "blocks/deepslate_redstone_ore");
+    private static final Identifier DEEPSLATE_DIAMOND_ORE_ID = new Identifier("minecraft", "blocks/deepslate_diamond_ore");
 
 
     private static final Identifier TRAILS_RUINS_ID = new Identifier("minecraft", "archaeology/trail_ruins_rare");
@@ -279,17 +280,17 @@ public class ModLootTableModifiers {
             }
         });
 
-        /*LootTableEvents.REPLACE.register((resourceManager, lootManager, id, original, source) -> {
-            if (TRAILS_RUINS_ID.equals(id)) {
+        LootTableEvents.REPLACE.register((resourceManager, lootManager, id, original, source) -> {
+            /*if (TRAILS_RUINS_ID.equals(id)) {
                 List<LootPoolEntry> entries = new ArrayList<>(Arrays.asList(original.pools[0].entries));
                 entries.add(ItemEntry.builder(ModItems.MUSIC_DISC_FADING_MEMORIES).build());
 
                 LootPool.Builder pool = LootPool.builder().with(entries);
                 return LootTable.builder().pool(pool).build();
-            }
+            }*/
 
             return null;
-        });*/
+        });
     }
 
     private static LootPool.Builder createLootPoolBuilder(float chance, Item item) {

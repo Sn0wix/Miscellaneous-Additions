@@ -9,7 +9,8 @@
     "RedstoneOreMixin"
   ],
   "client": [
-    "ParticleUtilMixin"
+    "ParticleUtilMixin",
+    "SignEditScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

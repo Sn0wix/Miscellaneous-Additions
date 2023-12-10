@@ -64,6 +64,7 @@ public class ModModelGenerator extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CORN, Models.GENERATED);
         itemModelGenerator.register(ModItems.POPCORN, Models.GENERATED);
         itemModelGenerator.register(ModItems.CORN_CHOWDER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CRUSHED_DIAMOND, Models.GENERATED);
 
 
         itemModelGenerator.register(ModItems.MUSIC_DISC_REVENGE, Models.GENERATED);

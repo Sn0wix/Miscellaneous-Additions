@@ -9,11 +9,9 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.item.ModItems;
-import net.sn0wix_.villagePillageArise.util.tags.ModBlockTags;
 import net.sn0wix_.villagePillageArise.util.tags.ModItemTags;
 
 import java.util.Collections;
-import java.util.function.Consumer;
 
 public class ModRecipeGenerator extends FabricRecipeProvider {
     public ModRecipeGenerator(FabricDataOutput output) {
@@ -54,6 +52,28 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         offerPlanksRecipe(exporter, ModBlocks.AZALEA_PLANKS, ModItemTags.AZALEA_LOGS, 4);
         offerBoatRecipe(exporter, ModItems.AZALEA_BOAT, ModBlocks.AZALEA_PLANKS);
         offerChestBoatRecipe(exporter, ModItems.AZALEA_CHEST_BOAT, ModBlocks.AZALEA_PLANKS);
+
+
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GUNPOWDER_BARREL)
+                .input(Items.BARREL)
+                .input(Items.GUNPOWDER, 8)
+                .criterion(FabricRecipeProvider.hasItem(Items.BARREL), FabricRecipeProvider.conditionsFromItem(Items.BARREL))
+                .criterion(FabricRecipeProvider.hasItem(Items.GUNPOWDER), FabricRecipeProvider.conditionsFromItem(Items.GUNPOWDER))
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.GUNPOWDER_BARREL), FabricRecipeProvider.conditionsFromItem(ModBlocks.GUNPOWDER_BARREL))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.GUNPOWDER_BARREL)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.DIAMOND)
+                .input(ModItems.CRUSHED_DIAMOND, 4)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.CRUSHED_DIAMOND), FabricRecipeProvider.conditionsFromItem(ModItems.CRUSHED_DIAMOND))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(Items.DIAMOND)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CRUSHED_DIAMOND, 4)
+                .input(Items.DIAMOND)
+                .criterion(FabricRecipeProvider.hasItem(Items.DIAMOND), FabricRecipeProvider.conditionsFromItem(Items.DIAMOND))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModItems.CRUSHED_DIAMOND)));
+
+
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AZALEA_WOOD, 3)
                 .pattern("ll")

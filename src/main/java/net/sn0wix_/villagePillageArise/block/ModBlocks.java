@@ -56,15 +56,19 @@ public class ModBlocks {
 
 
     public static final Block GOLDEN_CHAIN_BLOCK = registerBlock("golden_chain",
-            new GoldenChainBlock(FabricBlockSettings.copyOf(Blocks.CHAIN).requiresTool().nonOpaque()
+            new ChainBlock(FabricBlockSettings.copyOf(Blocks.CHAIN).requiresTool().nonOpaque()
                     .strength(4.8F, 5.8F).sounds(ModSoundEvents.GOLDEN_CHAIN_SOUNDS_GROUP)), ItemGroups.BUILDING_BLOCKS);
 
     public static final CornBlock CORN_BLOCK = (CornBlock) registerBlockWithoutBlockItem("corn_block",
             new CornBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque().noCollision().breakInstantly()));
 
+//Functional
+
+    public static final Block GUNPOWDER_BARREL = registerBlock("gunpowder_barrel",
+            new GunpowderBarrelBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD).burnable().ticksRandomly()), ItemGroups.FUNCTIONAL, ItemGroups.REDSTONE);
 
 
-//Azalea wood set
+    //Azalea wood set
     public static final Block AZALEA_LOG = registerBlock("azalea_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), ItemGroups.BUILDING_BLOCKS);
 
@@ -91,21 +95,20 @@ public class ModBlocks {
             new FenceBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE))), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_FENCE_GATE = registerBlock("azalea_fence_gate",
-            new FenceGateBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE)), ModWoodTypes.AZALEA), ItemGroups.BUILDING_BLOCKS);
+            new FenceGateBlock(ModWoodTypes.AZALEA, FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE))), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_BUTTON = registerBlock("azalea_button",
-            new ButtonBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON)), ModBlockSetTypes.AZALEA, 30, true),
+            new ButtonBlock(ModBlockSetTypes.AZALEA, 30, FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON))),
             ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_PRESSURE_PLATE = registerBlock("azalea_pressure_plate",
-            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING ,FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE)),
-                    ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS);
+            new PressurePlateBlock(ModBlockSetTypes.AZALEA, FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE))), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_DOOR = registerBlock("azalea_door",
-            new DoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_DOOR)), ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS);
+            new DoorBlock(ModBlockSetTypes.AZALEA, FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_DOOR))), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_TRAPDOOR = registerBlock("azalea_trapdoor",
-            new TrapdoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR)), ModBlockSetTypes.AZALEA), ItemGroups.BUILDING_BLOCKS);
+            new TrapdoorBlock(ModBlockSetTypes.AZALEA, FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR))), ItemGroups.BUILDING_BLOCKS);
 
     public static final Block AZALEA_SIGN = registerBlockWithoutBlockItem("azalea_sign",
             new ModSignBlock(FabricBlockSettings.copyOf(Blocks.OAK_SIGN), ModWoodTypes.AZALEA));
@@ -120,23 +123,22 @@ public class ModBlocks {
             new ModWallHangingSignBlock(FabricBlockSettings.copyOf(Blocks.OAK_WALL_HANGING_SIGN).dropsLike(ModBlocks.AZALEA_HANGING_SIGN), ModWoodTypes.AZALEA));
 
 
-
-//Copper
+    //Copper
     public static final Block COPPER_DOOR = registerBlock("copper_door",
-            new CopperDoorBlock(Oxidizable.OxidationLevel.UNAFFECTED , FabricBlockSettings.create().mapColor(Blocks.COPPER_BLOCK.getDefaultMapColor())
+            new CopperDoorBlock(Oxidizable.OxidationLevel.UNAFFECTED, FabricBlockSettings.create().mapColor(Blocks.COPPER_BLOCK.getDefaultMapColor())
                     .instrument(Instrument.BASS).strength(4.0f).nonOpaque().pistonBehavior(PistonBehavior.DESTROY).strength(3.0f).requiresTool(), ModBlockSetTypes.COPPER),
-    ItemGroups.BUILDING_BLOCKS, ItemGroups.REDSTONE);
+            ItemGroups.BUILDING_BLOCKS, ItemGroups.REDSTONE);
 
     public static final Block EXPOSED_COPPER_DOOR = registerBlock("exposed_copper_door",
-            new CopperDoorBlock(Oxidizable.OxidationLevel.EXPOSED ,FabricBlockSettings.copyOf(ModBlocks.COPPER_DOOR), ModBlockSetTypes.COPPER), ItemGroups.BUILDING_BLOCKS,
+            new CopperDoorBlock(Oxidizable.OxidationLevel.EXPOSED, FabricBlockSettings.copyOf(ModBlocks.COPPER_DOOR), ModBlockSetTypes.COPPER), ItemGroups.BUILDING_BLOCKS,
             ItemGroups.REDSTONE);
 
     public static final Block WEATHERED_COPPER_DOOR = registerBlock("weathered_copper_door",
-            new CopperDoorBlock(Oxidizable.OxidationLevel.WEATHERED ,FabricBlockSettings.copyOf(ModBlocks.COPPER_DOOR), ModBlockSetTypes.COPPER), ItemGroups.BUILDING_BLOCKS,
+            new CopperDoorBlock(Oxidizable.OxidationLevel.WEATHERED, FabricBlockSettings.copyOf(ModBlocks.COPPER_DOOR), ModBlockSetTypes.COPPER), ItemGroups.BUILDING_BLOCKS,
             ItemGroups.REDSTONE);
 
     public static final Block OXIDIZED_COPPER_DOOR = registerBlock("oxidized_copper_door",
-            new CopperDoorBlock(Oxidizable.OxidationLevel.OXIDIZED ,FabricBlockSettings.copyOf(ModBlocks.COPPER_DOOR), ModBlockSetTypes.COPPER), ItemGroups.BUILDING_BLOCKS,
+            new CopperDoorBlock(Oxidizable.OxidationLevel.OXIDIZED, FabricBlockSettings.copyOf(ModBlocks.COPPER_DOOR), ModBlockSetTypes.COPPER), ItemGroups.BUILDING_BLOCKS,
             ItemGroups.REDSTONE);
 
     public static final Block WAXED_COPPER_DOOR = registerBlock("waxed_copper_door",
@@ -154,7 +156,6 @@ public class ModBlocks {
     public static final Block WAXED_OXIDIZED_COPPER_DOOR = registerBlock("waxed_oxidized_copper_door",
             new CopperDoorBlock(Oxidizable.OxidationLevel.OXIDIZED, FabricBlockSettings.copyOf(COPPER_DOOR), ModBlockSetTypes.COPPER), ItemGroups.BUILDING_BLOCKS,
             ItemGroups.REDSTONE);
-
 
 
     public static final Block COPPER_TRAPDOOR = registerBlock("copper_trapdoor",
@@ -188,7 +189,6 @@ public class ModBlocks {
     public static final Block WAXED_OXIDIZED_COPPER_TRAPDOOR = registerBlock("waxed_oxidized_copper_trapdoor",
             new CopperTrapdoorBlock(Oxidizable.OxidationLevel.OXIDIZED, FabricBlockSettings.copyOf(COPPER_TRAPDOOR), ModBlockSetTypes.COPPER), ItemGroups.BUILDING_BLOCKS,
             ItemGroups.REDSTONE);
-
 
 
     @SafeVarargs

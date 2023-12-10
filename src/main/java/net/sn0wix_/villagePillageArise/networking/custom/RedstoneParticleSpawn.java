@@ -29,7 +29,7 @@ public class RedstoneParticleSpawn {
                 if (state != null) {
                     Box box = state.getCollisionShape(world.getChunkAsView(world.getChunk(pos).getPos().x, world.getChunk(pos).getPos().z), pos).getBoundingBox();
 
-                    for (Direction direction: Direction.values()) {
+                    for (Direction direction : Direction.values()) {
                         world.addParticle(DustParticleEffect.DEFAULT, (double) pos.getX() + generateRandomFloat(box.getMin(Direction.Axis.X), box.getMax(Direction.Axis.X), random), (double) pos.getY() + generateRandomFloat(box.getMin(Direction.Axis.Y), box.getMax(Direction.Axis.Y), random), (double) pos.getZ() + generateRandomFloat(box.getMin(Direction.Axis.Z), box.getMax(Direction.Axis.Z), random), 0.0, 0.0, 0.0);
                     }
 

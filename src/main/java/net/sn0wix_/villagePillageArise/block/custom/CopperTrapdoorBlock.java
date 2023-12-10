@@ -18,7 +18,7 @@ public class CopperTrapdoorBlock extends TrapdoorBlock implements Oxidizable {
     private final Oxidizable.OxidationLevel oxidationLevel;
 
     public CopperTrapdoorBlock(Oxidizable.OxidationLevel oxidationLevel, Settings settings, BlockSetType blockSetType) {
-        super(settings, blockSetType);
+        super(blockSetType, settings);
         this.oxidationLevel = oxidationLevel;
     }
 

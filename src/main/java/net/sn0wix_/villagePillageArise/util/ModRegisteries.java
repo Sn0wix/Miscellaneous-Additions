@@ -73,7 +73,7 @@ public class ModRegisteries {
         FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.AZALEA_FENCE_GATE, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.AZALEA_FENCE, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.AZALEA_STAIRS, 5, 20);
-        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.GUNPOWDER_BARREL, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.GUNPOWDER_BARREL, 10, 20);
     }
 
     private static void registerCompostable() {

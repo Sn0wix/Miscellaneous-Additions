@@ -40,8 +40,7 @@ public class ModItems {
             new StewItem(new FabricItemSettings().food(ModFoodComponents.CORN_CHOWDER).maxCount(1)), ItemGroups.FOOD_AND_DRINK);
 
     public static final Item CRUSHED_DIAMOND = registerItem("crushed_diamond",
-            new Item(new FabricItemSettings()), ItemGroups.INGREDIENTS, ItemGroups.NATURAL);
-
+            new Item(new FabricItemSettings()), ItemGroups.INGREDIENTS);
 
 
 

@@ -1,16 +1,19 @@
 package net.sn0wix_.villagePillageArise.util;
 
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.minecraft.block.Blocks;
+import net.minecraft.data.server.loottable.BlockLootTableGenerator;
+import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.*;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
-import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.function.*;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.entity.EntityPredicate;
@@ -18,12 +21,9 @@ import net.minecraft.predicate.entity.LocationPredicate;
 import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.BiomeKeys;
+import net.sn0wix_.villagePillageArise.VillagePillageAriseMain;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 import net.sn0wix_.villagePillageArise.item.ModItems;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ModLootTableModifiers {
     private static final Identifier CREEPER_ID = new Identifier("minecraft", "entities/creeper");
@@ -289,8 +289,20 @@ public class ModLootTableModifiers {
                 return LootTable.builder().pool(pool).build();
             }*/
 
+            if (DEEPSLATE_DIAMOND_ORE_ID.equals(id) && VillagePillageAriseMain.CONFIG.dropCrushedDiamonds) {
+                LootTable.Builder poolBuilder = BlockLootTableGenerator.dropsWithSilkTouch(Blocks.DEEPSLATE_DIAMOND_ORE, applyExplosionDecay(Blocks.DEEPSLATE_DIAMOND_ORE, ItemEntry.builder(ModItems.CRUSHED_DIAMOND).apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE)))).pool(LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1))
+                        .conditionally(RandomChanceLootCondition.builder(0.3f))
+                        .with(ItemEntry.builder(ModItems.CRUSHED_DIAMOND)));
+                return poolBuilder.build();
+            }
+
             return null;
         });
+    }
+
+    public static <T extends LootFunctionConsumingBuilder<T>> T applyExplosionDecay(ItemConvertible drop, LootFunctionConsumingBuilder<T> builder) {
+        return builder.apply(ExplosionDecayLootFunction.builder());
     }
 
     private static LootPool.Builder createLootPoolBuilder(float chance, Item item) {

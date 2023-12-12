@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:lapis_lazuli_helmet"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

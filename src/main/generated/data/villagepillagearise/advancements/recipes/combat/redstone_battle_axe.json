@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:redstone_battle_axe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

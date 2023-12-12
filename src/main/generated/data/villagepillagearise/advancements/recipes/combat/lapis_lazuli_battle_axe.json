@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:lapis_lazuli_battle_axe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

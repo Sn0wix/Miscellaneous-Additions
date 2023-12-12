@@ -93,6 +93,9 @@ public class ModModelGenerator extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MUSIC_DISC_WHISPERING_WOODS, Models.GENERATED);
         itemModelGenerator.register(ModItems.MUSIC_DISC_ADVENTURE_AWAITS, Models.GENERATED);
         itemModelGenerator.register(ModItems.MUSIC_DISC_FINAL_STAGE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_PUMPKIN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_HAUNTED_MANSION, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MUSIC_DISC_GOLD_RUSH, Models.GENERATED);
 
 
         itemModelGenerator.registerArmor(ModItems.GOLDEN_CHAINMAIL_HELMET);

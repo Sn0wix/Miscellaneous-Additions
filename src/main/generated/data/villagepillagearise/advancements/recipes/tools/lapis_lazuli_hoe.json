@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:lapis_lazuli_hoe"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

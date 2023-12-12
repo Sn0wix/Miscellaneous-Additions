@@ -19,6 +19,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
+import net.sn0wix_.villagePillageArise.VillagePillageAriseMain;
 import net.sn0wix_.villagePillageArise.block.ModBlocks;
 
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -26,6 +27,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class GunpowderBarrelBlock extends Block {
     public static final BooleanProperty WAS_BROKEN = BooleanProperty.of("was_broken");
+
     public GunpowderBarrelBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.getDefaultState().with(WAS_BROKEN, false));
@@ -33,7 +35,7 @@ public class GunpowderBarrelBlock extends Block {
 
     @Override
     public void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-        if (pos.up().equals(sourcePos) && world.getBlockState(sourcePos).isIn(BlockTags.FIRE) && !state.get(WAS_BROKEN)) {
+        if (pos.up().equals(sourcePos) && world.getBlockState(sourcePos).isIn(BlockTags.FIRE) && !state.get(WAS_BROKEN) && !world.isClient) {
             createExplosion(pos, world);
         }
 
@@ -43,8 +45,7 @@ public class GunpowderBarrelBlock extends Block {
     @Override
     public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!world.isClient) {
-            //world.setBlockState(pos, state.with(WAS_BROKEN, true), Block.FORCE_STATE);
-            return state.with(WAS_BROKEN, true);
+            world.setBlockState(pos, state.withIfExists(WAS_BROKEN, true));
         }
 
         return super.onBreak(world, pos, state, player);
@@ -64,6 +65,7 @@ public class GunpowderBarrelBlock extends Block {
         if (checkFire(pos, world) && !world.isClient && !moved && !state.get(WAS_BROKEN) && !newState.isOf(ModBlocks.GUNPOWDER_BARREL)) {
             createExplosion(pos, world);
         }
+
 
         super.onStateReplaced(state, world, pos, newState, moved);
     }

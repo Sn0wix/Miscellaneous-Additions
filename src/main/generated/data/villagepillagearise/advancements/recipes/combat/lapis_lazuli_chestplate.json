@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:lapis_lazuli_chestplate"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

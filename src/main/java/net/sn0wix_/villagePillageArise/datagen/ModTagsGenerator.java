@@ -176,6 +176,7 @@ public class ModTagsGenerator {
                     .add(ModItems.MUSIC_DISC_MASHUP)
                     .add(ModItems.MUSIC_DISC_NO_ESCAPE)
                     .add(ModItems.MUSIC_DISC_SOULESS)
+                    .add(ModItems.MUSIC_DISC_PUMPKIN)
                     .add(ModItems.MUSIC_DISC_FADING_MEMORIES)
                     .add(ModItems.MUSIC_DISC_HORIZONS)
                     .add(ModItems.MUSIC_DISC_IRON_OATH)
@@ -184,7 +185,9 @@ public class ModTagsGenerator {
                     .add(ModItems.MUSIC_DISC_MINESHAFT)
                     .add(ModItems.MUSIC_DISC_WHISPERING_WOODS)
                     .add(ModItems.MUSIC_DISC_ADVENTURE_AWAITS)
-                    .add(ModItems.MUSIC_DISC_FINAL_STAGE);
+                    .add(ModItems.MUSIC_DISC_FINAL_STAGE)
+                    .add(ModItems.MUSIC_DISC_HAUNTED_MANSION)
+                    .add(ModItems.MUSIC_DISC_GOLD_RUSH);
         }
 
         private void addAzaleaWoodSet() {

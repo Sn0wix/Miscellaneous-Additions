@@ -56,6 +56,5 @@
     "recipes": [
       "minecraft:gunpowder_barrel"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

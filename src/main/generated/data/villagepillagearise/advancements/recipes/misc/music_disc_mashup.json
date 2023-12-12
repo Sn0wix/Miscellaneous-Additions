@@ -82,6 +82,5 @@
     "recipes": [
       "minecraft:music_disc_mashup"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

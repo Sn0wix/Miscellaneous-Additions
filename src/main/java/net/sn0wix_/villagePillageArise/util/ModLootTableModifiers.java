@@ -34,6 +34,8 @@ public class ModLootTableModifiers {
     private static final Identifier WITHER_ID = new Identifier("minecraft", "entities/wither");
     private static final Identifier WARDEN_ID = new Identifier("minecraft", "entities/warden");
     private static final Identifier IRON_GOLEM_ID = new Identifier("minecraft", "entities/iron_golem");
+    private static final Identifier WITCH_ID = new Identifier("minecraft", "entities/witch");
+
     private static final Identifier ANCIENT_CITY_ID = new Identifier("minecraft", "chests/ancient_city");
     private static final Identifier BASTION_TREASURE_ID = new Identifier("minecraft", "chests/bastion_treasure");
     private static final Identifier BASTION_OTHER_ID = new Identifier("minecraft", "chests/bastion_other");
@@ -120,6 +122,7 @@ public class ModLootTableModifiers {
 
             if (BASTION_TREASURE_ID.equals(id)) {
                 tableBuilder.pool(createLootPoolBuilder(0.35f, ModItems.MUSIC_DISC_GILDED).build());
+                tableBuilder.pool(createLootPoolBuilder(0.2f, ModItems.MUSIC_DISC_GOLD_RUSH).build());
             }
 
             if (BASTION_OTHER_ID.equals(id)) {

@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:lapis_lazuli_leggings"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

@@ -35,6 +35,9 @@ public class ModSoundEvents {
     public static SoundEvent WHISPERING_WOODS = registerSoundEvent("whispering_woods");
     public static SoundEvent ADVENTURE_AWAITS = registerSoundEvent("adventure_awaits");
     public static SoundEvent FINAL_STAGE = registerSoundEvent("final_stage");
+    public static SoundEvent PUMPKIN = registerSoundEvent("pumpkin");
+    public static SoundEvent HAUNTED_MANSION = registerSoundEvent("hunted_mansion");
+    public static SoundEvent GOLD_RUSH = registerSoundEvent("gold_rush");
 
     public static final BlockSoundGroup GOLDEN_CHAIN_SOUNDS_GROUP = new BlockSoundGroup(1.0f, 1.4f, SoundEvents.BLOCK_CHAIN_BREAK, SoundEvents.BLOCK_CHAIN_STEP, SoundEvents.BLOCK_CHAIN_PLACE, SoundEvents.BLOCK_CHAIN_HIT, SoundEvents.BLOCK_CHAIN_FALL);
 

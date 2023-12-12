@@ -190,9 +190,12 @@ public class ModItems {
             new MusicDiscItem(13, ModSoundEvents.SOULESS, new FabricItemSettings().maxCount(1), 140), ItemGroups.TOOLS);
     public static final Item MUSIC_DISC_MINESHAFT = registerItem("music_disc_mineshaft",
             new MusicDiscItem(7, ModSoundEvents.MINESHAFT, new FabricItemSettings().maxCount(1), 123), ItemGroups.TOOLS);
+    public static final Item MUSIC_DISC_PUMPKIN = registerItem("music_disc_pumpkin",
+            new MusicDiscItem(3, ModSoundEvents.PUMPKIN, new FabricItemSettings().maxCount(1), 93), ItemGroups.TOOLS);
+
+
     public static final Item MUSIC_DISC_FADING_MEMORIES = registerItem("music_disc_fading_memories",
             new MusicDiscItem(12, ModSoundEvents.FADING_MEMORIES, new FabricItemSettings().maxCount(1), 155), ItemGroups.TOOLS);
-
     public static final Item MUSIC_DISC_HORIZONS = registerItem("music_disc_horizons",
             new MusicDiscItem(11, ModSoundEvents.HORIZONS, new FabricItemSettings().maxCount(1), 121), ItemGroups.TOOLS);
 
@@ -213,6 +216,11 @@ public class ModItems {
 
     public static final Item MUSIC_DISC_FINAL_STAGE = registerItem("music_disc_final_stage",
             new MusicDiscItem(4, ModSoundEvents.FINAL_STAGE, new FabricItemSettings().maxCount(1), 120), ItemGroups.TOOLS);
+    public static final Item MUSIC_DISC_HAUNTED_MANSION = registerItem("music_disc_hunted_mansion",
+            new MusicDiscItem(2, ModSoundEvents.HAUNTED_MANSION, new FabricItemSettings().maxCount(1), 148), ItemGroups.TOOLS);
+
+    public static final Item MUSIC_DISC_GOLD_RUSH = registerItem("music_disc_gold_rush",
+            new MusicDiscItem(1, ModSoundEvents.GOLD_RUSH, new FabricItemSettings().maxCount(1), 166), ItemGroups.TOOLS);
 
 
 

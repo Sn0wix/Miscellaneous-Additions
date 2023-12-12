@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:redstone_leggings"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

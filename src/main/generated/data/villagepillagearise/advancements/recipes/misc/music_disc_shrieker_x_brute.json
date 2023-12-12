@@ -43,6 +43,5 @@
     "recipes": [
       "minecraft:music_disc_shrieker_x_brute"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

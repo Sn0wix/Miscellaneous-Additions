@@ -206,5 +206,29 @@
         "stream": true
       }
     ]
+  },
+  "pumpkin": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:pumpkin",
+        "stream": true
+      }
+    ]
+  },
+  "hunted_mansion": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:hunted_mansion",
+        "stream": true
+      }
+    ]
+  },
+  "gold_rush": {
+    "sounds": [
+      {
+        "name": "villagepillagearise:gold_rush",
+        "stream": true
+      }
+    ]
   }
 }

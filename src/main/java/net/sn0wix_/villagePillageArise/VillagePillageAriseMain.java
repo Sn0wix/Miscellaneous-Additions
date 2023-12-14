@@ -6,6 +6,7 @@ import net.sn0wix_.villagePillageArise.block.entities.ModBlockEntities;
 import net.sn0wix_.villagePillageArise.config.Config;
 import net.sn0wix_.villagePillageArise.config.ConfigFile;
 import net.sn0wix_.villagePillageArise.entities.ModEntities;
+import net.sn0wix_.villagePillageArise.item.ModItemGroupSorter;
 import net.sn0wix_.villagePillageArise.item.ModItems;
 import net.sn0wix_.villagePillageArise.networking.ModPackets;
 import net.sn0wix_.villagePillageArise.painting.ModPainting;
@@ -21,7 +22,6 @@ public class VillagePillageAriseMain implements ModInitializer {
 
 
     //redstone equipment - trim texture inventory
-    //boat items - dispenser not working
     //sus sand not working
 
     @Override
@@ -36,6 +36,7 @@ public class VillagePillageAriseMain implements ModInitializer {
         ModItems.registerModItems();
         ModRegisteries.registerModStuffs();
         ModBlocks.registerModBlocks();
+        ModItemGroupSorter.sortItemsToGroups();
         ModLootTableModifiers.modifyLootTables();
         ModPainting.registerPaintings();
         ModBlockEntities.registerALlBlockEntities();

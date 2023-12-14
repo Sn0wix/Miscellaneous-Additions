@@ -114,7 +114,7 @@ public class ModModelGenerator extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.WOODEN_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.STONE_BATTLE_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GOLD_BATTLE_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.GOLDEN_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.IRON_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.DIAMOND_BATTLE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.NETHERITE_BATTLE_AXE, Models.HANDHELD);

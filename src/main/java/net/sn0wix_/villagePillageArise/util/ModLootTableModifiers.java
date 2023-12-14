@@ -98,6 +98,10 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(createLootPoolBuilder(0.05f, ModItems.MUSIC_DISC_HUSK).build());
             }
 
+            if (WITCH_ID.equals(id)) {
+                tableBuilder.pool(createLootPoolBuilder(0.09f, ModItems.MUSIC_DISC_PUMPKIN).build());
+            }
+
             if (WITHER_ID.equals(id)) {
                 tableBuilder.pool(createLootPoolBuilder(1f, ModItems.MUSIC_DISC_THE_WITHER).build());
             }
@@ -202,6 +206,7 @@ public class ModLootTableModifiers {
                 tableBuilder.pool(createLootPoolBuilderWithCount(0.15f, ModItems.CORN, 1, 5).build());
                 tableBuilder.pool(createLootPoolBuilderWithCount(0.1f, ModItems.CORN_SEEDS, 1, 7).build());
                 tableBuilder.pool(createLootPoolBuilder(0.08f, ModItems.MUSIC_DISC_RAIDERS).build());
+                tableBuilder.pool(createLootPoolBuilder(0.08f, ModItems.MUSIC_DISC_HAUNTED_MANSION).build());
             }
 
             if (ABANDONED_MINESHAFT_ID.equals(id)) {

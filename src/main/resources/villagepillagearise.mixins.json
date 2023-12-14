@@ -9,8 +9,9 @@
     "RedstoneOreMixin"
   ],
   "client": [
+    "EntityModelLoaderMixin",
     "ParticleUtilMixin",
-    "SignEditScreenMixin"
+    "TexturedRenderLayersMixin"
   ],
   "injectors": {
     "defaultRequire": 1

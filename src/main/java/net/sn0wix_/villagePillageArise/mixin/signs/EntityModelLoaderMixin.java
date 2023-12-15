@@ -1,4 +1,4 @@
-package net.sn0wix_.villagePillageArise.mixin;
+package net.sn0wix_.villagePillageArise.mixin.signs;
 
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.model.TexturedModelData;

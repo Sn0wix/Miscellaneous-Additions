@@ -60,7 +60,7 @@ public class ModBlocks {
 //Functional
 
     public static final Block GUNPOWDER_BARREL = registerBlock("gunpowder_barrel",
-            new GunpowderBarrelBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD).burnable().ticksRandomly()));
+            new GunpowderBarrelBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD).burnable().ticksRandomly().nonOpaque()));
 
 
     //Azalea wood set

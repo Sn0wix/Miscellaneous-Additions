@@ -133,6 +133,7 @@ public class ModTagsGenerator {
             addAzaleaWoodSet();
             addRedstoneEquipment();
             addDoor();
+            addBattleAxes();
         }
 
         private void addDoor() {
@@ -234,6 +235,26 @@ public class ModTagsGenerator {
             getOrCreateTagBuilder(ItemTags.AXES).add(ModItems.REDSTONE_AXE).add(ModItems.LAPIS_LAZULI_AXE);
             getOrCreateTagBuilder(ItemTags.SHOVELS).add(ModItems.REDSTONE_SHOVEL).add(ModItems.LAPIS_LAZULI_SHOVEL);
             getOrCreateTagBuilder(ItemTags.HOES).add(ModItems.REDSTONE_HOE).add(ModItems.LAPIS_LAZULI_HOE);
+        }
+
+        private void addBattleAxes() {
+            getOrCreateTagBuilder(ItemTags.AXES).add(ModItems.WOODEN_BATTLE_AXE)
+                    .add(ModItems.STONE_BATTLE_AXE)
+                    .add(ModItems.IRON_BATTLE_AXE)
+                    .add(ModItems.GOLDEN_BATTLE_AXE)
+                    .add(ModItems.DIAMOND_BATTLE_AXE)
+                    .add(ModItems.NETHERITE_BATTLE_AXE)
+                    .add(ModItems.LAPIS_LAZULI_BATTLE_AXE)
+                    .add(ModItems.REDSTONE_BATTLE_AXE);
+
+            getOrCreateTagBuilder(ModItemTags.BATTLE_AXES).add(ModItems.WOODEN_BATTLE_AXE)
+                    .add(ModItems.STONE_BATTLE_AXE)
+                    .add(ModItems.IRON_BATTLE_AXE)
+                    .add(ModItems.GOLDEN_BATTLE_AXE)
+                    .add(ModItems.DIAMOND_BATTLE_AXE)
+                    .add(ModItems.NETHERITE_BATTLE_AXE)
+                    .add(ModItems.LAPIS_LAZULI_BATTLE_AXE)
+                    .add(ModItems.REDSTONE_BATTLE_AXE);
         }
     }
 }

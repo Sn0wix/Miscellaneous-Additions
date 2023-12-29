@@ -6,15 +6,15 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
-import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class ModBattleAxeItem extends MiningToolItem implements Vanishable {
+public class ModBattleAxeItem extends AxeItem implements Vanishable {
     public ModBattleAxeItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
-        super(attackDamage, attackSpeed, material, BlockTags.AXE_MINEABLE, settings);
+        super(material, attackDamage, attackSpeed, settings);
     }
 
     @Override
@@ -37,6 +37,11 @@ public class ModBattleAxeItem extends MiningToolItem implements Vanishable {
 
 
         return true;
+    }
+
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        return ActionResult.PASS;
     }
 
     @Override

@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "villagepillagearise:redstone_axe",
-    "villagepillagearise:lapis_lazuli_axe",
     "villagepillagearise:wooden_battle_axe",
     "villagepillagearise:stone_battle_axe",
     "villagepillagearise:iron_battle_axe",

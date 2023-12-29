@@ -1,4 +1,4 @@
-// 1.20.4	2023-12-14T18:56:03.0071901	Village & Pillage Arise/Model Definitions
+// 1.20.4	2023-12-29T12:44:29.2805121	Village & Pillage Arise/Model Definitions
 83438730e2221557cb40918f0f7f13c86cc17c70 assets\villagepillagearise\models\item\golden_chainmail_chestplate_diamond_trim.json
 2b57e10b56f5c99d2a8760dc769ed8c1e9f0ff40 assets\villagepillagearise\blockstates\stripped_azalea_wood.json
 3bf7504d6bfcd569f5d40b0c29aa04c6426bda60 assets\villagepillagearise\models\item\popcorn.json
@@ -240,8 +240,8 @@ acce9aa4c99f105071c3a3abed36254a4dcdc199 assets\villagepillagearise\models\item\
 c97fbf97075140c6316fd0ae56a32015350adc4e assets\villagepillagearise\models\block\large_citrine_bud.json
 4c36a53d8ef9bacc3c3a5acf342d101450af0350 assets\villagepillagearise\models\block\azalea_door_top_left_open.json
 a2b4eb60199fa0f21b772499f68e7695d0cadf1f assets\villagepillagearise\models\block\oxidized_copper_door_bottom_right.json
-096e9d555280dddaa26ad044a4ddbb805e76cce2 assets\villagepillagearise\models\item\music_disc_below.json
 052ff99c7661843efebd0cd7eac49b94a601c226 assets\villagepillagearise\models\item\lapis_lazuli_chestplate_iron_trim.json
+096e9d555280dddaa26ad044a4ddbb805e76cce2 assets\villagepillagearise\models\item\music_disc_below.json
 192ed7f6255768d24852ce92c13904e0a0755cbb assets\villagepillagearise\models\block\weathered_copper_door_bottom_left.json
 9b901a9bda382450470ba77f3af659b558c8b34d assets\villagepillagearise\models\item\redstone_shard.json
 3555db23d1bf70dd514ad326fd858a1f7d879d40 assets\villagepillagearise\models\block\oxidized_copper_trapdoor_top.json

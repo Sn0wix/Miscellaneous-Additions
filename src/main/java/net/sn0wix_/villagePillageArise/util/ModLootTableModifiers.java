@@ -301,6 +301,7 @@ public class ModLootTableModifiers {
                 LootTable.Builder poolBuilder = BlockLootTableGenerator.dropsWithSilkTouch(Blocks.DEEPSLATE_DIAMOND_ORE, applyExplosionDecay(Blocks.DEEPSLATE_DIAMOND_ORE, ItemEntry.builder(ModItems.CRUSHED_DIAMOND).apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE)))).pool(LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.3f))
+                        .conditionally(InvertedLootCondition.builder(BlockLootTableGenerator.WITH_SILK_TOUCH))
                         .with(ItemEntry.builder(ModItems.CRUSHED_DIAMOND)));
                 return poolBuilder.build();
             }

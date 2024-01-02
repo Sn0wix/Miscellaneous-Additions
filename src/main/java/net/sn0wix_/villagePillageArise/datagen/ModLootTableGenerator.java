@@ -2,8 +2,8 @@ package net.sn0wix_.villagePillageArise.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.sn0wix_.villagePillageArise.block.ModBlocks;
-import net.sn0wix_.villagePillageArise.item.ModItems;
+import net.sn0wix_.villagePillageArise.common.block.ModBlocks;
+import net.sn0wix_.villagePillageArise.common.item.ModItems;
 
 public class ModLootTableGenerator extends FabricBlockLootTableProvider {
     public ModLootTableGenerator(FabricDataOutput dataOutput) {

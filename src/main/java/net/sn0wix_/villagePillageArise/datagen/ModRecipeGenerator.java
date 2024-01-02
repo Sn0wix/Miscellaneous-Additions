@@ -7,9 +7,9 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.util.Identifier;
-import net.sn0wix_.villagePillageArise.block.ModBlocks;
-import net.sn0wix_.villagePillageArise.item.ModItems;
-import net.sn0wix_.villagePillageArise.util.tags.ModItemTags;
+import net.sn0wix_.villagePillageArise.common.block.ModBlocks;
+import net.sn0wix_.villagePillageArise.common.item.ModItems;
+import net.sn0wix_.villagePillageArise.common.util.tags.ModItemTags;
 
 import java.util.Collections;
 

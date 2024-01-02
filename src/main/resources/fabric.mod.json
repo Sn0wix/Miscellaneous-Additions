@@ -18,13 +18,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.sn0wix_.villagePillageArise.VillagePillageAriseMain"
+			"net.sn0wix_.villagePillageArise.common.VillagePillageAriseMain"
 		],
 		"client": [
-			"net.sn0wix_.villagePillageArise.ClientVillagePillageAriseMain"
+          "net.sn0wix_.villagePillageArise.client.ClientVillagePillageAriseMain"
 		],
 		"fabric-datagen": [
-			"net.sn0wix_.villagePillageArise.ModDataGenerationMain"
+			"net.sn0wix_.villagePillageArise.datagen.ModDataGenerationMain"
 		]
 	},
 	"mixins": [

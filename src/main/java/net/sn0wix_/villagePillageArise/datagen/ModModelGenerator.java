@@ -7,9 +7,9 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.data.family.BlockFamilies;
-import net.sn0wix_.villagePillageArise.block.ModBlocks;
-import net.sn0wix_.villagePillageArise.block.custom.CornBlock;
-import net.sn0wix_.villagePillageArise.item.ModItems;
+import net.sn0wix_.villagePillageArise.common.block.ModBlocks;
+import net.sn0wix_.villagePillageArise.common.block.custom.CornBlock;
+import net.sn0wix_.villagePillageArise.common.item.ModItems;
 
 public class ModModelGenerator extends FabricModelProvider {
     public ModModelGenerator(FabricDataOutput output) {

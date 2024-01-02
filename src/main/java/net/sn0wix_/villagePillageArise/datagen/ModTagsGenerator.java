@@ -6,10 +6,10 @@ import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
-import net.sn0wix_.villagePillageArise.block.ModBlocks;
-import net.sn0wix_.villagePillageArise.item.ModItems;
-import net.sn0wix_.villagePillageArise.util.tags.ModBlockTags;
-import net.sn0wix_.villagePillageArise.util.tags.ModItemTags;
+import net.sn0wix_.villagePillageArise.common.block.ModBlocks;
+import net.sn0wix_.villagePillageArise.common.item.ModItems;
+import net.sn0wix_.villagePillageArise.common.util.tags.ModBlockTags;
+import net.sn0wix_.villagePillageArise.common.util.tags.ModItemTags;
 
 import java.util.concurrent.CompletableFuture;
 

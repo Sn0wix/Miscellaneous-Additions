@@ -3,16 +3,18 @@
   "package": "net.sn0wix_.villagePillageArise.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "server.LapisArmorEnchantMixin",
-    "server.LightningMusicDiscMixin",
-    "server.RedstoneArmorThornsMixin",
-    "server.RedstoneOreMixin"
+    "common.LapisArmorEnchantMixin",
+    "common.LightningMusicDiscMixin",
+    "common.PiglinBruteEquipmentMixin",
+    "common.RedstoneArmorThornsMixin",
+    "common.RedstoneOreMixin",
+    "common.VindicatorEquipmentMixin"
   ],
   "client": [
     "client.ParticleUtilMixin",
-    "client.signs.TexturedRenderLayersMixin",
     "client.signs.EntityModelLoaderMixin",
-    "client.signs.HangingSignEditScreenMixin"
+    "client.signs.HangingSignEditScreenMixin",
+    "client.signs.TexturedRenderLayersMixin"
   ],
   "injectors": {
     "defaultRequire": 1

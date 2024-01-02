@@ -1,4 +1,4 @@
-package net.sn0wix_.villagePillageArise.mixin.server;
+package net.sn0wix_.villagePillageArise.mixin.common;
 
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.enchantment.Enchantments;

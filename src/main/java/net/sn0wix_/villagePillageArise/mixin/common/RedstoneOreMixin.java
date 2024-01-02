@@ -1,4 +1,4 @@
-package net.sn0wix_.villagePillageArise.mixin.server;
+package net.sn0wix_.villagePillageArise.mixin.common;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneOreBlock;

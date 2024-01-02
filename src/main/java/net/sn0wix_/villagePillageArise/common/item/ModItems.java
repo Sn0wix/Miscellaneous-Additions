@@ -2,6 +2,7 @@ package net.sn0wix_.villagePillageArise.common.item;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -39,7 +40,6 @@ public class ModItems {
 
     public static final Item CRUSHED_DIAMOND = registerItem("crushed_diamond",
             new Item(new FabricItemSettings()));
-
 
 
     public static final Item WOODEN_BATTLE_AXE = registerItem("wooden_battle_axe",
@@ -135,7 +135,6 @@ public class ModItems {
             new RedstoneHoeItem(ModToolMaterials.REDSTONE, -4, 0.0f, new FabricItemSettings().fireproof()));
 
 
-
     public static final Item MUSIC_DISC_REVENGE = registerMusicDisc("music_disc_revenge",
             new MusicDiscItem(15, ModSoundEvents.REVENGE, new FabricItemSettings().maxCount(1), 218));
 
@@ -221,7 +220,6 @@ public class ModItems {
             new MusicDiscItem(1, ModSoundEvents.GOLD_RUSH, new FabricItemSettings().maxCount(1), 166));
 
 
-
     public static final SignItem AZALEA_SIGN = (SignItem) registerItem("azalea_sign",
             new SignItem(new FabricItemSettings().maxCount(16), ModBlocks.AZALEA_SIGN, ModBlocks.AZALEA_WALL_SIGN));
 
@@ -232,9 +230,11 @@ public class ModItems {
     public static final ModBoatItem AZALEA_CHEST_BOAT = (ModBoatItem) registerItem("azalea_chest_boat", new ModBoatItem(new FabricItemSettings().maxCount(1), true));
 
 
+    public static final Item ILLUSIONER_SPAWN_EGG = registerItem("illusioner_spawn_egg", new SpawnEggItem(EntityType.ILLUSIONER, 1267859, 0x959B9B, new FabricItemSettings()));
+
 
     private static Item registerItem(String name, Item item) {
-         return Registry.register(Registries.ITEM, new Identifier(VillagePillageAriseMain.MOD_ID, name), item);
+        return Registry.register(Registries.ITEM, new Identifier(VillagePillageAriseMain.MOD_ID, name), item);
     }
 
     private static Item registerMusicDisc(String name, Item item) {
@@ -242,6 +242,7 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> content.addAfter(Items.MUSIC_DISC_PIGSTEP, item1));
         return item1;
     }
+
     public static void registerModItems() {
         VillagePillageAriseMain.LOGGER.info("Registering Mod items for " + VillagePillageAriseMain.MOD_ID);
     }

@@ -1,0 +1,11 @@
+Added:
+    Illusioner spawn egg
+
+Changed:
+    Vindicators can have iron battle axes or iron sword
+    Piglin Brutes have golden battle axe
+
+Fixed:
+    Diamond duplication
+
+Removed:

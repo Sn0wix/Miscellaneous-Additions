@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": [
+    {
+      "item": "misc_additions:iron_battle_axe"
+    },
+    {
+      "item": "minecraft:chain"
+    }
+  ],
+  "result": "minecraft:iron_nugget",
+  "experience": 0.1,
+  "cookingtime": 100
+}

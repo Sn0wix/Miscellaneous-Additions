@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": [
+    {
+      "item": "minecraft:amethyst_block"
+    }
+  ],
+  "result": "misc_additions:citrine_block",
+  "experience": 0.3,
+  "cookingtime": 300
+}

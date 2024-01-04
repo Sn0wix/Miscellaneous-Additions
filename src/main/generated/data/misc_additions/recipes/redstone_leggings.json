@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:redstone"
+  },
+  "base": {
+    "item": "minecraft:netherite_leggings"
+  },
+  "result": {
+    "item": "misc_additions:redstone_leggings"
+  },
+  "template": {
+    "item": "misc_additions:redstone_shard"
+  }
+}

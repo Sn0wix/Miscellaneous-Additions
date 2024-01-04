@@ -1,9 +1,9 @@
 {
 	"schemaVersion": 1,
-	"id": "villagepillagearise",
-	"version": "0.1.4",
-	"name": "Village & Pillage Arise",
-	"description": "Adds Battle axes, a lot of music discs, lapis and redstone armor and a few other things.",
+	"id": "misc_additions",
+	"version": "0.2.0",
+	"name": "Miscellaneous Additions",
+	"description": "Vanilla friendly mod that tries to enhance the vanilla game with some smaller features.",
 	"authors": [
 		"Sn0wix_"
 	],
@@ -14,21 +14,21 @@
 	},
 
 	"license": "MIT License",
-	"icon": "assets/villagepillagearise/icon.png",
+	"icon": "assets/misc_additions/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.sn0wix_.villagePillageArise.common.VillagePillageAriseMain"
+          "net.sn0wix_.misc_additions.common.MiscAdditions"
 		],
 		"client": [
-          "net.sn0wix_.villagePillageArise.client.ClientVillagePillageAriseMain"
+			"net.sn0wix_.misc_additions.client.MiscAdditionsClient"
 		],
 		"fabric-datagen": [
-			"net.sn0wix_.villagePillageArise.datagen.ModDataGenerationMain"
+			"net.sn0wix_.misc_additions.datagen.MiscAdditionsDataGeneration"
 		]
 	},
 	"mixins": [
-		"villagepillagearise.mixins.json"
+		"misc_additions.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.22",
@@ -42,10 +42,10 @@
 	"custom": {
 		"modmenu": {
 			"links": {
-				"link.villagepillagearise.curseforge": "https://curseforge.com/minecraft/mc-mods/village-pillge-arise",
-				"link.villagepillagearise.modrinth": "https://modrinth.com/mod/village-pillage-arise",
-				"link.villagepillagearise.t_en_m": "https://www.youtube.com/@TenM",
-				"link.villagepillagearise.laudividni": "https://www.youtube.com/@LaudividniYT"
+				"link.misc-additions.curseforge": "https://curseforge.com/minecraft/mc-mods/village-pillge-arise",
+				"link.misc-additions.modrinth": "https://modrinth.com/mod/village-pillage-arise",
+				"link.misc-additions.t_en_m": "https://www.youtube.com/@TenM",
+				"link.misc-additions.laudividni": "https://www.youtube.com/@LaudividniYT"
 			},
 			"update_checker": true
 		}

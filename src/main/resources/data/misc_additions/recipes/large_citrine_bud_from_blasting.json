@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": [
+    {
+      "item": "minecraft:large_amethyst_bud"
+    }
+  ],
+  "result": "misc_additions:large_citrine_bud",
+  "experience": 0.3,
+  "cookingtime": 300
+}

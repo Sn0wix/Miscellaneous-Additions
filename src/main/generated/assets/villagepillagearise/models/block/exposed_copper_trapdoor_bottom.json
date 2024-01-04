@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_trapdoor_bottom",
-  "textures": {
-    "texture": "villagepillagearise:block/exposed_copper_trapdoor"
-  }
-}

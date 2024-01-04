@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "misc_additions:block/small_citrine_bud",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "misc_additions:block/small_citrine_bud",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "misc_additions:block/small_citrine_bud",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "misc_additions:block/small_citrine_bud",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "misc_additions:block/small_citrine_bud"
+    },
+    "facing=west": {
+      "model": "misc_additions:block/small_citrine_bud",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

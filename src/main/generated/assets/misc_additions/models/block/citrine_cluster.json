@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "misc_additions:block/citrine_cluster"
+  }
+}

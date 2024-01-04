@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "base": {
+    "item": "minecraft:netherite_leggings"
+  },
+  "result": {
+    "item": "misc_additions:lapis_lazuli_leggings"
+  },
+  "template": {
+    "item": "misc_additions:lapis_shard"
+  }
+}

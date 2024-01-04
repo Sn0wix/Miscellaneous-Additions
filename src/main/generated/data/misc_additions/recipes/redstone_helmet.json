@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:redstone"
+  },
+  "base": {
+    "item": "minecraft:netherite_helmet"
+  },
+  "result": {
+    "item": "misc_additions:redstone_helmet"
+  },
+  "template": {
+    "item": "misc_additions:redstone_shard"
+  }
+}

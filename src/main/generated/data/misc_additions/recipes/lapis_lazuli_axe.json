@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "base": {
+    "item": "minecraft:netherite_axe"
+  },
+  "result": {
+    "item": "misc_additions:lapis_lazuli_axe"
+  },
+  "template": {
+    "item": "misc_additions:lapis_shard"
+  }
+}

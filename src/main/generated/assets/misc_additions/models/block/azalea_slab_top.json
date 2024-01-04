@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "misc_additions:block/azalea_planks",
+    "side": "misc_additions:block/azalea_planks",
+    "top": "misc_additions:block/azalea_planks"
+  }
+}

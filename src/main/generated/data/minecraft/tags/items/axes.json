@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "villagepillagearise:redstone_axe",
-    "villagepillagearise:lapis_lazuli_axe",
-    "villagepillagearise:wooden_battle_axe",
-    "villagepillagearise:stone_battle_axe",
-    "villagepillagearise:iron_battle_axe",
-    "villagepillagearise:golden_battle_axe",
-    "villagepillagearise:diamond_battle_axe",
-    "villagepillagearise:netherite_battle_axe",
-    "villagepillagearise:lapis_lazuli_battle_axe",
-    "villagepillagearise:redstone_battle_axe"
+    "misc_additions:redstone_axe",
+    "misc_additions:lapis_lazuli_axe",
+    "misc_additions:wooden_battle_axe",
+    "misc_additions:stone_battle_axe",
+    "misc_additions:iron_battle_axe",
+    "misc_additions:golden_battle_axe",
+    "misc_additions:diamond_battle_axe",
+    "misc_additions:netherite_battle_axe",
+    "misc_additions:lapis_lazuli_battle_axe",
+    "misc_additions:redstone_battle_axe"
   ]
 }

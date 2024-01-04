@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "cnc",
+    "n n",
+    "   "
+  ],
+  "key": {
+    "n": {
+      "item": "minecraft:gold_nugget"
+    },
+    "c": {
+      "item": "misc_additions:golden_chain"
+    }
+  },
+  "result": {
+    "item": "misc_additions:golden_chainmail_helmet"
+  }
+}

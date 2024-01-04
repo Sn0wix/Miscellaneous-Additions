@@ -1,0 +1,234 @@
+{
+  "revenge": {
+    "sounds": [
+      {
+        "name": "misc_additions:revenge",
+        "stream": true
+      }
+    ]
+  },
+  "gilded": {
+    "sounds": [
+      {
+        "name": "misc_additions:gilded",
+        "stream": true
+      }
+    ]
+  },
+  "guardian": {
+    "sounds": [
+      {
+        "name": "misc_additions:guardian",
+        "stream": true
+      }
+    ]
+  },
+  "husk": {
+    "sounds": [
+      {
+        "name": "misc_additions:husk",
+        "stream": true
+      }
+    ]
+  },
+  "raiders": {
+    "sounds": [
+      {
+        "name": "misc_additions:raiders",
+        "stream": true
+      }
+    ]
+  },
+  "shulker": {
+    "sounds": [
+      {
+        "name": "misc_additions:shulker",
+        "stream": true
+      }
+    ]
+  },
+  "the_ender_dragon": {
+    "sounds": [
+      {
+        "name": "misc_additions:the_ender_dragon",
+        "stream": true
+      }
+    ]
+  },
+  "the_wither": {
+    "sounds": [
+      {
+        "name": "misc_additions:the_wither",
+        "stream": true
+      }
+    ]
+  },
+  "brute": {
+    "sounds": [
+      {
+        "name": "misc_additions:brute",
+        "stream": true
+      }
+    ]
+  },
+  "shrieker": {
+    "sounds": [
+      {
+        "name": "misc_additions:shrieker",
+        "stream": true
+      }
+    ]
+  },
+  "shrieker_x_brute": {
+    "sounds": [
+      {
+        "name": "misc_additions:shrieker_x_brute",
+        "stream": true
+      }
+    ]
+  },
+  "warden_run": {
+    "sounds": [
+      {
+        "name": "misc_additions:warden_run",
+        "stream": true
+      }
+    ]
+  },
+  "below": {
+    "sounds": [
+      {
+        "name": "misc_additions:below",
+        "stream": true
+      }
+    ]
+  },
+  "lightning": {
+    "sounds": [
+      {
+        "name": "misc_additions:lightning",
+        "stream": true
+      }
+    ]
+  },
+  "mashup": {
+    "sounds": [
+      {
+        "name": "misc_additions:mashup",
+        "stream": true
+      }
+    ]
+  },
+  "no_escape": {
+    "sounds": [
+      {
+        "name": "misc_additions:no_escape",
+        "stream": true
+      }
+    ]
+  },
+  "souless": {
+    "sounds": [
+      {
+        "name": "misc_additions:souless",
+        "stream": true
+      }
+    ]
+  },
+  "fading_memories": {
+    "sounds": [
+      {
+        "name": "misc_additions:fading_memories",
+        "stream": true
+      }
+    ]
+  },
+  "horizons": {
+    "sounds": [
+      {
+        "name": "misc_additions:horizons",
+        "stream": true
+      }
+    ]
+  },
+  "iron_oath": {
+    "sounds": [
+      {
+        "name": "misc_additions:iron_oath",
+        "stream": true
+      }
+    ]
+  },
+  "last_hallway": {
+    "sounds": [
+      {
+        "name": "misc_additions:last_hallway",
+        "stream": true
+      }
+    ]
+  },
+  "sakura_valley": {
+    "sounds": [
+      {
+        "name": "misc_additions:sakura_valley",
+        "stream": true
+      }
+    ]
+  },
+  "mineshaft": {
+    "sounds": [
+      {
+        "name": "misc_additions:mineshaft",
+        "stream": true
+      }
+    ]
+  },
+  "whispering_woods": {
+    "sounds": [
+      {
+        "name": "misc_additions:whispering_woods",
+        "stream": true
+      }
+    ]
+  },
+  "adventure_awaits": {
+    "sounds": [
+      {
+        "name": "misc_additions:adventure_awaits",
+        "stream": true
+      }
+    ]
+  },
+  "final_stage": {
+    "sounds": [
+      {
+        "name": "misc_additions:final_stage",
+        "stream": true
+      }
+    ]
+  },
+  "pumpkin": {
+    "sounds": [
+      {
+        "name": "misc_additions:pumpkin",
+        "stream": true
+      }
+    ]
+  },
+  "hunted_mansion": {
+    "sounds": [
+      {
+        "name": "misc_additions:hunted_mansion",
+        "stream": true
+      }
+    ]
+  },
+  "gold_rush": {
+    "sounds": [
+      {
+        "name": "misc_additions:gold_rush",
+        "stream": true
+      }
+    ]
+  }
+}

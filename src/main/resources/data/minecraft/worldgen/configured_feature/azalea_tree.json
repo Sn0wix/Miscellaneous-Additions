@@ -67,7 +67,7 @@
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "villagepillagearise:azalea_log",
+        "Name": "misc_additions:azalea_log",
         "Properties": {
           "axis": "y"
         }

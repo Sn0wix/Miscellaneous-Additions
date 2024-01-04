@@ -1,13 +1,13 @@
 {
   "replace": false,
   "values": [
-    "villagepillagearise:copper_door",
-    "villagepillagearise:exposed_copper_door",
-    "villagepillagearise:weathered_copper_door",
-    "villagepillagearise:oxidized_copper_door",
-    "villagepillagearise:waxed_copper_door",
-    "villagepillagearise:waxed_exposed_copper_door",
-    "villagepillagearise:waxed_weathered_copper_door",
-    "villagepillagearise:waxed_oxidized_copper_door"
+    "misc_additions:copper_door",
+    "misc_additions:exposed_copper_door",
+    "misc_additions:weathered_copper_door",
+    "misc_additions:oxidized_copper_door",
+    "misc_additions:waxed_copper_door",
+    "misc_additions:waxed_exposed_copper_door",
+    "misc_additions:waxed_weathered_copper_door",
+    "misc_additions:waxed_oxidized_copper_door"
   ]
 }

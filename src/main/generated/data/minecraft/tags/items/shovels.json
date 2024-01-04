@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "villagepillagearise:redstone_shovel",
-    "villagepillagearise:lapis_lazuli_shovel"
+    "misc_additions:redstone_shovel",
+    "misc_additions:lapis_lazuli_shovel"
   ]
 }

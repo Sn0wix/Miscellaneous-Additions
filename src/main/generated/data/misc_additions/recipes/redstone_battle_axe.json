@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:redstone"
+  },
+  "base": {
+    "item": "misc_additions:netherite_battle_axe"
+  },
+  "result": {
+    "item": "misc_additions:redstone_battle_axe"
+  },
+  "template": {
+    "item": "misc_additions:redstone_shard"
+  }
+}

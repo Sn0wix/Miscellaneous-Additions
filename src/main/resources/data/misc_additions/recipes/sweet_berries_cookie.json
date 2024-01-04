@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#X#",
+    " Z "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:wheat"
+    },
+    "X": {
+      "item": "minecraft:sweet_berries"
+    },
+    "Z": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "result": {
+    "item": "misc_additions:sweet_berries_cookie",
+    "count": 8
+  }
+}

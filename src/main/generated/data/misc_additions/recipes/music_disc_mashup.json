@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "misc_additions:music_disc_souless"
+    },
+    {
+      "item": "misc_additions:music_disc_shrieker"
+    },
+    {
+      "item": "misc_additions:music_disc_lightning"
+    },
+    {
+      "item": "misc_additions:music_disc_the_wither"
+    },
+    {
+      "item": "misc_additions:music_disc_the_ender_dragon"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "result": {
+    "item": "misc_additions:music_disc_mashup"
+  }
+}

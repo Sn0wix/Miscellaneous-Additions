@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "villagepillagearise:redstone_hoe",
-    "villagepillagearise:lapis_lazuli_hoe"
+    "misc_additions:redstone_hoe",
+    "misc_additions:lapis_lazuli_hoe"
   ]
 }

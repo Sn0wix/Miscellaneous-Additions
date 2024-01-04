@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "villagepillagearise:redstone_sword",
-    "villagepillagearise:lapis_lazuli_sword"
+    "misc_additions:redstone_sword",
+    "misc_additions:lapis_lazuli_sword"
   ]
 }

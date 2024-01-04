@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_azalea_fence_gate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "misc_additions:azalea_fence_gate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_azalea_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "misc_additions:azalea_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "misc_additions:azalea_fence_gate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_azalea_fence_gate",
+      "has_azalea_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "misc_additions:azalea_fence_gate"
+    ]
+  }
+}

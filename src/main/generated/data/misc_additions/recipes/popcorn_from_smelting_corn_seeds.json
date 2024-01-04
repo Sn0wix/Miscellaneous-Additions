@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 10,
+  "experience": 0.1,
+  "group": "translation{key='item.misc_additions.popcorn', args=[]}",
+  "ingredient": {
+    "item": "misc_additions:corn_seeds"
+  },
+  "result": "misc_additions:popcorn"
+}

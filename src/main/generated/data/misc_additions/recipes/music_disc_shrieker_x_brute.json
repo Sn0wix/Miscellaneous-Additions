@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "misc_additions:music_disc_brute"
+  },
+  "base": {
+    "item": "misc_additions:music_disc_shrieker"
+  },
+  "result": {
+    "item": "misc_additions:music_disc_shrieker_x_brute"
+  },
+  "template": []
+}

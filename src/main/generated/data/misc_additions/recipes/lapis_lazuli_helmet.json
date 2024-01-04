@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:lapis_lazuli"
+  },
+  "base": {
+    "item": "minecraft:netherite_helmet"
+  },
+  "result": {
+    "item": "misc_additions:lapis_lazuli_helmet"
+  },
+  "template": {
+    "item": "misc_additions:lapis_shard"
+  }
+}

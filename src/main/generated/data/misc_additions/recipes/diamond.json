@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "misc_additions:crushed_diamond"
+    },
+    {
+      "item": "misc_additions:crushed_diamond"
+    },
+    {
+      "item": "misc_additions:crushed_diamond"
+    },
+    {
+      "item": "misc_additions:crushed_diamond"
+    }
+  ],
+  "result": {
+    "item": "minecraft:diamond"
+  }
+}

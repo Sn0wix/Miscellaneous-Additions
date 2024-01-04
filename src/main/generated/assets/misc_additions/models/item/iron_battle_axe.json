@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "misc_additions:item/iron_battle_axe"
+  }
+}

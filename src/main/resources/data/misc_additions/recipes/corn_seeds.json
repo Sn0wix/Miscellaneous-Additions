@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "misc_additions:corn"
+    }
+  ],
+  "result": {
+    "item": "misc_additions:corn_seeds",
+    "count": 2
+  }
+}

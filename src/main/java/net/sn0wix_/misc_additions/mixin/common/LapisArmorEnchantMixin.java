@@ -21,7 +21,6 @@ import java.util.List;
 @Mixin(EnchantmentScreenHandler.class)
 public abstract class LapisArmorEnchantMixin {
 
-
     @Shadow
     @Final
     private Inventory inventory;

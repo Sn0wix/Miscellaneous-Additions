@@ -17,7 +17,6 @@ import net.sn0wix_.misc_additions.common.entities.ModEntities;
 import net.sn0wix_.misc_additions.client.renderers.entities.boat.ModBoatEntityRenderer;
 import net.sn0wix_.misc_additions.client.renderers.entities.boat.ModChestBoatEntityRenderer;
 import net.sn0wix_.misc_additions.common.networking.ModPackets;
-import net.sn0wix_.misc_additions.common.util.ModModelPredicateProvider;
 import net.sn0wix_.misc_additions.common.util.ModWoodTypes;
 
 public class MiscAdditionsClient implements ClientModInitializer {

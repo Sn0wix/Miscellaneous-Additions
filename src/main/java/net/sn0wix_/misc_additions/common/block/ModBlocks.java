@@ -62,6 +62,9 @@ public class ModBlocks {
     public static final Block GUNPOWDER_BARREL = registerBlock("gunpowder_barrel",
             new GunpowderBarrelBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD).burnable().ticksRandomly().nonOpaque()));
 
+    public static final Block END_ANCHOR = registerBlock("end_anchor",
+            new EndAnchorBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).instrument(Instrument.BASEDRUM).requiresTool().strength(60.0f, 1200).luminance(10)));
+
 
     //Azalea wood set
     public static final Block AZALEA_LOG = registerBlock("azalea_log",
@@ -166,7 +169,6 @@ public class ModBlocks {
 
     public static final Block WAXED_OXIDIZED_COPPER_TRAPDOOR = registerBlock("waxed_oxidized_copper_trapdoor",
             new CopperTrapdoorBlock(Oxidizable.OxidationLevel.OXIDIZED, FabricBlockSettings.copyOf(COPPER_TRAPDOOR), ModBlockSetTypes.COPPER));
-
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

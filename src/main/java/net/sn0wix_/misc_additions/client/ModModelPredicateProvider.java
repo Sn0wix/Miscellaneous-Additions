@@ -1,4 +1,4 @@
-package net.sn0wix_.misc_additions.common.util;
+package net.sn0wix_.misc_additions.client;
 
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.item.Item;

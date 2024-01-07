@@ -1,8 +1,6 @@
 package net.sn0wix_.misc_additions.common;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.sn0wix_.misc_additions.common.block.ModBlocks;
 import net.sn0wix_.misc_additions.common.block.entities.ModBlockEntities;
 import net.sn0wix_.misc_additions.common.config.Config;
@@ -22,11 +20,9 @@ public class MiscAdditions implements ModInitializer {
     public static final String MOD_ID = "misc_additions";
     public static Config CONFIG;
 
-
     //TODO redstone equipment - trim texture inventory
     //TODO sus sand not working
     //TODO rename crushed_diamond to diamond_shard
-    //TODO fix datagen
 
     @Override
     public void onInitialize() {

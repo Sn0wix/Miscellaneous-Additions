@@ -15,8 +15,8 @@ public class ModBlockEntities {
             FabricBlockEntityTypeBuilder.create(ModHangingSignBlockEntity::new, ModBlocks.AZALEA_HANGING_SIGN, ModBlocks.AZALEA_WALL_HANGING_SIGN).build());
 
 
-    public static BlockEntityType<EndAnchorBlockEntity> END_ANCHOR_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(MiscAdditions.MOD_ID, "end_anchor"),
-            FabricBlockEntityTypeBuilder.create(EndAnchorBlockEntity::new, ModBlocks.END_RELAY).build());
+    public static BlockEntityType<EndRelayBlockEntity> END_RELAY_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(MiscAdditions.MOD_ID, "end_relay"),
+            FabricBlockEntityTypeBuilder.create(EndRelayBlockEntity::new, ModBlocks.END_RELAY).build());
 
 
     public static void registerALlBlockEntities() {

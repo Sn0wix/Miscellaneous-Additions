@@ -1,4 +1,4 @@
-package net.sn0wix_.misc_additions.common.networking.custom;
+package net.sn0wix_.misc_additions.common.networking.custom.s2c;
 
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.block.BlockState;
@@ -14,7 +14,7 @@ import net.minecraft.util.math.Direction;
 
 import java.util.Random;
 
-public class RedstoneParticleSpawn {
+public class RedstoneParticleSpawnS2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler clientPlayNetworkHandler, PacketByteBuf packetByteBuf, PacketSender packetSender) {
         ClientWorld world = client.world;
 

@@ -1,10 +1,10 @@
-// 1.20.4	2024-01-04T18:54:32.6491676	Miscellaneous Additions/Tags for minecraft:block
+// 1.20.4	2024-01-07T21:08:53.3456603	Miscellaneous Additions/Tags for minecraft:block
 90e11b6cf3e17d289e652abf02d2f23eead5f534 data\minecraft\tags\blocks\wooden_stairs.json
 56269a08b91907f08c1f0b2cf3a0386abf36cc51 data\minecraft\tags\blocks\fence_gates.json
 a020edbfb7bdb368cd6641b43f10f6923e5a868e data\minecraft\tags\blocks\wall_signs.json
 e5c0519975393194b7fbe1e8e86b1bc61a90dc27 data\minecraft\tags\blocks\needs_stone_tool.json
-4bafe2ce2543e089d3684a3477717494d1bc1ba6 data\minecraft\tags\blocks\wooden_doors.json
 05268c640f0bf7bdc1717660b5505eb8cf7d5522 data\minecraft\tags\blocks\doors.json
+4bafe2ce2543e089d3684a3477717494d1bc1ba6 data\minecraft\tags\blocks\wooden_doors.json
 7f1a67351b80675efbb168c145c5fea22f836f83 data\minecraft\tags\blocks\wooden_pressure_plates.json
 182d4446679a00b9e1230ee8594f3e0de6c51fef data\minecraft\tags\blocks\standing_signs.json
 4cf87c830cb48abdcc38c31d019e088e6eabf93f data\minecraft\tags\blocks\ceiling_hanging_signs.json
@@ -13,9 +13,10 @@ e5c0519975393194b7fbe1e8e86b1bc61a90dc27 data\minecraft\tags\blocks\needs_stone_
 4560f26225a1daf39dc756d24e447d277d251ffd data\misc_additions\tags\blocks\azalea_logs.json
 a50091f0f01fb5f1564591ecf146354e26f9429f data\misc_additions\tags\blocks\redstone_equipment_rechargeable.json
 f39933f8b42748f5573890cff28eabc07fe6cd8f data\minecraft\tags\blocks\planks.json
-ae3c3ad180ee65e5d4af4bd1c5f9265de0912771 data\minecraft\tags\blocks\mineable\pickaxe.json
+6505540187139050c6bfbfef989575207ee95e63 data\minecraft\tags\blocks\mineable\pickaxe.json
 b041a862db44f3e6cdd339978525bf8d204f2cb3 data\minecraft\tags\blocks\wooden_buttons.json
 ea248cd0d0ef8da262035d8a16f7ab6ebb055e84 data\minecraft\tags\blocks\wall_hanging_signs.json
 4df5e504c8c776017dfe352297e6f9172cf5f3a9 data\minecraft\tags\blocks\trapdoors.json
-2b63f8372cd36c4a3604bb9fa959f5707271b9be data\minecraft\tags\blocks\wooden_slabs.json
 d7d418f16cc3a3bfc7c2d3390eaa31b502e34d40 data\minecraft\tags\blocks\logs_that_burn.json
+2b63f8372cd36c4a3604bb9fa959f5707271b9be data\minecraft\tags\blocks\wooden_slabs.json
+bb874f7ab140c00f621e17544aa46a81d8ba26b2 data\minecraft\tags\blocks\needs_diamond_tool.json

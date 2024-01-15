@@ -64,8 +64,8 @@ public class ModItemGroupSorter {
             entries.addAfter(Items.CHERRY_HANGING_SIGN, ModItems.AZALEA_SIGN, ModItems.AZALEA_HANGING_SIGN);
 
             entries.addAfter(Items.LODESTONE, ModBlocks.GUNPOWDER_BARREL);
-
             entries.addAfter(Items.CHAIN, ModBlocks.GOLDEN_CHAIN_BLOCK);
+            entries.addAfter(Items.END_CRYSTAL, ModBlocks.END_ANCHOR);
         });
 
 

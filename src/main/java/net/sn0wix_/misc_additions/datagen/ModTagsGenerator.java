@@ -3,6 +3,7 @@ package net.sn0wix_.misc_additions.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
@@ -24,6 +25,7 @@ public class ModTagsGenerator {
         protected void configure(RegistryWrapper.WrapperLookup arg) {
             addPickaxeMineable();
             addNeedsStoneTool();
+            addNeedsDiamondTool();
             addRedstoneRechargeable();
             addAzaleaWoodSet();
             addDoor();
@@ -53,7 +55,8 @@ public class ModTagsGenerator {
                     .add(ModBlocks.WAXED_COPPER_TRAPDOOR)
                     .add(ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR)
                     .add(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR)
-                    .add(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR);
+                    .add(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR)
+                    .add(ModBlocks.END_ANCHOR);
         }
 
         private void addDoor() {
@@ -85,6 +88,11 @@ public class ModTagsGenerator {
                     .add(ModBlocks.LARGE_CITRINE_BUD)
                     .add(ModBlocks.MEDIUM_CITRINE_BUD)
                     .add(ModBlocks.SMALL_CITRINE_BUD);
+        }
+
+        private void addNeedsDiamondTool() {
+            getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
+                    .add(ModBlocks.END_ANCHOR);
         }
 
         private void addAzaleaWoodSet() {
@@ -134,6 +142,7 @@ public class ModTagsGenerator {
             addRedstoneEquipment();
             addDoor();
             addBattleAxes();
+            addEndAnchorRechargeable();
         }
 
         private void addDoor() {
@@ -255,6 +264,11 @@ public class ModTagsGenerator {
                     .add(ModItems.NETHERITE_BATTLE_AXE)
                     .add(ModItems.LAPIS_LAZULI_BATTLE_AXE)
                     .add(ModItems.REDSTONE_BATTLE_AXE);
+        }
+
+        private void addEndAnchorRechargeable() {
+            getOrCreateTagBuilder(ModItemTags.END_ANCHOR_CHARGEABLE)
+                    .add(Items.END_CRYSTAL);
         }
     }
 }

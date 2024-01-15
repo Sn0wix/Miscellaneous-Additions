@@ -3,6 +3,7 @@
   "package": "net.sn0wix_.misc_additions.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "common.IdentifierMixin",
     "common.LapisArmorEnchantMixin",
     "common.LightningMusicDiscMixin",
     "common.ModIdUpdateRecipesHandler",

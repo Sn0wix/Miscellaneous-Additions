@@ -7,9 +7,6 @@ import net.sn0wix_.misc_additions.common.MiscAdditions;
 public class MiscAdditionsDataGeneration implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
-        System.out.println("datagen;lsdfhpl;wakjehf kasjdh olksjnv laskhj oakjnweaf uibb ");
-        MiscAdditions.LOGGER.info("datagen;lsdfhpl;wakjehf kasjdh olksjnv laskhj oakjnweaf uibb ");
-
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
         pack.addProvider(ModModelGenerator::new);

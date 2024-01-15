@@ -1,4 +1,4 @@
-// 1.20.4	2024-01-07T21:08:53.3476556	Miscellaneous Additions/Recipes
+// 1.20.4	2024-01-15T17:35:13.6635885	Miscellaneous Additions/Recipes
 ec81956aaffa5ab998de2ca193092d60f90af72c data\misc_additions\advancements\recipes\redstone\azalea_pressure_plate.json
 1e251e6646875048d1cdd518dad0687324e81fb5 data\misc_additions\recipes\redstone_sword.json
 cbf97aa890c79ca63a88059157b1d2effbedfc01 data\misc_additions\recipes\azalea_pressure_plate.json
@@ -79,8 +79,8 @@ e238388ac7e83243b501e958c6d56c670a2fdf3b data\misc_additions\recipes\redstone_ba
 7078f6b0949e1a3693e03028f48f5f848badd0a4 data\misc_additions\recipes\netherite_battle_axe.json
 30d8872772eeca61e938f101e79ea4cd325e80a2 data\misc_additions\advancements\recipes\misc\music_disc_mashup.json
 8b3df56235a7058140aa5572b6c5d5555421ad23 data\misc_additions\recipes\azalea_fence_gate.json
-d38c53d57075f4e6c177537a26609d1afdef82e5 data\misc_additions\advancements\recipes\combat\netherite_battle_axe.json
 ecab206a0cb23516158de13f403d91edd2135954 data\misc_additions\advancements\recipes\misc\music_disc_final_stage.json
+d38c53d57075f4e6c177537a26609d1afdef82e5 data\misc_additions\advancements\recipes\combat\netherite_battle_axe.json
 091450b3e27a148f0b6047fa30f7b172fb0d5ffb data\misc_additions\advancements\recipes\decorations\azalea_fence.json
 a741a35475686038af5f20ae8a3e9d9c5fb45b63 data\misc_additions\advancements\recipes\combat\lapis_lazuli_axe.json
 20aac4464a0cf9d9f86fc5f7bdff0186af46beae data\misc_additions\advancements\recipes\combat\lapis_lazuli_boots.json

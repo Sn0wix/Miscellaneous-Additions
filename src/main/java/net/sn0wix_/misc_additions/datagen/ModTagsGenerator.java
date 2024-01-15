@@ -56,7 +56,7 @@ public class ModTagsGenerator {
                     .add(ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR)
                     .add(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR)
                     .add(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR)
-                    .add(ModBlocks.END_ANCHOR);
+                    .add(ModBlocks.END_RELAY);
         }
 
         private void addDoor() {
@@ -92,7 +92,7 @@ public class ModTagsGenerator {
 
         private void addNeedsDiamondTool() {
             getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
-                    .add(ModBlocks.END_ANCHOR);
+                    .add(ModBlocks.END_RELAY);
         }
 
         private void addAzaleaWoodSet() {

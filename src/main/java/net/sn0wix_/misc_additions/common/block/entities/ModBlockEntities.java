@@ -2,7 +2,6 @@ package net.sn0wix_.misc_additions.common.block.entities;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.EnderChestBlockEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -17,7 +16,7 @@ public class ModBlockEntities {
 
 
     public static BlockEntityType<EndAnchorBlockEntity> END_ANCHOR_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(MiscAdditions.MOD_ID, "end_anchor"),
-            FabricBlockEntityTypeBuilder.create(EndAnchorBlockEntity::new, ModBlocks.END_ANCHOR).build());
+            FabricBlockEntityTypeBuilder.create(EndAnchorBlockEntity::new, ModBlocks.END_RELAY).build());
 
 
     public static void registerALlBlockEntities() {

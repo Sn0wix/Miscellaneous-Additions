@@ -15,7 +15,6 @@ import net.sn0wix_.misc_additions.common.MiscAdditions;
 import net.minecraft.item.BlockItem;
 import net.minecraft.util.Identifier;
 import net.sn0wix_.misc_additions.common.block.custom.*;
-import net.sn0wix_.misc_additions.common.block.entities.EndAnchorBlockEntity;
 import net.sn0wix_.misc_additions.common.sounds.ModSoundEvents;
 import net.sn0wix_.misc_additions.common.util.ModBlockSetTypes;
 import net.sn0wix_.misc_additions.common.util.ModWoodTypes;
@@ -63,7 +62,7 @@ public class ModBlocks {
     public static final Block GUNPOWDER_BARREL = registerBlock("gunpowder_barrel",
             new GunpowderBarrelBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD).burnable().ticksRandomly().nonOpaque()));
 
-    public static final Block END_ANCHOR = registerBlock("end_anchor",
+    public static final Block END_RELAY = registerBlock("end_relay",
             new EndAnchorBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).instrument(Instrument.BASEDRUM).requiresTool().strength(60.0f, 1200).luminance(EndAnchorBlock::getLightLevel)));
 
 

@@ -1,11 +1,15 @@
 package net.sn0wix_.misc_additions.common.networking.custom.s2c;
 
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.Vec3d;
+import net.sn0wix_.misc_additions.common.networking.ModPackets;
 
 import java.util.Random;
 
@@ -21,6 +25,12 @@ public class PortalParticleSpawnS2CPacket {
                 client.world.addParticle(ParticleTypes.PORTAL, particlePos.x, particlePos.y, particlePos.z, particleVelocity.x, particleVelocity.y, particleVelocity.z);
             }
         }
+    }
+
+    public static void send(ServerPlayerEntity player, Vec3d vec3d) {
+        PacketByteBuf buffer = PacketByteBufs.create();
+        buffer.writeVec3d(vec3d);
+        ServerPlayNetworking.send(player, ModPackets.PORTAL_PARTICLE_SPAWN, buffer);
     }
 
     public static Vec3d calculateVelocity(Vec3d centerPos, Vec3d particlePos, Random random) {

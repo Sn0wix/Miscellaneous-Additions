@@ -63,7 +63,7 @@ public class ModBlocks {
             new GunpowderBarrelBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(2.5f).sounds(BlockSoundGroup.WOOD).burnable().ticksRandomly().nonOpaque()));
 
     public static final Block END_RELAY = registerBlock("end_relay",
-            new EndRelayBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).instrument(Instrument.BASEDRUM).requiresTool().strength(60.0f, 1200).luminance(EndRelayBlock::getLightLevel)));
+            new EndRelayBlock(FabricBlockSettings.create().mapColor(MapColor.PURPLE).instrument(Instrument.BASEDRUM).requiresTool().strength(60.0f, 1200).pistonBehavior(PistonBehavior.IGNORE).luminance(EndRelayBlock::getLightLevel)));
 
 
     //Azalea wood set

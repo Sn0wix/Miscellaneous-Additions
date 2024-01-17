@@ -1,6 +1,6 @@
-// 1.20.4	2024-01-15T17:35:13.6615935	Miscellaneous Additions/Tags for minecraft:item
-4560f26225a1daf39dc756d24e447d277d251ffd data\misc_additions\tags\items\azalea_logs.json
+// 1.20.4	2024-01-17T20:21:43.1588348	Miscellaneous Additions/Tags for minecraft:item
 b1dbcf26296d55176365dd49a90e01ea40e8bea1 data\minecraft\tags\items\swords.json
+4560f26225a1daf39dc756d24e447d277d251ffd data\misc_additions\tags\items\azalea_logs.json
 c7188a865fc3345fb8177a2300009d46a3dd8a20 data\minecraft\tags\items\trimmable_armor.json
 347e71ad3a2961970d04ca64497a357823ad493f data\minecraft\tags\items\pickaxes.json
 05268c640f0bf7bdc1717660b5505eb8cf7d5522 data\minecraft\tags\items\doors.json
@@ -11,9 +11,9 @@ b05a23fbafbb14295f075d048a2be6f67c7a17b0 data\minecraft\tags\items\axes.json
 66213dff676231924c757707596974c1e43ebd15 data\minecraft\tags\items\chest_boats.json
 6b14d5ea48c247ff23fb16d96522baf9ffeb2644 data\minecraft\tags\items\music_discs.json
 71350671af271f005777c9f295ada96fca47d299 data\minecraft\tags\items\wooden_trapdoors.json
+f7d61aec0ff78508967871aa0a64a9367064fcdf data\misc_additions\tags\items\end_relay_chargeable.json
 7f1a67351b80675efbb168c145c5fea22f836f83 data\minecraft\tags\items\wooden_pressure_plates.json
 083bb3eae7b082630181db683f8af6757bfc901b data\minecraft\tags\items\shovels.json
-f7d61aec0ff78508967871aa0a64a9367064fcdf data\misc_additions\tags\items\end_anchor_chargeable.json
 90e11b6cf3e17d289e652abf02d2f23eead5f534 data\minecraft\tags\items\wooden_stairs.json
 7b698180fe4fde4e55988a7a3e4c864c73df572e data\minecraft\tags\items\boats.json
 d7d418f16cc3a3bfc7c2d3390eaa31b502e34d40 data\minecraft\tags\items\logs_that_burn.json

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
     "bottom": "misc_additions:block/end_relay_bottom",
-    "side": "misc_additions:block/end_relay_side4",
-    "top": "misc_additions:block/end_relay_top4"
+    "side": "misc_additions:block/end_relay_side3",
+    "top": "misc_additions:block/end_relay_top0"
   }
 }

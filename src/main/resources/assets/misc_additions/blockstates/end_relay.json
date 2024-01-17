@@ -1,19 +1,34 @@
 {
   "variants": {
-    "charges=0": {
-      "model": "misc_additions:block/end_relay_0"
+    "charges=0,has_compass=true": {
+      "model": "misc_additions:block/end_relay_0_1"
     },
-    "charges=1": {
-      "model": "misc_additions:block/end_relay_1"
+    "charges=1,has_compass=true": {
+      "model": "misc_additions:block/end_relay_1_1"
     },
-    "charges=2": {
-      "model": "misc_additions:block/end_relay_2"
+    "charges=2,has_compass=true": {
+      "model": "misc_additions:block/end_relay_2_1"
     },
-    "charges=3": {
-      "model": "misc_additions:block/end_relay_3"
+    "charges=3,has_compass=true": {
+      "model": "misc_additions:block/end_relay_3_1"
     },
-    "charges=4": {
-      "model": "misc_additions:block/end_relay_4"
+    "charges=4,has_compass=true": {
+      "model": "misc_additions:block/end_relay_4_1"
+    },
+    "charges=0,has_compass=false": {
+      "model": "misc_additions:block/end_relay_0_0"
+    },
+    "charges=1,has_compass=false": {
+      "model": "misc_additions:block/end_relay_1_0"
+    },
+    "charges=2,has_compass=false": {
+      "model": "misc_additions:block/end_relay_2_0"
+    },
+    "charges=3,has_compass=false": {
+      "model": "misc_additions:block/end_relay_3_0"
+    },
+    "charges=4,has_compass=false": {
+      "model": "misc_additions:block/end_relay_4_0"
     }
   }
 }

@@ -267,7 +267,7 @@ public class ModTagsGenerator {
         }
 
         private void addEndAnchorRechargeable() {
-            getOrCreateTagBuilder(ModItemTags.END_ANCHOR_CHARGEABLE)
+            getOrCreateTagBuilder(ModItemTags.END_RELAY_CHARGEABLE)
                     .add(Items.END_CRYSTAL);
         }
     }

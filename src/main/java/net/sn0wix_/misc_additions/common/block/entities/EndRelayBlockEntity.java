@@ -16,6 +16,7 @@ import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.sn0wix_.misc_additions.common.MiscAdditions;
 import net.sn0wix_.misc_additions.common.block.custom.EndRelayBlock;
@@ -24,12 +25,23 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.annotations.VisibleForTesting;
 
 public class EndRelayBlockEntity extends BlockEntity implements SingleStackInventory, Clearable {
+    public int currentDelay = 0;
+    public final int compassDelay = 80;
+    public final int teleportDelay = 120;
     public ItemStack compass_stack = ItemStack.EMPTY;
 
     public EndRelayBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.END_RELAY_BLOCK_ENTITY, pos, state);
     }
 
+    public void tick(World world, BlockPos pos, BlockState state) {
+        if (currentDelay > 0) {
+            currentDelay--;
+        }
+    }
+
+
+    //NBT data
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
@@ -46,6 +58,16 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
         }
     }
 
+
+
+    //Item transfering between hopper and end relay
+    @Override
+    public boolean canTransferTo(Inventory hopperInventory, int slot, ItemStack stack) {
+        return hopperInventory.containsAny(ItemStack::isEmpty);
+    }
+
+
+    //HELPER METHODS
     private void updateState(@Nullable Entity entity, boolean hasCompass) {
         if (this.world.getBlockState(this.getPos()) == this.getCachedState()) {
             this.world.setBlockState(this.getPos(), this.getCachedState().with(EndRelayBlock.HAS_COMPASS, hasCompass), Block.NOTIFY_LISTENERS);
@@ -71,6 +93,13 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
     }
 
     @Override
+    public BlockEntity asBlockEntity() {
+        return this;
+    }
+
+
+    //Inventory
+    @Override
     public ItemStack getStack() {
         return compass_stack;
     }
@@ -89,22 +118,28 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
     public void setStack(ItemStack stack) {
         if (stack.isOf(Items.COMPASS) && this.world != null) {
             this.compass_stack = stack;
+            currentDelay = compassDelay;
             this.updateState(null, true);
         } else if (stack.isEmpty()) {
             this.decreaseStack(1);
         }
     }
 
-    @Override
-    public int getMaxCountPerStack() {
-        return 1;
-    }
 
-    @Override
-    public BlockEntity asBlockEntity() {
-        return this;
-    }
+    public void setCompass(ItemStack stack) {
+        if (currentDelay == 0) {
+            if (!compass_stack.isEmpty()) {
+                dropCompass();
+            }
 
+            this.compass_stack = stack.copy();
+            this.compass_stack.setCount(getMaxCountPerStack());
+            updateState(null, !stack.isEmpty());
+            this.world.updateNeighborsAlways(this.getPos(), this.getCachedState().getBlock());
+            this.markDirty();
+            currentDelay = compassDelay;
+        }
+    }
     @Override
     public boolean isValid(int slot, ItemStack stack) {
         if (stack.isOf(Items.COMPASS)) {
@@ -115,18 +150,11 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
     }
 
     @Override
-    public boolean canTransferTo(Inventory hopperInventory, int slot, ItemStack stack) {
-        return hopperInventory.containsAny(ItemStack::isEmpty);
+    public int getMaxCountPerStack() {
+        return 1;
     }
 
-    public void setCompass(ItemStack stack) {
-        if (!compass_stack.isEmpty()) {
-            dropCompass();
-        }
-
-        this.compass_stack = stack;
-        this.compass_stack.setCount(getMaxCountPerStack());
-        this.world.updateNeighborsAlways(this.getPos(), this.getCachedState().getBlock());
-        this.markDirty();
+    public static void tick(World world, BlockPos pos, BlockState state, EndRelayBlockEntity endRelayBlockEntity) {
+        endRelayBlockEntity.tick(world, pos, state);
     }
 }

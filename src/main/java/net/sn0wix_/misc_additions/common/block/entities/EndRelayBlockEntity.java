@@ -2,6 +2,7 @@ package net.sn0wix_.misc_additions.common.block.entities;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Dismounting;
 import net.minecraft.entity.Entity;
@@ -14,13 +15,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtHelper;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.CollisionView;
 import net.minecraft.world.World;
+import net.minecraft.world.dimension.DimensionTypes;
 import net.minecraft.world.event.GameEvent;
+import net.sn0wix_.misc_additions.common.MiscAdditions;
 import net.sn0wix_.misc_additions.common.block.custom.EndRelayBlock;
 import net.sn0wix_.misc_additions.common.util.tags.ModItemTags;
 import org.jetbrains.annotations.Nullable;
@@ -28,10 +32,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class EndRelayBlockEntity extends BlockEntity implements SingleStackInventory, Clearable {
+    public static final String LODESTONE_POS_KEY = "LodestonePos";
+    public static final String LODESTONE_DIMENSION_KEY = "LodestoneDimension";
     public int currentDelay = 0;
+    public int currentTeleportDelay = 0;
+    public int smallTeleportDelay = 5;
     public final int compassDelay = 80;
-    public final int teleportDelay = 120;
+    public final int teleportDelay = 60;
     public ItemStack compass_stack = ItemStack.EMPTY;
+    private PlayerEntity player = null;
 
     public EndRelayBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.END_RELAY_BLOCK_ENTITY, pos, state);
@@ -41,18 +50,57 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
         if (currentDelay > 0) {
             currentDelay--;
         }
+
+        if (currentTeleportDelay > 0) {
+            currentTeleportDelay--;
+
+            if (currentTeleportDelay == 0 && player != null && player.getPos().isInRange(this.pos.toCenterPos(), 5)) {
+                teleport(player, world);
+            }
+        }
     }
 
-    public boolean teleport(PlayerEntity player, CollisionView view) {
-        if (getCompassPos() != null) {
-            findTPPosition(player.getType(), view, getCompassPos());
-            return true;
-        }
+    public boolean checkTeleport(PlayerEntity player, CollisionView view) {
+        if (getCompassPos() != null && currentDelay == 0 && world != null && isEnd(world)) {
+            Optional<Vec3d> optional = findTPPosition(player.getType(), view, getCompassPos().up());
+            this.currentDelay = teleportDelay;
 
+            if (optional.isPresent() && world.getBlockState(getCompassPos()).isOf(Blocks.LODESTONE)) {
+                player.requestTeleport(optional.get().x, optional.get().y, optional.get().z);
+                return true;
+            }
+
+        }
         return false;
     }
 
+    public boolean teleport(PlayerEntity player, CollisionView view) {
+        if (getCompassPos() != null && currentDelay == 0 && world != null && isEnd(world)) {
+            Optional<Vec3d> optional = findTPPosition(player.getType(), view, getCompassPos().up());
+            this.currentDelay = teleportDelay;
+
+            if (optional.isPresent() && world.getBlockState(getCompassPos()).isOf(Blocks.LODESTONE)) {
+                player.requestTeleport(optional.get().x, optional.get().y, optional.get().z);
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    public int getCurrentDelay() {
+        return currentDelay;
+    }
+
     public BlockPos getCompassPos() {
+        if (getStack().getNbt() != null && !getStack().getNbt().isEmpty()) {
+            NbtCompound nbt = getStack().getNbt();
+            String dimension = nbt.getString(LODESTONE_DIMENSION_KEY);
+
+            if (dimension.equals(DimensionTypes.THE_END_ID.toString())) {
+                return NbtHelper.toBlockPos(nbt.getCompound(LODESTONE_POS_KEY));
+            }
+        }
         return null;
     }
 
@@ -204,5 +252,9 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
 
     public static void tick(World world, BlockPos pos, BlockState state, EndRelayBlockEntity endRelayBlockEntity) {
         endRelayBlockEntity.tick(world, pos, state);
+    }
+
+    public static boolean isEnd(World world) {
+        return world.getDimensionEntry().matchesKey(DimensionTypes.THE_END);
     }
 }

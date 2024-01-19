@@ -6,7 +6,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
@@ -47,9 +46,7 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
     public static final BooleanProperty HAS_COMPASS = BooleanProperty.of("has_compass");
 
     public final java.util.Random random = new java.util.Random();
-    public static final ImmutableList<Vec3i> VALID_HORIZONTAL_SPAWN_OFFSETS = ImmutableList.of(new Vec3i(0, 0, -1), new Vec3i(-1, 0, 0), new Vec3i(0, 0, 1), new Vec3i(1, 0, 0), new Vec3i(-1, 0, -1), new Vec3i(1, 0, -1), new Vec3i(-1, 0, 1), new Vec3i(1, 0, 1));
-    public static final ImmutableList<Vec3i> VALID_SPAWN_OFFSETS = ((ImmutableList.Builder)((ImmutableList.Builder)((ImmutableList.Builder)((ImmutableList.Builder)new ImmutableList.Builder().addAll(VALID_HORIZONTAL_SPAWN_OFFSETS)).addAll(VALID_HORIZONTAL_SPAWN_OFFSETS.stream().map(Vec3i::down).iterator())).addAll(VALID_HORIZONTAL_SPAWN_OFFSETS.stream().map(Vec3i::up).iterator())).add(new Vec3i(0, 1, 0))).build();
-
+    public static final ImmutableList<Vec3i> VALID_HORIZONTAL_SPAWN_OFFSETS = ImmutableList.of(new Vec3i(0,0,0));
 
     public EndRelayBlock(Settings settings) {
         super(settings);
@@ -96,17 +93,19 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
             }
         }
 
-        //discharging logic
-        if (isEnd(world) && state.get(CHARGES) > 0) {
-            if (!world.isClient) {
-                disCharge(player, world, pos, state);
-            }
-
+        if (!world.isClient && !isEnd(world) && state.get(CHARGES) > 0 && !isCorrectItem(player.getStackInHand(hand))) {
+            explode(state, world, pos);
             return ActionResult.SUCCESS;
         }
 
-        if (!world.isClient && !isEnd(world) && state.get(CHARGES) > 0 && !isCorrectItem(player.getStackInHand(hand))) {
-            explode(state, world, pos);
+        //discharging logic
+        if (isEnd(world) && state.get(CHARGES) > 0) {
+            if (!world.isClient) {
+                if (!disCharge(player, world, pos, state)) {
+                    return ActionResult.PASS;
+                }
+            }
+
             return ActionResult.SUCCESS;
         }
 
@@ -204,24 +203,30 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
         }
     }
 
-    public void disCharge(@Nullable Entity disCharger, World world, BlockPos pos, BlockState state) {
-        if (getBlockEntity(world, pos).teleport(null, null)) {
+    public boolean disCharge(PlayerEntity disCharger, World world, BlockPos pos, BlockState state) {
+        if (getBlockEntity(world, pos).getCurrentDelay() == 0) {
+            if (getBlockEntity(world, pos).checkTeleport(disCharger, world)) {
+                world.playSound(null, pos, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 1, 1);
+            }
+
             BlockState blockState = state.with(CHARGES, state.get(CHARGES) - 1);
             world.setBlockState(pos, blockState, Block.NOTIFY_ALL);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(disCharger, blockState));
+            world.playSound(null, (double) pos.getX() + 0.5, (double) pos.getY() + 0.5, (double) pos.getZ() + 0.5, SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.BLOCKS, 10, 3f);
+
+            world.getPlayers().forEach(player -> {
+                if (player.getPos().isInRange(pos.toCenterPos(), 256)) {
+                    PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) player, pos.toCenterPos());
+                }
+            });
+
+            return true;
         }
 
-        world.playSound(null, pos, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 1, 1);
-        world.playSound(null, (double) pos.getX() + 0.5, (double) pos.getY() + 0.5, (double) pos.getZ() + 0.5, SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.BLOCKS, 10, 3f);
-
-        world.getPlayers().forEach(player -> {
-            if (player.getPos().isInRange(pos.toCenterPos(), 256)) {
-                PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) player, pos.toCenterPos());
-            }
-        });
+        return false;
     }
 
-    public void charge(@Nullable Entity charger, World world, BlockPos pos, BlockState state) {
+    public void charge(PlayerEntity charger, World world, BlockPos pos, BlockState state) {
         BlockState blockState = state.with(CHARGES, state.get(CHARGES) + 1);
         world.setBlockState(pos, blockState, Block.NOTIFY_ALL);
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(charger, blockState));

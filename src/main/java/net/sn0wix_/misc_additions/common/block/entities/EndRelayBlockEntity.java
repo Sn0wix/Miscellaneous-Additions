@@ -2,27 +2,30 @@ package net.sn0wix_.misc_additions.common.block.entities;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.JukeboxBlock;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.Dismounting;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SingleStackInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.Vec3i;
+import net.minecraft.world.CollisionView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-import net.sn0wix_.misc_additions.common.MiscAdditions;
 import net.sn0wix_.misc_additions.common.block.custom.EndRelayBlock;
 import net.sn0wix_.misc_additions.common.util.tags.ModItemTags;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.annotations.VisibleForTesting;
+
+import java.util.Optional;
 
 public class EndRelayBlockEntity extends BlockEntity implements SingleStackInventory, Clearable {
     public int currentDelay = 0;
@@ -40,6 +43,29 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
         }
     }
 
+    public boolean teleport(PlayerEntity player, CollisionView view) {
+        if (getCompassPos() != null) {
+            findTPPosition(player.getType(), view, getCompassPos());
+            return true;
+        }
+
+        return false;
+    }
+
+    public BlockPos getCompassPos() {
+        return null;
+    }
+
+
+    //Item transfering between hopper and end relay
+    @Override
+    public boolean canTransferTo(Inventory hopperInventory, int slot, ItemStack stack) {
+        boolean bl = hopperInventory.containsAny(ItemStack::isEmpty);
+        if (bl) {
+            bl = getStack().isEmpty();
+        }
+        return bl;
+    }
 
     //NBT data
     @Override
@@ -58,16 +84,26 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
         }
     }
 
-
-
-    //Item transfering between hopper and end relay
-    @Override
-    public boolean canTransferTo(Inventory hopperInventory, int slot, ItemStack stack) {
-        return hopperInventory.containsAny(ItemStack::isEmpty);
+    //HELPER METHODS
+    public static Optional<Vec3d> findTPPosition(EntityType<?> entity, CollisionView world, BlockPos pos) {
+        Optional<Vec3d> optional = EndRelayBlockEntity.findTPPosition(entity, world, pos, true);
+        if (optional.isPresent()) {
+            return optional;
+        }
+        return EndRelayBlockEntity.findTPPosition(entity, world, pos, false);
     }
 
+    private static Optional<Vec3d> findTPPosition(EntityType<?> entity, CollisionView world, BlockPos pos, boolean ignoreInvalidPos) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        for (Vec3i vec3i : EndRelayBlock.VALID_HORIZONTAL_SPAWN_OFFSETS) {
+            mutable.set(pos).move(vec3i);
+            Vec3d vec3d = Dismounting.findRespawnPos(entity, world, mutable, ignoreInvalidPos);
+            if (vec3d == null) continue;
+            return Optional.of(vec3d);
+        }
+        return Optional.empty();
+    }
 
-    //HELPER METHODS
     private void updateState(@Nullable Entity entity, boolean hasCompass) {
         if (this.world.getBlockState(this.getPos()) == this.getCachedState()) {
             this.world.setBlockState(this.getPos(), this.getCachedState().with(EndRelayBlock.HAS_COMPASS, hasCompass), Block.NOTIFY_LISTENERS);
@@ -75,21 +111,29 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
         }
     }
 
-    public void dropCompass() {
-        if (this.world == null || this.world.isClient) {
-            return;
+    public boolean dropCompass(boolean broken) {
+        if (currentDelay == 0 || broken) {
+            if (this.world == null || this.world.isClient) {
+                return false;
+            }
+            BlockPos blockPos = this.getPos();
+            ItemStack itemStack = this.getStack();
+            if (itemStack.isEmpty()) {
+                return false;
+            }
+            this.emptyStack();
+            Vec3d vec3d = Vec3d.add(blockPos, 0.5, 1.01, 0.5).addRandom(this.world.random, 0.7f);
+            ItemStack itemStack2 = itemStack.copy();
+            ItemEntity itemEntity = new ItemEntity(this.world, vec3d.getX(), vec3d.getY(), vec3d.getZ(), itemStack2);
+            itemEntity.setToDefaultPickupDelay();
+            this.world.spawnEntity(itemEntity);
+            return true;
         }
-        BlockPos blockPos = this.getPos();
-        ItemStack itemStack = this.getStack();
-        if (itemStack.isEmpty()) {
-            return;
-        }
-        this.emptyStack();
-        Vec3d vec3d = Vec3d.add(blockPos, 0.5, 1.01, 0.5).addRandom(this.world.random, 0.7f);
-        ItemStack itemStack2 = itemStack.copy();
-        ItemEntity itemEntity = new ItemEntity(this.world, vec3d.getX(), vec3d.getY(), vec3d.getZ(), itemStack2);
-        itemEntity.setToDefaultPickupDelay();
-        this.world.spawnEntity(itemEntity);
+        return false;
+    }
+
+    public boolean dropCompass() {
+        return dropCompass(false);
     }
 
     @Override
@@ -126,7 +170,7 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
     }
 
 
-    public void setCompass(ItemStack stack) {
+    public boolean setCompass(ItemStack stack) {
         if (currentDelay == 0) {
             if (!compass_stack.isEmpty()) {
                 dropCompass();
@@ -138,8 +182,12 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
             this.world.updateNeighborsAlways(this.getPos(), this.getCachedState().getBlock());
             this.markDirty();
             currentDelay = compassDelay;
+            return true;
         }
+
+        return false;
     }
+
     @Override
     public boolean isValid(int slot, ItemStack stack) {
         if (stack.isOf(Items.COMPASS)) {

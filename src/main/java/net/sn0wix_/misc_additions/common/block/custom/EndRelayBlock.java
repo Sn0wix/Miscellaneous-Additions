@@ -1,11 +1,11 @@
 package net.sn0wix_.misc_additions.common.block.custom;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.block.entity.JukeboxBlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -18,7 +18,6 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -35,7 +34,6 @@ import net.minecraft.world.dimension.DimensionTypes;
 import net.minecraft.world.event.GameEvent;
 import net.minecraft.world.explosion.Explosion;
 import net.minecraft.world.explosion.ExplosionBehavior;
-import net.sn0wix_.misc_additions.common.MiscAdditions;
 import net.sn0wix_.misc_additions.common.block.entities.EndRelayBlockEntity;
 import net.sn0wix_.misc_additions.common.block.entities.ModBlockEntities;
 import net.sn0wix_.misc_additions.common.networking.custom.s2c.PortalParticleSpawnS2CPacket;
@@ -49,6 +47,9 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
     public static final BooleanProperty HAS_COMPASS = BooleanProperty.of("has_compass");
 
     public final java.util.Random random = new java.util.Random();
+    public static final ImmutableList<Vec3i> VALID_HORIZONTAL_SPAWN_OFFSETS = ImmutableList.of(new Vec3i(0, 0, -1), new Vec3i(-1, 0, 0), new Vec3i(0, 0, 1), new Vec3i(1, 0, 0), new Vec3i(-1, 0, -1), new Vec3i(1, 0, -1), new Vec3i(-1, 0, 1), new Vec3i(1, 0, 1));
+    public static final ImmutableList<Vec3i> VALID_SPAWN_OFFSETS = ((ImmutableList.Builder)((ImmutableList.Builder)((ImmutableList.Builder)((ImmutableList.Builder)new ImmutableList.Builder().addAll(VALID_HORIZONTAL_SPAWN_OFFSETS)).addAll(VALID_HORIZONTAL_SPAWN_OFFSETS.stream().map(Vec3i::down).iterator())).addAll(VALID_HORIZONTAL_SPAWN_OFFSETS.stream().map(Vec3i::up).iterator())).add(new Vec3i(0, 1, 0))).build();
+
 
     public EndRelayBlock(Settings settings) {
         super(settings);
@@ -71,26 +72,28 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
         //Inserting compass logic
         if (player.getStackInHand(hand).isOf(Items.COMPASS) && getBlockEntity(world, pos) != null) {
             if (!world.isClient) {
-                getBlockEntity(world, pos).setCompass(player.getStackInHand(hand));
-                if (!player.getAbilities().creativeMode) {
-                    player.getStackInHand(hand).decrement(1);
-                }
+                if (getBlockEntity(world, pos).setCompass(player.getStackInHand(hand))) {
+                    if (!player.getAbilities().creativeMode) {
+                        player.getStackInHand(hand).decrement(1);
+                    }
 
-                world.playSound(null, pos, SoundEvents.BLOCK_BEACON_POWER_SELECT, SoundCategory.BLOCKS, 1, 0.8f);
-                world.playSound(null, pos, SoundEvents.BLOCK_BEACON_ACTIVATE, SoundCategory.BLOCKS, 1, 0.8f);
+                    world.playSound(null, pos, SoundEvents.BLOCK_BEACON_POWER_SELECT, SoundCategory.BLOCKS, 1, 0.8f);
+                    world.playSound(null, pos, SoundEvents.BLOCK_BEACON_ACTIVATE, SoundCategory.BLOCKS, 1, 0.8f);
+                    return ActionResult.SUCCESS;
+                }
+                return ActionResult.PASS;
             }
-            return ActionResult.SUCCESS;
         }
 
         if (player.isSneaking() && getBlockEntity(world, pos) != null && state.get(HAS_COMPASS)) {
             if (!world.isClient) {
-                getBlockEntity(world, pos).dropCompass();
-                getBlockEntity(world, pos).setCompass(ItemStack.EMPTY);
-
-                world.playSound(null, pos, SoundEvents.BLOCK_BEACON_POWER_SELECT, SoundCategory.BLOCKS, 1, 0.8f);
-                world.playSound(null, pos, SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.BLOCKS, 1, 0.8f);
+                if (getBlockEntity(world, pos).dropCompass() && getBlockEntity(world, pos).setCompass(ItemStack.EMPTY)) {
+                    world.playSound(null, pos, SoundEvents.BLOCK_BEACON_POWER_SELECT, SoundCategory.BLOCKS, 1, 0.8f);
+                    world.playSound(null, pos, SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.BLOCKS, 1, 0.8f);
+                    return ActionResult.SUCCESS;
+                }
+                return ActionResult.PASS;
             }
-            return ActionResult.SUCCESS;
         }
 
         //discharging logic
@@ -127,7 +130,11 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
         }
 
         if (getBlockEntity(world, pos) != null) {
-            getBlockEntity(world, pos).dropCompass();
+            getBlockEntity(world, pos).dropCompass(true);
+            if (state.get(HAS_COMPASS)) {
+                world.playSound(null, pos, SoundEvents.BLOCK_BEACON_POWER_SELECT, SoundCategory.BLOCKS, 1, 0.8f);
+                world.playSound(null, pos, SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.BLOCKS, 1, 0.8f);
+            }
         }
 
         super.onStateReplaced(state, world, pos, newState, moved);
@@ -171,8 +178,6 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
     }
 
     //Ticker
-
-
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
@@ -199,10 +204,12 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
         }
     }
 
-    public static void disCharge(@Nullable Entity disCharger, World world, BlockPos pos, BlockState state) {
-        BlockState blockState = state.with(CHARGES, state.get(CHARGES) - 1);
-        world.setBlockState(pos, blockState, Block.NOTIFY_ALL);
-        world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(disCharger, blockState));
+    public void disCharge(@Nullable Entity disCharger, World world, BlockPos pos, BlockState state) {
+        if (getBlockEntity(world, pos).teleport(null, null)) {
+            BlockState blockState = state.with(CHARGES, state.get(CHARGES) - 1);
+            world.setBlockState(pos, blockState, Block.NOTIFY_ALL);
+            world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(disCharger, blockState));
+        }
 
         world.playSound(null, pos, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 1, 1);
         world.playSound(null, (double) pos.getX() + 0.5, (double) pos.getY() + 0.5, (double) pos.getZ() + 0.5, SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.BLOCKS, 10, 3f);
@@ -214,7 +221,7 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
         });
     }
 
-    public static void charge(@Nullable Entity charger, World world, BlockPos pos, BlockState state) {
+    public void charge(@Nullable Entity charger, World world, BlockPos pos, BlockState state) {
         BlockState blockState = state.with(CHARGES, state.get(CHARGES) + 1);
         world.setBlockState(pos, blockState, Block.NOTIFY_ALL);
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(charger, blockState));

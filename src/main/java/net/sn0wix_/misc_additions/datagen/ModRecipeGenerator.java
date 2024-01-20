@@ -2,6 +2,7 @@ package net.sn0wix_.misc_additions.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.data.server.recipe.*;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
@@ -55,6 +56,20 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
 
 
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.END_RELAY)
+                .pattern("oco")
+                .pattern("cec")
+                .pattern("oco")
+                .input('o', Blocks.OBSIDIAN)
+                .input('c', Items.POPPED_CHORUS_FRUIT)
+                .input('e', Items.ENDER_EYE)
+                .criterion(FabricRecipeProvider.hasItem(Blocks.OBSIDIAN), FabricRecipeProvider.conditionsFromItem(Blocks.OBSIDIAN))
+                .criterion(FabricRecipeProvider.hasItem(Items.POPPED_CHORUS_FRUIT), FabricRecipeProvider.conditionsFromItem(Items.POPPED_CHORUS_FRUIT))
+                .criterion(FabricRecipeProvider.hasItem(Items.ENDER_EYE), FabricRecipeProvider.conditionsFromItem(Items.ENDER_EYE))
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.END_RELAY), FabricRecipeProvider.conditionsFromItem(ModBlocks.END_RELAY))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.END_RELAY)));
+
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GUNPOWDER_BARREL)
                 .input(Items.BARREL)
                 .input(Items.GUNPOWDER, 8)
@@ -62,6 +77,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.GUNPOWDER), FabricRecipeProvider.conditionsFromItem(Items.GUNPOWDER))
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.GUNPOWDER_BARREL), FabricRecipeProvider.conditionsFromItem(ModBlocks.GUNPOWDER_BARREL))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.GUNPOWDER_BARREL)));
+
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.DIAMOND)
                 .input(ModItems.CRUSHED_DIAMOND, 4)

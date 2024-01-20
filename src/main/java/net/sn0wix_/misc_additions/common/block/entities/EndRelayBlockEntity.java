@@ -4,10 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.Dismounting;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SingleStackInventory;
@@ -16,6 +13,7 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtHelper;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -24,8 +22,8 @@ import net.minecraft.world.CollisionView;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionTypes;
 import net.minecraft.world.event.GameEvent;
-import net.sn0wix_.misc_additions.common.MiscAdditions;
 import net.sn0wix_.misc_additions.common.block.custom.EndRelayBlock;
+import net.sn0wix_.misc_additions.common.networking.custom.s2c.PortalParticleSpawnS2CPacket;
 import net.sn0wix_.misc_additions.common.util.tags.ModItemTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -34,53 +32,53 @@ import java.util.Optional;
 public class EndRelayBlockEntity extends BlockEntity implements SingleStackInventory, Clearable {
     public static final String LODESTONE_POS_KEY = "LodestonePos";
     public static final String LODESTONE_DIMENSION_KEY = "LodestoneDimension";
-    public int currentDelay = 0;
-    public int currentTeleportDelay = 0;
-    public int smallTeleportDelay = 5;
-    public final int compassDelay = 80;
-    public final int teleportDelay = 60;
+
+    public int compassDelay = 0;
+    public final int maxCompassDelay = 80;
+
+    public int teleportDelay = 0;
+    public final int maxTeleportDelay = 60;
+
     public ItemStack compass_stack = ItemStack.EMPTY;
-    private PlayerEntity player = null;
 
     public EndRelayBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.END_RELAY_BLOCK_ENTITY, pos, state);
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if (currentDelay > 0) {
-            currentDelay--;
+        if (compassDelay > 0) {
+            compassDelay--;
         }
 
-        if (currentTeleportDelay > 0) {
-            currentTeleportDelay--;
-
-            if (currentTeleportDelay == 0 && player != null && player.getPos().isInRange(this.pos.toCenterPos(), 5)) {
-                teleport(player, world);
-            }
+        if (teleportDelay > 0) {
+            teleportDelay--;
         }
-    }
-
-    public boolean checkTeleport(PlayerEntity player, CollisionView view) {
-        if (getCompassPos() != null && currentDelay == 0 && world != null && isEnd(world)) {
-            Optional<Vec3d> optional = findTPPosition(player.getType(), view, getCompassPos().up());
-            this.currentDelay = teleportDelay;
-
-            if (optional.isPresent() && world.getBlockState(getCompassPos()).isOf(Blocks.LODESTONE)) {
-                player.requestTeleport(optional.get().x, optional.get().y, optional.get().z);
-                return true;
-            }
-
-        }
-        return false;
     }
 
     public boolean teleport(PlayerEntity player, CollisionView view) {
-        if (getCompassPos() != null && currentDelay == 0 && world != null && isEnd(world)) {
+        if (getCompassPos() != null && teleportDelay == 0 && world != null && isEnd(world)) {
             Optional<Vec3d> optional = findTPPosition(player.getType(), view, getCompassPos().up());
-            this.currentDelay = teleportDelay;
+            this.teleportDelay = maxTeleportDelay;
 
             if (optional.isPresent() && world.getBlockState(getCompassPos()).isOf(Blocks.LODESTONE)) {
                 player.requestTeleport(optional.get().x, optional.get().y, optional.get().z);
+                world.emitGameEvent(GameEvent.TELEPORT, optional.get(), GameEvent.Emitter.of(player));
+
+                world.getPlayers().forEach(playerEntity -> {
+                    if (playerEntity.getPos().isInRange(pos.toCenterPos(), 256)) {
+                        PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) playerEntity);
+                    }
+                });
+
+                /*world.getPlayers().forEach(playerEntity -> {
+                    if (playerEntity.getPos().isInRange(getCompassPos().toCenterPos(), 256)) {
+                        PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) playerEntity, getCompassPos());
+                    }
+                });*/
+
+                PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) player, getCompassPos());
+                PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) player);
+                //world.sendEntityStatus(player, EntityStatuses.ADD_PORTAL_PARTICLES);
                 return true;
             }
 
@@ -88,8 +86,12 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
         return false;
     }
 
-    public int getCurrentDelay() {
-        return currentDelay;
+    public int getCompassDelay() {
+        return compassDelay;
+    }
+
+    public int getTeleportDelay() {
+        return teleportDelay;
     }
 
     public BlockPos getCompassPos() {
@@ -160,7 +162,7 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
     }
 
     public boolean dropCompass(boolean broken) {
-        if (currentDelay == 0 || broken) {
+        if (compassDelay == 0 || broken) {
             if (this.world == null || this.world.isClient) {
                 return false;
             }
@@ -210,7 +212,7 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
     public void setStack(ItemStack stack) {
         if (stack.isOf(Items.COMPASS) && this.world != null) {
             this.compass_stack = stack;
-            currentDelay = compassDelay;
+            compassDelay = maxCompassDelay;
             this.updateState(null, true);
         } else if (stack.isEmpty()) {
             this.decreaseStack(1);
@@ -219,7 +221,7 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
 
 
     public boolean setCompass(ItemStack stack) {
-        if (currentDelay == 0) {
+        if (compassDelay == 0) {
             if (!compass_stack.isEmpty()) {
                 dropCompass();
             }
@@ -229,7 +231,7 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
             updateState(null, !stack.isEmpty());
             this.world.updateNeighborsAlways(this.getPos(), this.getCachedState().getBlock());
             this.markDirty();
-            currentDelay = compassDelay;
+            compassDelay = maxCompassDelay;
             return true;
         }
 

@@ -8,28 +8,81 @@ import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.sn0wix_.misc_additions.common.MiscAdditions;
 import net.sn0wix_.misc_additions.common.networking.ModPackets;
 
 import java.util.Random;
 
 public class PortalParticleSpawnS2CPacket {
     public static void receive(MinecraftClient client, ClientPlayNetworkHandler clientPlayNetworkHandler, PacketByteBuf packetByteBuf, PacketSender packetSender) {
-        if (client.world != null) {
-            Vec3d centerPos = packetByteBuf.readVec3d();
+        /*client.execute(() -> {
+        if (client.world != null && client.player != null) {
+            /*Vec3d centerPos = packetByteBuf.readVec3d();
             Random random = new Random();
 
             for (int i = 0; i < 10; i++) {
                 Vec3d particlePos = getParticlePos(centerPos, random);
                 Vec3d particleVelocity = calculateVelocity(centerPos, particlePos, random);
                 client.world.addParticle(ParticleTypes.PORTAL, particlePos.x, particlePos.y, particlePos.z, particleVelocity.x, particleVelocity.y, particleVelocity.z);
+            }*//*
+            if (packetByteBuf.readVec3d() == null) {
+                Random random = new Random();
+
+                for (int j = 0; j < 128; ++j) {
+                    double d = (double) j / 127.0;
+                    float f = (random.nextFloat() - 0.5f) * 0.2f;
+                    float g = (random.nextFloat() - 0.5f) * 0.2f;
+                    float h = (random.nextFloat() - 0.5f) * 0.2f;
+                    double e = MathHelper.lerp(d, client.player.prevX, client.player.getX()) + (random.nextDouble() - 0.5) * client.player.getWidth() * 2.0;
+                    double k = MathHelper.lerp(d, client.player.prevY, client.player.getY()) + random.nextDouble() * (double) client.player.getHeight();
+                    double l = MathHelper.lerp(d, client.player.prevZ, client.player.getZ()) + (random.nextDouble() - 0.5) * client.player.getWidth() * 2.0;
+                    client.world.addParticle(ParticleTypes.PORTAL, e, k, l, f, g, h);
+                }
+            } else {
+                Random random = new Random();
+
+                Vec3d pos = packetByteBuf.readVec3d();
+                Box box = new Box(new Vec3d(pos.getX(), pos.getY(), pos.getZ()), new Vec3d(pos.getX() - 1, pos.getY() + 1, pos.getZ() - 1));
+
+                for (int j = 0; j < 128; ++j) {
+                    double d = (double) j / 127.0;
+                    float f = (random.nextFloat() - 0.5f) * 0.2f;
+                    float g = (random.nextFloat() - 0.5f) * 0.2f;
+                    float h = (random.nextFloat() - 0.5f) * 0.2f;
+                    double e = MathHelper.lerp(d, box.minX, box.maxX) + (random.nextDouble() - 0.5) * client.player.getWidth() * 2.0;
+                    double k = MathHelper.lerp(d, box.minY, box.maxY) + random.nextDouble() * (double) client.player.getHeight();
+                    double l = MathHelper.lerp(d, box.minZ, box.maxZ) + (random.nextDouble() - 0.5) * client.player.getWidth() * 2.0;
+                    client.world.addParticle(ParticleTypes.PORTAL, e, k, l, f, g, h);
+                }
             }
         }
+
+        /*                int i = 128;
+                for (int j = 0; j < 128; ++j) {
+                    double d = (double)j / 127.0;
+                    float f = (this.random.nextFloat() - 0.5f) * 0.2f;
+                    float g = (this.random.nextFloat() - 0.5f) * 0.2f;
+                    float h = (this.random.nextFloat() - 0.5f) * 0.2f;
+                    double e = MathHelper.lerp(d, this.prevX, this.getX()) + (this.random.nextDouble() - 0.5) * (double)this.getWidth() * 2.0;
+                    double k = MathHelper.lerp(d, this.prevY, this.getY()) + this.random.nextDouble() * (double)this.getHeight();
+                    double l = MathHelper.lerp(d, this.prevZ, this.getZ()) + (this.random.nextDouble() - 0.5) * (double)this.getWidth() * 2.0;
+                    this.getWorld().addParticle(ParticleTypes.PORTAL, e, k, l, f, g, h);
+                }*/
+        //});
     }
 
-    public static void send(ServerPlayerEntity player, Vec3d vec3d) {
+    public static void send(ServerPlayerEntity player, BlockPos pos) {
         PacketByteBuf buffer = PacketByteBufs.create();
-        buffer.writeVec3d(vec3d);
+        buffer.writeVec3d(pos.toCenterPos());
+        ServerPlayNetworking.send(player, ModPackets.PORTAL_PARTICLE_SPAWN, buffer);
+    }
+
+    public static void send(ServerPlayerEntity player) {
+        PacketByteBuf buffer = PacketByteBufs.create();
         ServerPlayNetworking.send(player, ModPackets.PORTAL_PARTICLE_SPAWN, buffer);
     }
 

@@ -35,7 +35,6 @@ import net.minecraft.world.explosion.Explosion;
 import net.minecraft.world.explosion.ExplosionBehavior;
 import net.sn0wix_.misc_additions.common.block.entities.EndRelayBlockEntity;
 import net.sn0wix_.misc_additions.common.block.entities.ModBlockEntities;
-import net.sn0wix_.misc_additions.common.networking.custom.s2c.PortalParticleSpawnS2CPacket;
 import net.sn0wix_.misc_additions.common.util.tags.ModItemTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -204,9 +203,10 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
     }
 
     public boolean disCharge(PlayerEntity disCharger, World world, BlockPos pos, BlockState state) {
-        if (getBlockEntity(world, pos).getCurrentDelay() == 0) {
-            if (getBlockEntity(world, pos).checkTeleport(disCharger, world)) {
+        if (getBlockEntity(world, pos).getTeleportDelay() == 0) {
+            if (getBlockEntity(world, pos).teleport(disCharger, world)) {
                 world.playSound(null, pos, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 1, 1);
+                world.playSound(null, getBlockEntity(world, pos).getCompassPos().up(), SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 1, 1);
             }
 
             BlockState blockState = state.with(CHARGES, state.get(CHARGES) - 1);
@@ -214,11 +214,11 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(disCharger, blockState));
             world.playSound(null, (double) pos.getX() + 0.5, (double) pos.getY() + 0.5, (double) pos.getZ() + 0.5, SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.BLOCKS, 10, 3f);
 
-            world.getPlayers().forEach(player -> {
+            /*world.getPlayers().forEach(player -> {
                 if (player.getPos().isInRange(pos.toCenterPos(), 256)) {
                     PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) player, pos.toCenterPos());
                 }
-            });
+            });*/
 
             return true;
         }
@@ -233,11 +233,11 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
 
         world.playSound(null, (double) pos.getX() + 0.5, (double) pos.getY() + 0.5, (double) pos.getZ() + 0.5, SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1, 1.2f);
 
-        world.getPlayers().forEach(player -> {
+        /*world.getPlayers().forEach(player -> {
             if (player.getPos().isInRange(pos.toCenterPos(), 256)) {
                 PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) player, pos.toCenterPos());
             }
-        });
+        });*/
     }
 
     public double getRandomBodyY(Vec3d pos) {

@@ -1,4 +1,4 @@
-// 1.20.4	2024-01-17T20:21:43.1608295	Miscellaneous Additions/Recipes
+// 1.20.4	2024-01-20T21:31:56.8287576	Miscellaneous Additions/Recipes
 ec81956aaffa5ab998de2ca193092d60f90af72c data\misc_additions\advancements\recipes\redstone\azalea_pressure_plate.json
 1e251e6646875048d1cdd518dad0687324e81fb5 data\misc_additions\recipes\redstone_sword.json
 cbf97aa890c79ca63a88059157b1d2effbedfc01 data\misc_additions\recipes\azalea_pressure_plate.json
@@ -62,6 +62,7 @@ fe93ce5ba0a9a4c6127364fe679e10d96f73a682 data\misc_additions\advancements\recipe
 50fae922bf459554b5b86caa547abedc3098cb1f data\misc_additions\recipes\azalea_wood.json
 d565fbe06db20f43df5a1bee0e39509227a2902c data\misc_additions\advancements\recipes\combat\redstone_chestplate.json
 d074c52b130dc74bc73ca8f64e312574b04c57d2 data\misc_additions\advancements\recipes\combat\redstone_leggings.json
+0a30d24472faa801a270a15f7a99714373fb5fcf data\misc_additions\recipes\end_relay.json
 4bf1351c8956f8b5262eff04c0d3dde01f747424 data\misc_additions\recipes\lapis_lazuli_battle_axe.json
 fce86cb5316b6fde117294949439054ee01d628b data\misc_additions\advancements\recipes\building_blocks\azalea_planks.json
 0aa35071685b239fd3da6f99b4c2fa428583414f data\misc_additions\recipes\diamond.json
@@ -82,6 +83,7 @@ e238388ac7e83243b501e958c6d56c670a2fdf3b data\misc_additions\recipes\redstone_ba
 d38c53d57075f4e6c177537a26609d1afdef82e5 data\misc_additions\advancements\recipes\combat\netherite_battle_axe.json
 ecab206a0cb23516158de13f403d91edd2135954 data\misc_additions\advancements\recipes\misc\music_disc_final_stage.json
 091450b3e27a148f0b6047fa30f7b172fb0d5ffb data\misc_additions\advancements\recipes\decorations\azalea_fence.json
+9e2904f0c91fb826841dc6792f45a108de36471f data\misc_additions\advancements\recipes\misc\end_relay.json
 a741a35475686038af5f20ae8a3e9d9c5fb45b63 data\misc_additions\advancements\recipes\combat\lapis_lazuli_axe.json
 20aac4464a0cf9d9f86fc5f7bdff0186af46beae data\misc_additions\advancements\recipes\combat\lapis_lazuli_boots.json
 f40290ac4e35267484de5e36c0a0104d167df41b data\misc_additions\advancements\recipes\tools\lapis_lazuli_shovel.json

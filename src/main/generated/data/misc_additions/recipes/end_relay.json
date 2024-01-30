@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "minecraft:popped_chorus_fruit"
+    },
+    "e": {
+      "item": "minecraft:ender_eye"
+    },
+    "o": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "oco",
+    "cec",
+    "oco"
+  ],
+  "result": {
+    "item": "misc_additions:end_relay"
+  }
+}

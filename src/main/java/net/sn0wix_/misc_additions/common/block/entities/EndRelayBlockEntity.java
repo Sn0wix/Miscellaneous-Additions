@@ -22,8 +22,9 @@ import net.minecraft.world.CollisionView;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionTypes;
 import net.minecraft.world.event.GameEvent;
+import net.sn0wix_.misc_additions.client.util.EndRelayTpParticleUtil;
 import net.sn0wix_.misc_additions.common.block.custom.EndRelayBlock;
-import net.sn0wix_.misc_additions.common.networking.custom.s2c.PortalParticleSpawnS2CPacket;
+
 import net.sn0wix_.misc_additions.common.util.tags.ModItemTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -66,7 +67,7 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
 
                 world.getPlayers().forEach(playerEntity -> {
                     if (playerEntity.getPos().isInRange(pos.toCenterPos(), 256)) {
-                        PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) playerEntity);
+                        EndRelayTpParticleUtil.send((ServerPlayerEntity) playerEntity);
                     }
                 });
 
@@ -76,8 +77,8 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
                     }
                 });*/
 
-                PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) player, getCompassPos());
-                PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) player);
+                EndRelayTpParticleUtil.send((ServerPlayerEntity) player, getCompassPos());
+                EndRelayTpParticleUtil.send((ServerPlayerEntity) player);
                 //world.sendEntityStatus(player, EntityStatuses.ADD_PORTAL_PARTICLES);
                 return true;
             }

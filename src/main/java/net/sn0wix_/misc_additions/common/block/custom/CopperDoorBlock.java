@@ -1,7 +1,6 @@
 package net.sn0wix_.misc_additions.common.block.custom;
 
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.Entity;
@@ -17,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.sn0wix_.misc_additions.client.util.ParticlePacketTypes;
 import net.sn0wix_.misc_additions.common.networking.ModPackets;
 import org.jetbrains.annotations.Nullable;
 
@@ -46,36 +46,27 @@ public class CopperDoorBlock extends DoorBlock implements Oxidizable {
         if (!world.isClient()) {
             boolean bl = world.isReceivingRedstonePower(pos) || world.isReceivingRedstonePower(pos.offset(state.get(HALF) == DoubleBlockHalf.LOWER ? Direction.UP : Direction.DOWN)) || (bl = false);
             if (!this.getDefaultState().isOf(sourceBlock) && bl != state.get(POWERED)) {
-                if (!state.get(POWERED)) {
-                    playOpenCloseSound(null, world, pos, false);
+                playOpenCloseSound(null, world, pos, state.get(POWERED));
 
-                    if (state.get(HALF).equals(DoubleBlockHalf.LOWER)) {
-                        spawnParticles(world, pos);
-                    }else {
-                        spawnParticles(world, pos.down());
-                    }
-
+                if (state.get(HALF).equals(DoubleBlockHalf.LOWER)) {
+                    spawnParticles(world, pos);
                 } else {
-                    playOpenCloseSound(null, world, pos, true);
-
-                    if (state.get(HALF).equals(DoubleBlockHalf.LOWER)) {
-                        spawnParticles(world, pos);
-                    }else {
-                        spawnParticles(world, pos.down());
-                    }
+                    spawnParticles(world, pos.down());
                 }
-
-                world.setBlockState(pos, (state.with(POWERED, bl)).with(OPEN, state.get(OPEN)), Block.NOTIFY_LISTENERS);
             }
+
+            world.setBlockState(pos, (state.with(POWERED, bl)).with(OPEN, state.get(OPEN)), Block.NOTIFY_LISTENERS);
         }
     }
+
 
     private void spawnParticles(World world, BlockPos pos) {
         world.getPlayers().forEach(player -> {
             if (world.isPlayerInRange(pos.getX(), pos.getY(), pos.getZ(), 128)) {
                 PacketByteBuf buffer = PacketByteBufs.create();
+                buffer.writeInt(ParticlePacketTypes.COPPER_DOOR_REDSTONE_PARTICLE.getType());
                 buffer.writeBlockPos(pos);
-                ServerPlayNetworking.send((ServerPlayerEntity) player, ModPackets.REDSTONE_PARTICLE_SPAWN, buffer);
+                ModPackets.sendParticlePacket((ServerPlayerEntity) player, buffer);
             }
         });
     }

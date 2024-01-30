@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_end_relay": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "misc_additions:end_relay"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_ender_eye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:ender_eye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_obsidian": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:obsidian"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_popped_chorus_fruit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:popped_chorus_fruit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:end_relay"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_obsidian",
+      "has_popped_chorus_fruit",
+      "has_ender_eye",
+      "has_end_relay"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:end_relay"
+    ]
+  }
+}

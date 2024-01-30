@@ -1,5 +1,6 @@
 Added:
     Illusioner spawn egg
+    End Relay
 
 Changed:
     Vindicators can have iron battle axes or iron sword

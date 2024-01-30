@@ -1,7 +1,6 @@
 package net.sn0wix_.misc_additions.common.block.custom;
 
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
@@ -12,6 +11,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.sn0wix_.misc_additions.client.util.ParticlePacketTypes;
 import net.sn0wix_.misc_additions.common.networking.ModPackets;
 
 public class CopperTrapdoorBlock extends TrapdoorBlock implements Oxidizable {
@@ -52,8 +52,9 @@ public class CopperTrapdoorBlock extends TrapdoorBlock implements Oxidizable {
         world.getPlayers().forEach(player -> {
             if (world.isPlayerInRange(pos.getX(), pos.getY(), pos.getZ(), 128)) {
                 PacketByteBuf buffer = PacketByteBufs.create();
+                buffer.writeInt(ParticlePacketTypes.COPPER_DOOR_REDSTONE_PARTICLE.getType());
                 buffer.writeBlockPos(pos);
-                ServerPlayNetworking.send((ServerPlayerEntity) player, ModPackets.REDSTONE_PARTICLE_SPAWN, buffer);
+                ModPackets.sendParticlePacket((ServerPlayerEntity) player, buffer);
             }
         });
     }

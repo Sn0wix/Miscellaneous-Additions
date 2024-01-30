@@ -1,24 +1,22 @@
-package net.sn0wix_.misc_additions.common.networking.custom.s2c;
+package net.sn0wix_.misc_additions.client.util;
 
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.fabricmc.fabric.api.networking.v1.PacketSender;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 import net.sn0wix_.misc_additions.common.MiscAdditions;
 import net.sn0wix_.misc_additions.common.networking.ModPackets;
 
 import java.util.Random;
 
-public class PortalParticleSpawnS2CPacket {
-    public static void receive(MinecraftClient client, ClientPlayNetworkHandler clientPlayNetworkHandler, PacketByteBuf packetByteBuf, PacketSender packetSender) {
+public class EndRelayTpParticleUtil {
+    public static void spawnParticles(PacketByteBuf buf, World world) {
+        if (world != null) {
+            MiscAdditions.LOGGER.info("tp particles");
+        }
+
         /*client.execute(() -> {
         if (client.world != null && client.player != null) {
             /*Vec3d centerPos = packetByteBuf.readVec3d();
@@ -77,13 +75,13 @@ public class PortalParticleSpawnS2CPacket {
 
     public static void send(ServerPlayerEntity player, BlockPos pos) {
         PacketByteBuf buffer = PacketByteBufs.create();
+        buffer.writeInt( ParticlePacketTypes.END_RELAY_TELEPORT.getType());
         buffer.writeVec3d(pos.toCenterPos());
-        ServerPlayNetworking.send(player, ModPackets.PORTAL_PARTICLE_SPAWN, buffer);
+        ModPackets.sendParticlePacket(player, buffer);
     }
 
     public static void send(ServerPlayerEntity player) {
-        PacketByteBuf buffer = PacketByteBufs.create();
-        ServerPlayNetworking.send(player, ModPackets.PORTAL_PARTICLE_SPAWN, buffer);
+        ModPackets.sendParticlePacket(player, ParticlePacketTypes.END_RELAY_TELEPORT.getType());
     }
 
     public static Vec3d calculateVelocity(Vec3d centerPos, Vec3d particlePos, Random random) {
@@ -110,3 +108,4 @@ public class PortalParticleSpawnS2CPacket {
         return random.nextBoolean() ? vec3d.z + 0.6 + (random.nextDouble() / 2) : vec3d.z - 0.6 - (random.nextDouble() / 2);
     }
 }
+

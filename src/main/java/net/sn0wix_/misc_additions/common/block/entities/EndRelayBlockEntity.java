@@ -14,6 +14,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
+import net.minecraft.server.world.ThreadedAnvilChunkStorage;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -22,13 +24,17 @@ import net.minecraft.world.CollisionView;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionTypes;
 import net.minecraft.world.event.GameEvent;
-import net.sn0wix_.misc_additions.client.util.EndRelayTpParticleUtil;
+import net.sn0wix_.misc_additions.client.util.particles.EndRelayTpParticleUtil;
+import net.sn0wix_.misc_additions.common.MiscAdditions;
 import net.sn0wix_.misc_additions.common.block.custom.EndRelayBlock;
 
 import net.sn0wix_.misc_additions.common.util.tags.ModItemTags;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public class EndRelayBlockEntity extends BlockEntity implements SingleStackInventory, Clearable {
     public static final String LODESTONE_POS_KEY = "LodestonePos";
@@ -62,24 +68,21 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
             this.teleportDelay = maxTeleportDelay;
 
             if (optional.isPresent() && world.getBlockState(getCompassPos()).isOf(Blocks.LODESTONE)) {
-                player.requestTeleport(optional.get().x, optional.get().y, optional.get().z);
-                world.emitGameEvent(GameEvent.TELEPORT, optional.get(), GameEvent.Emitter.of(player));
-
                 world.getPlayers().forEach(playerEntity -> {
-                    if (playerEntity.getPos().isInRange(pos.toCenterPos(), 256)) {
-                        EndRelayTpParticleUtil.send((ServerPlayerEntity) playerEntity);
+                    if (playerEntity.getPos().isInRange(player.getPos(), 256) && !playerEntity.getUuid().equals(player.getUuid())) {
+                        EndRelayTpParticleUtil.send((ServerPlayerEntity) playerEntity, player.getBlockPos());
+                    }
+
+                    if (playerEntity.getPos().isInRange(getCompassPos().toCenterPos(), 256) && !playerEntity.getUuid().equals(player.getUuid())) {
+                        EndRelayTpParticleUtil.send((ServerPlayerEntity) playerEntity, getCompassPos());
                     }
                 });
 
-                /*world.getPlayers().forEach(playerEntity -> {
-                    if (playerEntity.getPos().isInRange(getCompassPos().toCenterPos(), 256)) {
-                        PortalParticleSpawnS2CPacket.send((ServerPlayerEntity) playerEntity, getCompassPos());
-                    }
-                });*/
-
                 EndRelayTpParticleUtil.send((ServerPlayerEntity) player, getCompassPos());
-                EndRelayTpParticleUtil.send((ServerPlayerEntity) player);
-                //world.sendEntityStatus(player, EntityStatuses.ADD_PORTAL_PARTICLES);
+                EndRelayTpParticleUtil.send((ServerPlayerEntity) player, player.getBlockPos());
+
+                player.requestTeleport(optional.get().x, optional.get().y, optional.get().z);
+                world.emitGameEvent(GameEvent.TELEPORT, optional.get(), GameEvent.Emitter.of(player));
                 return true;
             }
 

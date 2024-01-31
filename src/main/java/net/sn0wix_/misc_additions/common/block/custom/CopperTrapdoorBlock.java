@@ -11,7 +11,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.sn0wix_.misc_additions.client.util.ParticlePacketTypes;
+import net.sn0wix_.misc_additions.client.util.particles.ParticlePacketTypes;
 import net.sn0wix_.misc_additions.common.networking.ModPackets;
 
 public class CopperTrapdoorBlock extends TrapdoorBlock implements Oxidizable {

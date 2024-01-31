@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.sn0wix_.misc_additions.client.util.ParticlePacketTypes;
+import net.sn0wix_.misc_additions.client.util.particles.ParticlePacketTypes;
 import net.sn0wix_.misc_additions.common.networking.ModPackets;
 import org.jetbrains.annotations.Nullable;
 

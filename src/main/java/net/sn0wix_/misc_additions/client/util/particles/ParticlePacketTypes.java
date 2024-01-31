@@ -1,4 +1,4 @@
-package net.sn0wix_.misc_additions.client.util;
+package net.sn0wix_.misc_additions.client.util.particles;
 
 public enum ParticlePacketTypes {
     COPPER_DOOR_REDSTONE_PARTICLE(0),

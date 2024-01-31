@@ -1,25 +1,21 @@
-package net.sn0wix_.misc_additions.common.networking.custom.s2c;
+package net.sn0wix_.misc_additions.client.util.particles;
 
-import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.network.ClientPlayNetworkHandler;
-import net.minecraft.client.world.ClientWorld;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class RedstoneParticleSpawnS2CPacket {
-    public static void receive(MinecraftClient client, ClientPlayNetworkHandler clientPlayNetworkHandler, PacketByteBuf packetByteBuf, PacketSender packetSender) {
-        ClientWorld world = client.world;
+public class CopperDoorRedstoneParticleUtil {
+    public static void spawnParticles(BlockPos originalPos, MinecraftClient client) {
+        World world = client.world;
 
         if (world != null) {
-            BlockPos originalPos = packetByteBuf.readBlockPos();
             BlockPos pos = originalPos;
 
             while (originalPos.equals(pos) || pos.equals(originalPos.up())) {
@@ -43,7 +39,7 @@ public class RedstoneParticleSpawnS2CPacket {
         }
     }
 
-    public static float generateRandomFloat(double min, double max, Random random) {
+    private static float generateRandomFloat(double min, double max, Random random) {
         return (float) (min + (max - min) * random.nextFloat());
     }
 }

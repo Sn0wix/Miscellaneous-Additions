@@ -14,8 +14,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.server.world.ThreadedAnvilChunkStorage;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -25,16 +23,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionTypes;
 import net.minecraft.world.event.GameEvent;
 import net.sn0wix_.misc_additions.client.util.particles.EndRelayTpParticleUtil;
-import net.sn0wix_.misc_additions.common.MiscAdditions;
 import net.sn0wix_.misc_additions.common.block.custom.EndRelayBlock;
 
 import net.sn0wix_.misc_additions.common.util.tags.ModItemTags;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 public class EndRelayBlockEntity extends BlockEntity implements SingleStackInventory, Clearable {
     public static final String LODESTONE_POS_KEY = "LodestonePos";

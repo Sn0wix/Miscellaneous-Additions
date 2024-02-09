@@ -23,6 +23,7 @@ public class MiscAdditions implements ModInitializer {
     //TODO redstone equipment - trim texture inventory
     //TODO sus sand not working
     //TODO rename crushed_diamond to diamond_shard
+    //TODO add golden chainmail armor as loot table to bastions and piglins
 
     @Override
     public void onInitialize() {

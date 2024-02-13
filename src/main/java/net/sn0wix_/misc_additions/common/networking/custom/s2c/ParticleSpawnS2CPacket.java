@@ -15,7 +15,7 @@ public class ParticleSpawnS2CPacket {
 
             switch (i) {
                 case 0 -> CopperDoorRedstoneParticleUtil.spawnParticles(packetByteBuf.readBlockPos(), client);
-                case 1 -> EndRelayTpParticleUtil.spawnParticles(packetByteBuf, client);
+                case 1 -> EndRelayTpParticleUtil.spawnDestinationParticles(packetByteBuf, client);
                 default -> MiscAdditions.LOGGER.error("Wrong particle packet id: " + i + " Try upgrading to newer version.");
             }
         });

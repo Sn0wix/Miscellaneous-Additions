@@ -15,7 +15,6 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.FluidTags;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -41,15 +40,15 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvider {
-    public static final IntProperty CHARGES = Properties.CHARGES;
+    public static final BooleanProperty CHARGED = BooleanProperty.of("charged");
     public static final BooleanProperty HAS_COMPASS = BooleanProperty.of("has_compass");
 
     public final java.util.Random random = new java.util.Random();
-    public static final ImmutableList<Vec3i> VALID_HORIZONTAL_SPAWN_OFFSETS = ImmutableList.of(new Vec3i(0,0,0));
+    public static final ImmutableList<Vec3i> VALID_HORIZONTAL_SPAWN_OFFSETS = ImmutableList.of(new Vec3i(0, 0, 0));
 
     public EndRelayBlock(Settings settings) {
         super(settings);
-        this.setDefaultState((this.stateManager.getDefaultState()).with(CHARGES, 0).with(HAS_COMPASS, false));
+        this.setDefaultState((this.stateManager.getDefaultState()).with(CHARGED, false).with(HAS_COMPASS, false));
     }
 
     @Override
@@ -92,13 +91,13 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
             }
         }
 
-        if (!world.isClient && !isEnd(world) && state.get(CHARGES) > 0 && !isCorrectItem(player.getStackInHand(hand))) {
+        if (!world.isClient && !isEnd(world) && state.get(CHARGED) && !isCorrectItem(player.getStackInHand(hand))) {
             explode(state, world, pos);
             return ActionResult.SUCCESS;
         }
 
         //discharging logic
-        if (isEnd(world) && state.get(CHARGES) > 0) {
+        if (isEnd(world) && state.get(CHARGED)) {
             if (!world.isClient) {
                 if (!disCharge(player, world, pos, state)) {
                     return ActionResult.PASS;
@@ -141,15 +140,15 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
-        builder.add(CHARGES);
         builder.add(HAS_COMPASS);
+        builder.add(CHARGED);
     }
 
 
     //Redstone
     @Override
     public int getWeakRedstonePower(BlockState state, BlockView world, BlockPos pos, Direction direction) {
-        return state.get(HAS_COMPASS) ? 11 + state.get(CHARGES) : state.get(CHARGES);
+        return state.get(HAS_COMPASS) ? state.get(CHARGED) ? 15 : 14 : state.get(CHARGED) ? 1 : 0;
     }
 
     @Override
@@ -168,7 +167,7 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         Vec3d particlePos = pos.toCenterPos().add(0, -0.2, 0);
 
-        for (int i = 0; i < getChargeLevel(state) * 1.5; i++) {
+        for (int i = 0; i < (isCharged(state) ? 4 * 1.5 : 0); i++) {
             world.addParticle(ParticleTypes.PORTAL, this.getParticleX(0.5, particlePos), this.getRandomBodyY(particlePos) - 0.25, this.getParticleZ(0.5, particlePos), (this.random.nextDouble() - 0.5) * 2.0, -this.random.nextDouble(), (this.random.nextDouble() - 0.5) * 2.0);
         }
 
@@ -184,7 +183,7 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
 
     //HELPER METHODS
     public static void explode(BlockState state, World world, BlockPos explodedPos) {
-        if (!world.isClient && getChargeLevel(state) != 0) {
+        if (!world.isClient && isCharged(state)) {
             world.removeBlock(explodedPos, false);
             boolean bl = Direction.Type.HORIZONTAL.stream().map(explodedPos::offset).anyMatch(pos -> hasStillWater(pos, world));
             final boolean bl2 = bl || world.getFluidState(explodedPos.up()).isIn(FluidTags.WATER);
@@ -198,18 +197,15 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
                 }
             };
             Vec3d vec3d = explodedPos.toCenterPos();
-            world.createExplosion(null, world.getDamageSources().explosion(null, null), explosionBehavior, vec3d, state.get(CHARGES) * 6, true, World.ExplosionSourceType.BLOCK);
+            world.createExplosion(null, world.getDamageSources().explosion(null, null), explosionBehavior, vec3d, 7, true, World.ExplosionSourceType.BLOCK);
         }
     }
 
     public boolean disCharge(PlayerEntity disCharger, World world, BlockPos pos, BlockState state) {
         if (getBlockEntity(world, pos).getTeleportDelay() == 0) {
-            if (getBlockEntity(world, pos).teleport(disCharger, world)) {
-                world.playSound(null, pos, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 1, 1);
-                world.playSound(null, getBlockEntity(world, pos).getCompassPos().up(), SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 1, 1);
-            }
+            getBlockEntity(world, pos).canTeleport(disCharger, world);
 
-            BlockState blockState = state.with(CHARGES, state.get(CHARGES) - 1);
+            BlockState blockState = state.with(CHARGED, false);
             world.setBlockState(pos, blockState, Block.NOTIFY_ALL);
             world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(disCharger, blockState));
             world.playSound(null, (double) pos.getX() + 0.5, (double) pos.getY() + 0.5, (double) pos.getZ() + 0.5, SoundEvents.BLOCK_BEACON_DEACTIVATE, SoundCategory.BLOCKS, 10, 3f);
@@ -227,7 +223,7 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
     }
 
     public void charge(PlayerEntity charger, World world, BlockPos pos, BlockState state) {
-        BlockState blockState = state.with(CHARGES, state.get(CHARGES) + 1);
+        BlockState blockState = state.with(CHARGED, true);
         world.setBlockState(pos, blockState, Block.NOTIFY_ALL);
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(charger, blockState));
 
@@ -265,7 +261,7 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
     }
 
     private static boolean canCharge(BlockState state) {
-        return state.get(CHARGES) < 4;
+        return !state.get(CHARGED);
     }
 
     private static boolean hasStillWater(BlockPos pos, World world) {
@@ -294,12 +290,12 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
     }
 
 
-    public static int getChargeLevel(BlockState state) {
-        return state.get(CHARGES);
+    public static boolean isCharged(BlockState state) {
+        return state.get(CHARGED);
     }
 
     public static int getLightLevel(BlockState state) {
-        return MathHelper.floor((float) (state.get(CHARGES)) / 4.0f * 15);
+        return MathHelper.floor(state.get(HAS_COMPASS) ? state.get(CHARGED) ? 15 : 5 : state.get(CHARGED) ? 10 : 0);
     }
 
     @Nullable

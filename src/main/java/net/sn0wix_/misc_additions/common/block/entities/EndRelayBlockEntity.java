@@ -14,6 +14,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Clearable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -29,16 +31,19 @@ import net.sn0wix_.misc_additions.common.util.tags.ModItemTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
+import java.util.UUID;
 
 public class EndRelayBlockEntity extends BlockEntity implements SingleStackInventory, Clearable {
     public static final String LODESTONE_POS_KEY = "LodestonePos";
     public static final String LODESTONE_DIMENSION_KEY = "LodestoneDimension";
+    public UUID playerId;
 
     public int compassDelay = 0;
     public final int maxCompassDelay = 80;
 
     public int teleportDelay = 0;
     public final int maxTeleportDelay = 60;
+    public final int teleportAt = 45;
 
     public ItemStack compass_stack = ItemStack.EMPTY;
 
@@ -53,13 +58,15 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
 
         if (teleportDelay > 0) {
             teleportDelay--;
+            if (teleportDelay == teleportAt) {
+                teleport(world.getPlayerByUuid(playerId), world);
+            }
         }
     }
 
-    public boolean teleport(PlayerEntity player, CollisionView view) {
-        if (getCompassPos() != null && teleportDelay == 0 && world != null && isEnd(world)) {
+    public boolean canTeleport(PlayerEntity player, CollisionView view) {
+        if (getCompassPos() != null && world != null && isEnd(world)) {
             Optional<Vec3d> optional = findTPPosition(player.getType(), view, getCompassPos().up());
-            this.teleportDelay = maxTeleportDelay;
 
             if (optional.isPresent() && world.getBlockState(getCompassPos()).isOf(Blocks.LODESTONE)) {
                 world.getPlayers().forEach(playerEntity -> {
@@ -74,6 +81,24 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
 
                 EndRelayTpParticleUtil.send((ServerPlayerEntity) player, getCompassPos());
                 EndRelayTpParticleUtil.send((ServerPlayerEntity) player, player.getBlockPos());
+
+                world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 1, 1);
+                world.playSound(null, this.getCompassPos().up(), SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 1, 1);
+                teleportDelay = maxTeleportDelay;
+
+                playerId = player.getUuid();
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+    public boolean teleport(PlayerEntity player, CollisionView view) {
+        if (getCompassPos() != null && world != null && isEnd(world) && isEnd(player.getWorld())) {
+            Optional<Vec3d> optional = findTPPosition(player.getType(), view, getCompassPos().up());
+
+            if (optional.isPresent() && world.getBlockState(getCompassPos()).isOf(Blocks.LODESTONE)) {
 
                 player.requestTeleport(optional.get().x, optional.get().y, optional.get().z);
                 world.emitGameEvent(GameEvent.TELEPORT, optional.get(), GameEvent.Emitter.of(player));

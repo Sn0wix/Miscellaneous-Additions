@@ -15,11 +15,11 @@ import net.sn0wix_.misc_additions.common.networking.ModPackets;
 import java.util.Random;
 
 public class EndRelayTpParticleUtil {
-    public static void spawnParticles(PacketByteBuf buf, MinecraftClient client) {
+    //this.getWorld().addParticle(ParticleTypes.PORTAL, this.getParticleX(0.5), this.getRandomBodyY() - 0.25, this.getParticleZ(0.5), (this.random.nextDouble() - 0.5) * 2.0, -this.random.nextDouble(), (this.random.nextDouble() - 0.5) * 2.0);
+    public static void spawnDestinationParticles(PacketByteBuf buf, MinecraftClient client) {
         World world = client.world;
 
         if (world != null) {
-
             if (client.player != null) {
                 try {
                     BlockPos blockPos = buf.readBlockPos();
@@ -53,61 +53,11 @@ public class EndRelayTpParticleUtil {
                     }
                 }
             }
-
-
-            /*if (packetByteBuf.readVec3d() == null) {
-                Random random = new Random();
-
-                for (int j = 0; j < 128; ++j) {
-                    double d = (double) j / 127.0;
-                    float f = (random.nextFloat() - 0.5f) * 0.2f;
-                    float g = (random.nextFloat() - 0.5f) * 0.2f;
-                    float h = (random.nextFloat() - 0.5f) * 0.2f;
-                    double e = MathHelper.lerp(d, client.player.prevX, client.player.getX()) + (random.nextDouble() - 0.5) * client.player.getWidth() * 2.0;
-                    double k = MathHelper.lerp(d, client.player.prevY, client.player.getY()) + random.nextDouble() * (double) client.player.getHeight();
-                    double l = MathHelper.lerp(d, client.player.prevZ, client.player.getZ()) + (random.nextDouble() - 0.5) * client.player.getWidth() * 2.0;
-                    client.world.addParticle(ParticleTypes.PORTAL, e, k, l, f, g, h);
-                }
-            } else {
-                Random random = new Random();
-
-                Vec3d pos = packetByteBuf.readVec3d();
-                Box box = new Box(new Vec3d(pos.getX(), pos.getY(), pos.getZ()), new Vec3d(pos.getX() - 1, pos.getY() + 1, pos.getZ() - 1));
-
-                for (int j = 0; j < 128; ++j) {
-                    double d = (double) j / 127.0;
-                    float f = (random.nextFloat() - 0.5f) * 0.2f;
-                    float g = (random.nextFloat() - 0.5f) * 0.2f;
-                    float h = (random.nextFloat() - 0.5f) * 0.2f;
-                    double e = MathHelper.lerp(d, box.minX, box.maxX) + (random.nextDouble() - 0.5) * client.player.getWidth() * 2.0;
-                    double k = MathHelper.lerp(d, box.minY, box.maxY) + random.nextDouble() * (double) client.player.getHeight();
-                    double l = MathHelper.lerp(d, box.minZ, box.maxZ) + (random.nextDouble() - 0.5) * client.player.getWidth() * 2.0;
-                    client.world.addParticle(ParticleTypes.PORTAL, e, k, l, f, g, h);
-                }
-            }
-        }*/
-
-        /*int i = 128;
-        for (int j = 0; j < 128; ++j) {
-            double d = (double) j / 127.0;
-            float f = (random.nextFloat() - 0.5f) * 0.2f;
-            float g = (random.nextFloat() - 0.5f) * 0.2f;
-            float h = (random.nextFloat() - 0.5f) * 0.2f;
-            double e = MathHelper.lerp(d, this.prevX, this.getX()) + (this.random.nextDouble() - 0.5) * (double) this.getWidth() * 2.0;
-            double k = MathHelper.lerp(d, this.prevY, this.getY()) + this.random.nextDouble() * (double) this.getHeight();
-            double l = MathHelper.lerp(d, this.prevZ, this.getZ()) + (this.random.nextDouble() - 0.5) * (double) this.getWidth() * 2.0;
-            this.getWorld().addParticle(ParticleTypes.PORTAL, e, k, l, f, g, h);
-        }*/
-
-                /*Vec3d centerPos = blockPos.toCenterPos();
-                  Random random = new Random();
-
-                  for (int i = 0; i < 10; i++) {
-                      Vec3d particlePos = getParticlePos(centerPos, random);
-                      Vec3d particleVelocity = calculateVelocity(centerPos, particlePos, random);
-                      client.world.addParticle(ParticleTypes.PORTAL, particlePos.x, particlePos.y, particlePos.z, particleVelocity.x, particleVelocity.y, particleVelocity.z);
-                  }*/
         }
+    }
+
+    public static void spawnPlayerParticles() {
+
     }
 
 

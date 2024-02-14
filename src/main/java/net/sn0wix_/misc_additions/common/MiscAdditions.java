@@ -24,7 +24,7 @@ public class MiscAdditions implements ModInitializer {
     //TODO sus sand not working
     //TODO rename crushed_diamond to diamond_shard
     //TODO add golden chainmail armor as loot table to bastions and piglins
-
+    //TODO finish piglin equipment mixin and trader lama mixin
     @Override
     public void onInitialize() {
         if (ConfigFile.checkConfig()) {

@@ -8,6 +8,7 @@
     "common.LightningMusicDiscMixin",
     "common.ModIdUpdateRecipesHandler",
     "common.PiglinBruteEquipmentMixin",
+    "common.PiglinEquipmentMixin",
     "common.RedstoneArmorThornsMixin",
     "common.RedstoneOreMixin",
     "common.TraderLlamaEntityMixin",

@@ -1,4 +1,4 @@
-package net.sn0wix_.misc_additions.mixin.common;
+package net.sn0wix_.misc_additions.mixin.common.wandering_trader;
 
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.SpawnReason;
@@ -15,7 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(TraderLlamaEntity.class)
 public abstract class TraderLlamaEntityMixin {
-
     @Inject(method = "initialize", at = @At("RETURN"))
     private void injectInitialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, EntityData entityData, NbtCompound entityNbt, CallbackInfoReturnable<EntityData> cir) {
         ((TraderLlamaEntity) (Object) this).getStackReference(499).set(new ItemStack(Items.CHEST));

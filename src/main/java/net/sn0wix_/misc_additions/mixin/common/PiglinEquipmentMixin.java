@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class PiglinEquipmentMixin {
 
     //((TargetClass)(Object)this).field/method();
+
     @Inject(method = "equipAtChance", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/PiglinEntity;equipStack(Lnet/minecraft/entity/EquipmentSlot;Lnet/minecraft/item/ItemStack;)V", shift = At.Shift.BEFORE), cancellable = true)
     private void injectEquipAtChance(EquipmentSlot slot, ItemStack stack, Random random, CallbackInfo ci) {
         if (getGoldenArmor(stack) != 0) {

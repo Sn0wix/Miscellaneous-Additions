@@ -3,16 +3,17 @@
   "package": "net.sn0wix_.misc_additions.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "common.IdentifierMixin",
+    "common.IdentifierFixerMixin",
     "common.LapisArmorEnchantMixin",
     "common.LightningMusicDiscMixin",
-    "common.ModIdUpdateRecipesHandler",
     "common.PiglinBruteEquipmentMixin",
     "common.PiglinEquipmentMixin",
     "common.RedstoneArmorThornsMixin",
     "common.RedstoneOreMixin",
-    "common.TraderLlamaEntityMixin",
-    "common.VindicatorEquipmentMixin"
+    "common.VindicatorEquipmentMixin",
+    "common.wandering_trader.IsLamaTamedMixin",
+    "common.wandering_trader.LlamaStrengthMixin",
+    "common.wandering_trader.TraderLlamaEntityMixin"
   ],
   "client": [
     "client.ParticleUtilMixin",

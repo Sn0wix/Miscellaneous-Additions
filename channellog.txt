@@ -1,13 +1,10 @@
 Added:
-    Illusioner spawn egg
-    End Relay
+    piglins can now spawn with golden chainmail armor
 
 Changed:
-    Vindicators can have iron battle axes or iron sword
-    Piglin Brutes have golden battle axe
-    Mod name from Village & Pillage Arise to Miscellaneous Additions
+
 
 Fixed:
-    Diamond duplication
+
 
 Removed:

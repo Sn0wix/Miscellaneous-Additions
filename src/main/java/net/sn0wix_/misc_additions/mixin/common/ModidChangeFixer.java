@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Identifier.class)
-public abstract class IdentifierFixerMixin {
+public abstract class ModidChangeFixer {
     @Mutable
     @Shadow @Final private String namespace;
 

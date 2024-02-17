@@ -2,6 +2,8 @@ package net.sn0wix_.misc_additions.mixin.common.wandering_trader;
 
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageSources;
 import net.minecraft.entity.passive.TraderLlamaEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -36,26 +38,48 @@ public abstract class TraderLlamaEntityMixin {
         //Adding chest
         ((TraderLlamaEntity) (Object) this).getStackReference(499).set(new ItemStack(Items.CHEST));
 
-
         //Inserting loot
-        ArrayList<ItemStack> lootFromTrades = new ArrayList<>(64);
-        ArrayList<ItemStack> lootFromTable = new ArrayList<>(4);
+        insertLoot(generateFinalLoot(getLootFromTrades(), generateLootTableLoot()));
+    }
 
-        getLootTables(lootFromTrades, lootFromTable);
-        ;
+    @Unique
+    private void insertLoot(ArrayList<ItemStack> loot) {
+        Random random = new Random();
 
-        ArrayList<ItemStack> finalLoot = generateFinalLoot(lootFromTrades, lootFromTable);
+        int inventorySize = ((TraderLlamaEntity) (Object) this).getInventoryColumns() * 3;
+        int size = loot.size();
 
-        MiscAdditions.LOGGER.info("loot from trades: " + lootFromTrades);
-        MiscAdditions.LOGGER.info("loot from loot table: " + lootFromTable);
+        if (size > inventorySize) {
+            for (int i = 0; i < inventorySize - size; i++) {
+                loot.remove(loot.size() -1);
+            }
+        }
 
+        ArrayList<Integer> inventoryIndexes = new ArrayList<>(loot.size());
 
-        //((TraderLlamaEntity) (Object) this).getStackReference();
+        for (int i = 0; i < size; i++) {
+            int randomInt = random.nextInt(inventorySize);
+
+            while (inventoryIndexes.contains(randomInt)) {
+                randomInt++;
+
+                if (randomInt > inventorySize) {
+                    randomInt = 0;
+                }
+            }
+
+            inventoryIndexes.add(randomInt);
+        }
+
+        for (int i = 0; i < loot.size(); i++) {
+            ((TraderLlamaEntity) (Object) this).getStackReference(500 + inventoryIndexes.get(i)).set(loot.get(i));
+        }
     }
 
     @Unique
     private ArrayList<ItemStack> generateFinalLoot(ArrayList<ItemStack> lootFromTrades, ArrayList<ItemStack> lootFromTable) {
-        Random random = new Random(((TraderLlamaEntity) (Object) this).getLootTableSeed());
+        Random random = new Random();
+
         int inventorySize = ((TraderLlamaEntity) (Object) this).getInventoryColumns() * 3;
 
         int itemCount = random.nextInt(inventorySize);
@@ -63,9 +87,8 @@ public abstract class TraderLlamaEntityMixin {
 
         for (int addedItems = 0; addedItems < itemCount; addedItems++) {
             lootFromTable.add(lootFromTrades.get(currentItemIndex));
-            lootFromTable.get(currentItemIndex).setCount(random.nextFloat() > 0.7 ? random.nextFloat() > 0.8 ? random.nextInt(8) : random.nextInt(4) : 1);
+            lootFromTable.get(lootFromTable.size() - 1).setCount(random.nextFloat() > 0.5 ? random.nextFloat() > 0.8 ? random.nextInt(8) : random.nextInt(4) : 1);
             lootFromTrades.remove(currentItemIndex);
-
 
             currentItemIndex = random.nextInt(lootFromTrades.size());
 
@@ -78,15 +101,23 @@ public abstract class TraderLlamaEntityMixin {
     }
 
     @Unique
-    private void getLootTables(ArrayList<ItemStack> lootFromTrades, ArrayList<ItemStack> lootFromTable) {
-        Arrays.stream(TradeOffers.WANDERING_TRADER_TRADES.get(1)).forEach(factory -> lootFromTrades.add(factory.create(null, null).copySellItem()));
-        Arrays.stream(TradeOffers.WANDERING_TRADER_TRADES.get(2)).forEach(factory -> lootFromTrades.add(factory.create(null, null).copySellItem()));
+    private ArrayList<ItemStack> generateLootTableLoot() {
+        ArrayList<ItemStack> generatedLoot = new ArrayList<>(1);
 
         LootTable lootTable = ((TraderLlamaEntity) (Object) this).getWorld().getServer().getLootManager().getLootTable(LOOT_TABLE_LOCATION);
-        LootContextParameterSet.Builder builder = new LootContextParameterSet.Builder((ServerWorld) ((TraderLlamaEntity) (Object) this).getWorld()).add(LootContextParameters.THIS_ENTITY, ((TraderLlamaEntity) (Object) this)).add(LootContextParameters.ORIGIN, ((TraderLlamaEntity) (Object) this).getPos());
+        LootContextParameterSet.Builder builder = new LootContextParameterSet.Builder((ServerWorld) ((TraderLlamaEntity) (Object) this).getWorld()).add(LootContextParameters.THIS_ENTITY, ((TraderLlamaEntity) (Object) this)).add(LootContextParameters.ORIGIN, ((TraderLlamaEntity) (Object) this).getPos()).add(LootContextParameters.DAMAGE_SOURCE, null);
 
-        LootContextParameterSet lootContextParameterSet = builder.build(LootContextTypes.CHEST);
-        lootTable.generateLoot(lootContextParameterSet, ((TraderLlamaEntity) (Object) this).getLootTableSeed(), lootFromTable::add);
+        LootContextParameterSet lootContextParameterSet = builder.build(LootContextTypes.ENTITY);
+        lootTable.generateLoot(lootContextParameterSet, ((TraderLlamaEntity) (Object) this).getLootTableSeed(), generatedLoot::add);
+        return generatedLoot;
+    }
+
+    @Unique
+    private ArrayList<ItemStack> getLootFromTrades() {
+        ArrayList<ItemStack> lootFromTrades = new ArrayList<>(64);
+        Arrays.stream(TradeOffers.WANDERING_TRADER_TRADES.get(1)).forEach(factory -> lootFromTrades.add(factory.create(null, null).copySellItem()));
+        Arrays.stream(TradeOffers.WANDERING_TRADER_TRADES.get(2)).forEach(factory -> lootFromTrades.add(factory.create(null, null).copySellItem()));
+        return lootFromTrades;
     }
 
     /*TODO add back to the loot table

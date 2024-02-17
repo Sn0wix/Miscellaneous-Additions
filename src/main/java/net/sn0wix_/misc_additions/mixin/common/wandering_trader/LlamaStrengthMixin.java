@@ -17,8 +17,7 @@ public abstract class LlamaStrengthMixin {
     @Inject(method = "initializeStrength", at = @At("HEAD"), cancellable = true)
     private void injectInitializeStrength(Random random, CallbackInfo ci) {
         if (EntityType.getId(((AbstractHorseEntity) (Object) this).getType()).equals(EntityType.getId(EntityType.TRADER_LLAMA))) {
-            int i = random.nextFloat() < 0.4f ? 2 : 1;
-            this.setStrength(random.nextInt(i) + 3);
+            this.setStrength(random.nextInt(random.nextFloat() < 0.5f ? 3 : 2) + 3);
             ci.cancel();
         }
     }

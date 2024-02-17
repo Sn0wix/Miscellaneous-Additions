@@ -4,10 +4,26 @@
     {
       "rolls": {
         "min": 0,
-        "max": 2
+        "max": 3
       },
       "bonus_rolls": 0,
       "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:potion",
+          "functions": [
+            {
+              "function": "minecraft:set_nbt",
+              "tag": "{Potion:\"minecraft:long_invisibility\"}"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.6
+            }
+          ]
+        },
         {
           "type": "minecraft:item",
           "name": "minecraft:emerald",

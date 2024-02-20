@@ -1,10 +1,11 @@
 Added:
     piglins can now spawn with golden chainmail armor
     trader llamas now spawn with chest and loot
+    wandering trader can sell you corn seeds
+    added citrine geode
 
 Changed:
     end relay requires 1 crystal instead of 4
-
 
 Fixed:
 

@@ -19,7 +19,7 @@ public class ModBlockEntities {
             FabricBlockEntityTypeBuilder.create(EndRelayBlockEntity::new, ModBlocks.END_RELAY).build());
 
 
-    public static void registerALlBlockEntities() {
+    public static void registerAllBlockEntities() {
         MiscAdditions.LOGGER.info("Registering Block Entities for " + MiscAdditions.MOD_ID);
     }
 }

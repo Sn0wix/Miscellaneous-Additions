@@ -1,5 +1,6 @@
 Added:
     piglins can now spawn with golden chainmail armor
+trader llamas now spawn with chest and loot
 
 Changed:
 

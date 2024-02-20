@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "misc_additions",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"name": "Miscellaneous Additions",
 	"description": "Vanilla friendly mod that tries to enhance the vanilla game with some smaller features.",
 	"authors": [

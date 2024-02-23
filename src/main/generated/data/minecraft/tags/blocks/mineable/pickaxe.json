@@ -24,6 +24,8 @@
     "misc_additions:waxed_exposed_copper_trapdoor",
     "misc_additions:waxed_weathered_copper_trapdoor",
     "misc_additions:waxed_oxidized_copper_trapdoor",
-    "misc_additions:end_relay"
+    "misc_additions:end_relay",
+    "misc_additions:golden_lantern",
+    "misc_additions:golden_soul_lantern"
   ]
 }

@@ -39,6 +39,10 @@ public class ModModelGenerator extends FabricModelProvider {
         blockStateModelGenerator.registerTrapdoor(ModBlocks.EXPOSED_COPPER_TRAPDOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.WEATHERED_COPPER_TRAPDOOR);
         blockStateModelGenerator.registerTrapdoor(ModBlocks.OXIDIZED_COPPER_TRAPDOOR);
+
+
+        blockStateModelGenerator.registerLantern(ModBlocks.GOLDEN_LANTERN_BLOCK);
+        blockStateModelGenerator.registerLantern(ModBlocks.GOLDEN_SOUL_LANTERN_BLOCK);
     }
 
     private void registerAzaleaWoodSet(BlockStateModelGenerator blockStateModelGenerator) {

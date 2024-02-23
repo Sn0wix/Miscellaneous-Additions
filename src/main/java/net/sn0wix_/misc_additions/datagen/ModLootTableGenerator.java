@@ -25,5 +25,7 @@ public class ModLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.STRIPPED_AZALEA_LOG);
         addDrop(ModBlocks.AZALEA_BUTTON);
         addDrop(ModBlocks.AZALEA_FENCE);
+        addDrop(ModBlocks.GOLDEN_LANTERN_BLOCK);
+        addDrop(ModBlocks.GOLDEN_SOUL_LANTERN_BLOCK);
     }
 }

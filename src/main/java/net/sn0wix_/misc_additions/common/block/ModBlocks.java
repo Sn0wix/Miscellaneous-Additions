@@ -49,13 +49,19 @@ public class ModBlocks {
             new CitrineClusterBlock(3, 4, AbstractBlock.Settings.copy(CITRINE_CLUSTER)
                     .sounds(BlockSoundGroup.SMALL_AMETHYST_BUD).requiresTool().luminance((blockStatex) -> 1)));
 
+    public static final CornBlock CORN_BLOCK = (CornBlock) registerBlockWithoutBlockItem("corn_block",
+            new CornBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque().noCollision().breakInstantly()));
+
 
     public static final Block GOLDEN_CHAIN_BLOCK = registerBlock("golden_chain",
             new ChainBlock(FabricBlockSettings.copyOf(Blocks.CHAIN).requiresTool().nonOpaque()
-                    .strength(4.8F, 5.8F).sounds(ModSoundEvents.GOLDEN_CHAIN_SOUNDS_GROUP)));
+                    .strength(5F, 6F).sounds(ModSoundEvents.GOLDEN_CHAIN_SOUNDS_GROUP)));
 
-    public static final CornBlock CORN_BLOCK = (CornBlock) registerBlockWithoutBlockItem("corn_block",
-            new CornBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque().noCollision().breakInstantly()));
+    public static final Block GOLDEN_LANTERN_BLOCK = registerBlock("golden_lantern",
+            new LanternBlock(FabricBlockSettings.copyOf(Blocks.LANTERN).mapColor(MapColor.GOLD)));
+
+    public static final Block GOLDEN_SOUL_LANTERN_BLOCK = registerBlock("golden_soul_lantern",
+            new LanternBlock(FabricBlockSettings.copyOf(Blocks.LANTERN).mapColor(MapColor.GOLD)));
 
     //Functional
 

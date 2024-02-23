@@ -50,6 +50,9 @@ public class MiscAdditionsClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR, RenderLayer.getCutout());
 
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GOLDEN_LANTERN_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GOLDEN_SOUL_LANTERN_BLOCK, RenderLayer.getCutout());
+
         EntityModelLayerRegistry.registerModelLayer(ModSignBlockEntityRenderer.LAYER_LOCATION, ModSignBlockEntityRenderer::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(ModHangingSignBlockEntityRenderer.LAYER_LOCATION, ModHangingSignBlockEntityRenderer::getTexturedModelData);
 

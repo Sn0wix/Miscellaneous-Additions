@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-20T20:49:58.2824459	Miscellaneous Additions/Tags for minecraft:block
+// 1.20.4	2024-02-23T16:20:05.0901692	Miscellaneous Additions/Tags for minecraft:block
 90e11b6cf3e17d289e652abf02d2f23eead5f534 data\minecraft\tags\blocks\wooden_stairs.json
 56269a08b91907f08c1f0b2cf3a0386abf36cc51 data\minecraft\tags\blocks\fence_gates.json
 a020edbfb7bdb368cd6641b43f10f6923e5a868e data\minecraft\tags\blocks\wall_signs.json
@@ -11,12 +11,12 @@ e5c0519975393194b7fbe1e8e86b1bc61a90dc27 data\minecraft\tags\blocks\needs_stone_
 71350671af271f005777c9f295ada96fca47d299 data\minecraft\tags\blocks\wooden_trapdoors.json
 484bdf071e5778516dede1af1ff468895983a4dd data\minecraft\tags\blocks\wooden_fences.json
 4560f26225a1daf39dc756d24e447d277d251ffd data\misc_additions\tags\blocks\azalea_logs.json
-a50091f0f01fb5f1564591ecf146354e26f9429f data\misc_additions\tags\blocks\redstone_equipment_rechargeable.json
 f39933f8b42748f5573890cff28eabc07fe6cd8f data\minecraft\tags\blocks\planks.json
-4d27c2d7014749d2424736950f3dd942d65cd9ef data\minecraft\tags\blocks\mineable\pickaxe.json
+a50091f0f01fb5f1564591ecf146354e26f9429f data\misc_additions\tags\blocks\redstone_equipment_rechargeable.json
+2c02806068f40165ab946b2caf1567538af6f6f3 data\minecraft\tags\blocks\mineable\pickaxe.json
 b041a862db44f3e6cdd339978525bf8d204f2cb3 data\minecraft\tags\blocks\wooden_buttons.json
 ea248cd0d0ef8da262035d8a16f7ab6ebb055e84 data\minecraft\tags\blocks\wall_hanging_signs.json
 4df5e504c8c776017dfe352297e6f9172cf5f3a9 data\minecraft\tags\blocks\trapdoors.json
-a96131d718e5fe097d5c226db022cfe319fee4d2 data\minecraft\tags\blocks\needs_diamond_tool.json
 2b63f8372cd36c4a3604bb9fa959f5707271b9be data\minecraft\tags\blocks\wooden_slabs.json
+a96131d718e5fe097d5c226db022cfe319fee4d2 data\minecraft\tags\blocks\needs_diamond_tool.json
 d7d418f16cc3a3bfc7c2d3390eaa31b502e34d40 data\minecraft\tags\blocks\logs_that_burn.json

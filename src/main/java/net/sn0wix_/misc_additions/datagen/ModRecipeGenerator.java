@@ -41,21 +41,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModItems.MUSIC_DISC_THE_ENDER_DRAGON), FabricRecipeProvider.conditionsFromItem(ModItems.MUSIC_DISC_THE_ENDER_DRAGON))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModItems.MUSIC_DISC_MASHUP)));
 
-        createDoorRecipe(ModBlocks.AZALEA_DOOR, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_DOOR), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_DOOR)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
-        createTrapdoorRecipe(ModBlocks.AZALEA_TRAPDOOR, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_TRAPDOOR), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_TRAPDOOR)).offerTo(exporter);
-        createPressurePlateRecipe(RecipeCategory.REDSTONE, ModBlocks.AZALEA_PRESSURE_PLATE, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PRESSURE_PLATE), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PRESSURE_PLATE)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
-        createFenceRecipe(ModBlocks.AZALEA_FENCE, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS, Items.STICK)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_FENCE), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_FENCE)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
-        createFenceGateRecipe(ModBlocks.AZALEA_FENCE_GATE, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS, Items.STICK)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_FENCE_GATE), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_FENCE_GATE)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
-        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AZALEA_SLAB, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_SLAB), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_SLAB)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
-        createStairsRecipe(ModBlocks.AZALEA_STAIRS, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_STAIRS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_STAIRS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
-        createSignRecipe(ModItems.AZALEA_SIGN, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS, Items.STICK)).criterion(FabricRecipeProvider.hasItem(ModItems.AZALEA_SIGN), FabricRecipeProvider.conditionsFromItem(ModItems.AZALEA_SIGN)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
-        offerHangingSignRecipe(exporter, ModItems.AZALEA_HANGING_SIGN, ModBlocks.AZALEA_PLANKS);
-        offerPlanksRecipe(exporter, ModBlocks.AZALEA_PLANKS, ModItemTags.AZALEA_LOGS, 4);
-        offerBoatRecipe(exporter, ModItems.AZALEA_BOAT, ModBlocks.AZALEA_PLANKS);
-        offerChestBoatRecipe(exporter, ModItems.AZALEA_CHEST_BOAT, ModBlocks.AZALEA_PLANKS);
-
-
-
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.END_RELAY)
                 .pattern("oco")
                 .pattern("cec")
@@ -91,6 +76,32 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
 
 
 
+        //lanterns
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GOLDEN_LANTERN_BLOCK)
+                .pattern("iii")
+                .pattern("iti")
+                .pattern("iii")
+                .input('i', Items.GOLD_NUGGET)
+                .input('t', Items.TORCH)
+                .criterion(FabricRecipeProvider.hasItem(Items.GOLD_NUGGET), FabricRecipeProvider.conditionsFromItem(Items.GOLD_NUGGET))
+                .criterion(FabricRecipeProvider.hasItem(Items.TORCH), FabricRecipeProvider.conditionsFromItem(Items.TORCH))
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.GOLDEN_LANTERN_BLOCK), FabricRecipeProvider.conditionsFromItem(ModBlocks.GOLDEN_LANTERN_BLOCK))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.GOLDEN_LANTERN_BLOCK)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GOLDEN_SOUL_LANTERN_BLOCK)
+                .pattern("iii")
+                .pattern("iti")
+                .pattern("iii")
+                .input('i', Items.GOLD_NUGGET)
+                .input('t', Items.SOUL_TORCH)
+                .criterion(FabricRecipeProvider.hasItem(Items.GOLD_NUGGET), FabricRecipeProvider.conditionsFromItem(Items.GOLD_NUGGET))
+                .criterion(FabricRecipeProvider.hasItem(Items.SOUL_TORCH), FabricRecipeProvider.conditionsFromItem(Items.SOUL_TORCH))
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.GOLDEN_SOUL_LANTERN_BLOCK), FabricRecipeProvider.conditionsFromItem(ModBlocks.GOLDEN_SOUL_LANTERN_BLOCK))
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.GOLDEN_SOUL_LANTERN_BLOCK)));
+
+
+
+        //azalea wood
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AZALEA_WOOD, 3)
                 .pattern("ll")
                 .pattern("ll")
@@ -112,6 +123,21 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.AZALEA_BUTTON)));
 
+        createDoorRecipe(ModBlocks.AZALEA_DOOR, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_DOOR), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_DOOR)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
+        createTrapdoorRecipe(ModBlocks.AZALEA_TRAPDOOR, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_TRAPDOOR), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_TRAPDOOR)).offerTo(exporter);
+        createPressurePlateRecipe(RecipeCategory.REDSTONE, ModBlocks.AZALEA_PRESSURE_PLATE, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PRESSURE_PLATE), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PRESSURE_PLATE)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
+        createFenceRecipe(ModBlocks.AZALEA_FENCE, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS, Items.STICK)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_FENCE), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_FENCE)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
+        createFenceGateRecipe(ModBlocks.AZALEA_FENCE_GATE, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS, Items.STICK)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_FENCE_GATE), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_FENCE_GATE)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
+        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AZALEA_SLAB, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_SLAB), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_SLAB)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
+        createStairsRecipe(ModBlocks.AZALEA_STAIRS, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_STAIRS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_STAIRS)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
+        createSignRecipe(ModItems.AZALEA_SIGN, Ingredient.ofItems(ModBlocks.AZALEA_PLANKS, Items.STICK)).criterion(FabricRecipeProvider.hasItem(ModItems.AZALEA_SIGN), FabricRecipeProvider.conditionsFromItem(ModItems.AZALEA_SIGN)).criterion(FabricRecipeProvider.hasItem(ModBlocks.AZALEA_PLANKS), FabricRecipeProvider.conditionsFromItem(ModBlocks.AZALEA_PLANKS)).offerTo(exporter);
+        offerHangingSignRecipe(exporter, ModItems.AZALEA_HANGING_SIGN, ModBlocks.AZALEA_PLANKS);
+        offerPlanksRecipe(exporter, ModBlocks.AZALEA_PLANKS, ModItemTags.AZALEA_LOGS, 4);
+        offerBoatRecipe(exporter, ModItems.AZALEA_BOAT, ModBlocks.AZALEA_PLANKS);
+        offerChestBoatRecipe(exporter, ModItems.AZALEA_CHEST_BOAT, ModBlocks.AZALEA_PLANKS);
+
+
+        //copper
         createDoorRecipe(ModBlocks.COPPER_DOOR, Ingredient.ofItems(Items.COPPER_INGOT)).criterion(FabricRecipeProvider.hasItem(Items.COPPER_INGOT), FabricRecipeProvider.conditionsFromItem(Items.COPPER_INGOT)).criterion(FabricRecipeProvider.hasItem(ModBlocks.COPPER_DOOR), FabricRecipeProvider.conditionsFromItem(ModBlocks.COPPER_DOOR)).offerTo(exporter);
         createTrapdoorRecipe(ModBlocks.COPPER_TRAPDOOR, Ingredient.ofItems(Items.COPPER_INGOT)).criterion(FabricRecipeProvider.hasItem(Items.COPPER_INGOT), FabricRecipeProvider.conditionsFromItem(Items.COPPER_INGOT)).criterion(FabricRecipeProvider.hasItem(ModBlocks.COPPER_TRAPDOOR), FabricRecipeProvider.conditionsFromItem(ModBlocks.COPPER_TRAPDOOR)).offerTo(exporter);
     }
@@ -140,7 +166,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter, FabricRecipeProvider.getRecipeName(ModItems.MUSIC_DISC_FINAL_STAGE));
 
 
-//armor
+        //armor
         SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(ModItems.LAPIS_SHARD), Ingredient.ofItems(Items.NETHERITE_HELMET), Ingredient.ofItems(Items.LAPIS_LAZULI), RecipeCategory.COMBAT, ModItems.LAPIS_LAZULI_HELMET)
                 .criterion(FabricRecipeProvider.hasItem(ModItems.LAPIS_SHARD), FabricRecipeProvider.conditionsFromItem(ModItems.LAPIS_SHARD))
                 .criterion(FabricRecipeProvider.hasItem(Items.NETHERITE_HELMET), FabricRecipeProvider.conditionsFromItem(Items.NETHERITE_HELMET))
@@ -183,7 +209,7 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .offerTo(exporter, FabricRecipeProvider.getRecipeName(ModItems.REDSTONE_BOOTS));
 
 
-//tools
+        //tools
         SmithingTransformRecipeJsonBuilder.create(Ingredient.ofItems(ModItems.LAPIS_SHARD), Ingredient.ofItems(Items.NETHERITE_SWORD), Ingredient.ofItems(Items.LAPIS_LAZULI), RecipeCategory.COMBAT, ModItems.LAPIS_LAZULI_SWORD)
                 .criterion(FabricRecipeProvider.hasItem(ModItems.LAPIS_SHARD), FabricRecipeProvider.conditionsFromItem(ModItems.LAPIS_SHARD))
                 .criterion(FabricRecipeProvider.hasItem(Items.NETHERITE_SWORD), FabricRecipeProvider.conditionsFromItem(Items.NETHERITE_SWORD))

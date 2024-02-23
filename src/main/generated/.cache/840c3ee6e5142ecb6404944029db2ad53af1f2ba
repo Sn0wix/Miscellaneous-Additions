@@ -1,4 +1,4 @@
-// 1.20.4	2024-02-20T20:49:58.2724723	Miscellaneous Additions/Block Loot Tables
+// 1.20.4	2024-02-23T16:20:05.079198	Miscellaneous Additions/Block Loot Tables
 7dfafedc8774f58258bab7a24d081ebb23974148 data\misc_additions\loot_tables\blocks\azalea_fence_gate.json
 459a7e54ee9a484adfddb1191154a6abefaf2631 data\misc_additions\loot_tables\blocks\azalea_log.json
 bed9066162aa805287e5e46863932c4bbc9cf55a data\misc_additions\loot_tables\blocks\stripped_azalea_log.json
@@ -10,5 +10,7 @@ f0c8b19baaa9ad1acf8008ead5f804b0abefc56d data\misc_additions\loot_tables\blocks\
 8f53fa7813b607a10a69a600cca9dfa63b9ff36f data\misc_additions\loot_tables\blocks\azalea_button.json
 a3bfd7ae1bf223a73b6db12e15843ff897623070 data\misc_additions\loot_tables\blocks\azalea_planks.json
 340077b5dc861d8f523c5c17aae21ab5997ce6a8 data\misc_additions\loot_tables\blocks\azalea_sign.json
+ffe29e7ce961ae8389afd336c1fd7cf087c6e41e data\misc_additions\loot_tables\blocks\golden_lantern.json
 6d2d58725ba7d4bf71a60cc58e860a9a98b5b01c data\misc_additions\loot_tables\blocks\azalea_pressure_plate.json
 4bbf9d344cc7f9a4649674510254248600fd689a data\misc_additions\loot_tables\blocks\azalea_fence.json
+0d68882f5f6443a2ddfe79ebd246a43516b3c6ad data\misc_additions\loot_tables\blocks\golden_soul_lantern.json

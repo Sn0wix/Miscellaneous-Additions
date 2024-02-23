@@ -122,10 +122,13 @@
   "block.misc_additions.large_citrine_bud": "Large Citrine Bud",
   "block.misc_additions.medium_citrine_bud": "Medium Citrine Bud",
   "block.misc_additions.small_citrine_bud": "Small Citrine Bud",
-  "block.misc_additions.golden_chain": "Golden Chain",
   "block.misc_additions.corn_block": "Corn",
   "block.misc_additions.gunpowder_barrel": "Gunpowder Barrel",
   "block.misc_additions.end_relay": "End Relay",
+  "block.misc_additions.golden_chain": "Golden Chain",
+  "block.misc_additions.golden_lantern": "Golden Lantern",
+  "block.misc_additions.golden_soul_lantern": "Golden Lantern",
+
 
 
   "block.misc_additions.azalea_button": "Azalea Button",

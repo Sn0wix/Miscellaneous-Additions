@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "misc_additions:block/golden_soul_lantern"
+    },
+    "hanging=true": {
+      "model": "misc_additions:block/golden_soul_lantern_hanging"
+    }
+  }
+}

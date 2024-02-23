@@ -10,9 +10,13 @@ import net.sn0wix_.misc_additions.common.MiscAdditions;
 public class ModBlockTags {
     public static final TagKey<Block> REDSTONE_EQUIPMENT_RECHARGEABLE = createBlockTag("redstone_equipment_rechargeable");
     public static final TagKey<Block> AZALEA_LOGS = createBlockTag("azalea_logs");
+    public static final TagKey<Block> LANTERNS = createBlockTag("c", "lanterns");
 
     private static TagKey<Block> createBlockTag(String name) {
         return TagKey.of(RegistryKeys.BLOCK, new Identifier(MiscAdditions.MOD_ID, name));
     }
 
+    private static TagKey<Block> createBlockTag(String namespace, String name) {
+        return TagKey.of(RegistryKeys.BLOCK, new Identifier(namespace, name));
+    }
 }

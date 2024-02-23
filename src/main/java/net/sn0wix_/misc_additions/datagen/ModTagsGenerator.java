@@ -56,7 +56,9 @@ public class ModTagsGenerator {
                     .add(ModBlocks.WAXED_EXPOSED_COPPER_TRAPDOOR)
                     .add(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR)
                     .add(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR)
-                    .add(ModBlocks.END_RELAY);
+                    .add(ModBlocks.END_RELAY)
+                    .add(ModBlocks.GOLDEN_LANTERN_BLOCK)
+                    .add(ModBlocks.GOLDEN_SOUL_LANTERN_BLOCK);
         }
 
         private void addDoor() {

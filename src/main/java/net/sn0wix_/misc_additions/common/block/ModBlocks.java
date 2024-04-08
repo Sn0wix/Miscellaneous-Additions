@@ -92,19 +92,19 @@ public class ModBlocks {
             new FenceBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE))));
 
     public static final Block AZALEA_FENCE_GATE = registerBlock("azalea_fence_gate",
-            new FenceGateBlock(ModWoodTypes.AZALEA, FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE))));
+            new FenceGateBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE_GATE)), ModWoodTypes.AZALEA));
 
     public static final Block AZALEA_BUTTON = registerBlock("azalea_button",
-            new ButtonBlock(ModBlockSetTypes.AZALEA, 30, FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON))));
+            new ButtonBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_BUTTON)), ModBlockSetTypes.AZALEA, 30, true));
 
     public static final Block AZALEA_PRESSURE_PLATE = registerBlock("azalea_pressure_plate",
-            new PressurePlateBlock(ModBlockSetTypes.AZALEA, FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_FENCE))));
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_PRESSURE_PLATE)), ModBlockSetTypes.AZALEA));
 
     public static final Block AZALEA_DOOR = registerBlock("azalea_door",
-            new DoorBlock(ModBlockSetTypes.AZALEA, FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_DOOR))));
+            new DoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_DOOR)), ModBlockSetTypes.AZALEA));
 
     public static final Block AZALEA_TRAPDOOR = registerBlock("azalea_trapdoor",
-            new TrapdoorBlock(ModBlockSetTypes.AZALEA, FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR))));
+            new TrapdoorBlock(FabricBlockSettings.copyOf(FabricBlockSettings.copyOf(Blocks.OAK_TRAPDOOR)), ModBlockSetTypes.AZALEA));
 
     public static final Block AZALEA_SIGN = registerBlockWithoutBlockItem("azalea_sign",
             new ModSignBlock(FabricBlockSettings.copyOf(Blocks.OAK_SIGN), ModWoodTypes.AZALEA));

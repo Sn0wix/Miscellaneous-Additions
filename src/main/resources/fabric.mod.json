@@ -3,7 +3,7 @@
 	"id": "misc_additions",
 	"version": "0.3.0",
 	"name": "Miscellaneous Additions",
-	"description": "Vanilla friendly mod that tries to enhance the vanilla game with some smaller features.",
+	"description": "Vanilla friendly mod that tries to enhance the core game with some smaller features.",
 	"authors": [
 		"Sn0wix_"
 	],
@@ -31,13 +31,13 @@
 		"misc_additions.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.14.22",
+		"fabricloader": ">=0.15.9",
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"fabric-api": "https://modrinth.com/mod/fabric-api"
 	},
 	"custom": {
 		"modmenu": {

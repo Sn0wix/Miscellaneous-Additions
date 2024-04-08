@@ -25,11 +25,6 @@ public class ModHangingSignBlockEntity extends ModSignBlockEntity {
     }
 
     @Override
-    public SoundEvent getInteractionFailSound() {
-        return SoundEvents.BLOCK_HANGING_SIGN_WAXED_INTERACT_FAIL;
-    }
-
-    @Override
     public BlockEntityType<?> getType() {
         return ModBlockEntities.MOD_HANGING_SIGN_BLOCK_ENTITY;
     }

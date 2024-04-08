@@ -9,7 +9,7 @@ import net.sn0wix_.misc_additions.common.block.entities.ModHangingSignBlockEntit
 
 public class ModWallHangingSignBlock extends WallHangingSignBlock {
     public ModWallHangingSignBlock(Settings settings, WoodType woodType) {
-        super(woodType, settings);
+        super(settings, woodType);
     }
 
     @Override

@@ -28,7 +28,7 @@ public class CopperDoorBlock extends DoorBlock implements Oxidizable {
     private final Oxidizable.OxidationLevel oxidationLevel;
 
     public CopperDoorBlock(Oxidizable.OxidationLevel oxidationLevel, Settings settings, BlockSetType blockSetType) {
-        super(blockSetType, settings);
+        super(settings, blockSetType);
         this.oxidationLevel = oxidationLevel;
     }
 

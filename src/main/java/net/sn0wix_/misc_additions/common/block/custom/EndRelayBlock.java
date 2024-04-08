@@ -178,7 +178,7 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return EndRelayBlock.validateTicker(type, ModBlockEntities.END_RELAY_BLOCK_ENTITY, EndRelayBlockEntity::tick);
+        return EndRelayBlock.checkType(type, ModBlockEntities.END_RELAY_BLOCK_ENTITY, EndRelayBlockEntity::tick);
     }
 
     //HELPER METHODS
@@ -302,11 +302,6 @@ public class EndRelayBlock extends BlockWithEntity implements BlockEntityProvide
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return ModBlockEntities.END_RELAY_BLOCK_ENTITY.instantiate(pos, state);
-    }
-
-    @Override
-    protected MapCodec<? extends BlockWithEntity> getCodec() {
-        return createCodec(EndRelayBlock::new);
     }
 
     public EndRelayBlockEntity getBlockEntity(World world, BlockPos pos) {

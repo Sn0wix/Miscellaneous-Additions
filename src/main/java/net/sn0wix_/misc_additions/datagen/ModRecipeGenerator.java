@@ -13,6 +13,7 @@ import net.sn0wix_.misc_additions.common.item.ModItems;
 import net.sn0wix_.misc_additions.common.util.tags.ModItemTags;
 
 import java.util.Collections;
+import java.util.function.Consumer;
 
 public class ModRecipeGenerator extends FabricRecipeProvider {
     public ModRecipeGenerator(FabricDataOutput output) {
@@ -20,13 +21,13 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
     }
 
     @Override
-    public void generate(RecipeExporter exporter) {
+    public void generate(Consumer<RecipeJsonProvider> exporter) {
         generateSmithingRecipes(exporter);
         generateCraftingRecipes(exporter);
         generateSmeltingRecipes(exporter);
     }
 
-    private void generateCraftingRecipes(RecipeExporter exporter) {
+    private void generateCraftingRecipes(Consumer<RecipeJsonProvider> exporter) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MUSIC_DISC_MASHUP)
                 .input(ModItems.MUSIC_DISC_SOULESS)
                 .input(ModItems.MUSIC_DISC_SHRIEKER)
@@ -116,11 +117,11 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
         createTrapdoorRecipe(ModBlocks.COPPER_TRAPDOOR, Ingredient.ofItems(Items.COPPER_INGOT)).criterion(FabricRecipeProvider.hasItem(Items.COPPER_INGOT), FabricRecipeProvider.conditionsFromItem(Items.COPPER_INGOT)).criterion(FabricRecipeProvider.hasItem(ModBlocks.COPPER_TRAPDOOR), FabricRecipeProvider.conditionsFromItem(ModBlocks.COPPER_TRAPDOOR)).offerTo(exporter);
     }
 
-    private void generateSmeltingRecipes(RecipeExporter exporter) {
+    private void generateSmeltingRecipes(Consumer<RecipeJsonProvider> exporter) {
         offerSmelting(exporter, Collections.singletonList(ModItems.CORN_SEEDS), RecipeCategory.FOOD, ModItems.POPCORN, 0.1f, 10, ModItems.POPCORN.getName().toString());
     }
 
-    private void generateSmithingRecipes(RecipeExporter exporter) {
+    private void generateSmithingRecipes(Consumer<RecipeJsonProvider> exporter) {
         SmithingTransformRecipeJsonBuilder.create(Ingredient.EMPTY, Ingredient.ofItems(ModItems.MUSIC_DISC_SHRIEKER), Ingredient.ofItems(ModItems.MUSIC_DISC_BRUTE), RecipeCategory.MISC, ModItems.MUSIC_DISC_SHRIEKER_X_BRUTE)
                 .criterion(FabricRecipeProvider.hasItem(ModItems.MUSIC_DISC_SHRIEKER), FabricRecipeProvider.conditionsFromItem(ModItems.MUSIC_DISC_SHRIEKER))
                 .criterion(FabricRecipeProvider.hasItem(ModItems.MUSIC_DISC_BRUTE), FabricRecipeProvider.conditionsFromItem(ModItems.MUSIC_DISC_BRUTE))

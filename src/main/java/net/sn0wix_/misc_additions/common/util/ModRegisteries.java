@@ -91,12 +91,12 @@ public class ModRegisteries {
         DispenserBlock.registerBehavior(ModItems.AZALEA_BOAT, new FallibleItemDispenserBehavior() {
             @Override
             protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-                Direction direction = pointer.state().get(DispenserBlock.FACING);
+                Direction direction = pointer.getBlockState().get(DispenserBlock.FACING);
                 Position position = DispenserBlock.getOutputLocation(pointer);
                 double d = position.getX() + (double) ((float) direction.getOffsetX() * 0.3F);
                 double e = position.getY() + (double) ((float) direction.getOffsetY() * 0.3F);
                 double f = position.getZ() + (double) ((float) direction.getOffsetZ() * 0.3F);
-                World world = pointer.world();
+                World world = pointer.getWorld();
                 Random random = world.random;
                 double g = random.nextTriangular(direction.getOffsetX(), 0.11485000000000001);
                 double h = random.nextTriangular(direction.getOffsetY(), 0.11485000000000001);
@@ -113,12 +113,12 @@ public class ModRegisteries {
         DispenserBlock.registerBehavior(ModItems.AZALEA_CHEST_BOAT, new FallibleItemDispenserBehavior() {
             @Override
             protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-                Direction direction = pointer.state().get(DispenserBlock.FACING);
+                Direction direction = pointer.getBlockState().get(DispenserBlock.FACING);
                 Position position = DispenserBlock.getOutputLocation(pointer);
                 double d = position.getX() + (double) ((float) direction.getOffsetX() * 0.3F);
                 double e = position.getY() + (double) ((float) direction.getOffsetY() * 0.3F);
                 double f = position.getZ() + (double) ((float) direction.getOffsetZ() * 0.3F);
-                World world = pointer.world();
+                World world = pointer.getWorld();
                 Random random = world.random;
                 double g = random.nextTriangular(direction.getOffsetX(), 0.11485000000000001);
                 double h = random.nextTriangular(direction.getOffsetY(), 0.11485000000000001);

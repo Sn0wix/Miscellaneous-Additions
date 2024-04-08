@@ -25,6 +25,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionTypes;
 import net.minecraft.world.event.GameEvent;
 import net.sn0wix_.misc_additions.client.util.particles.EndRelayTpParticleUtil;
+import net.sn0wix_.misc_additions.common.block.ModBlocks;
 import net.sn0wix_.misc_additions.common.block.custom.EndRelayBlock;
 
 import net.sn0wix_.misc_additions.common.util.tags.ModItemTags;
@@ -133,11 +134,14 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
     //Item transfering between hopper and end relay
     @Override
     public boolean canTransferTo(Inventory hopperInventory, int slot, ItemStack stack) {
-        boolean bl = hopperInventory.containsAny(ItemStack::isEmpty);
-        if (bl) {
-            bl = getStack().isEmpty();
+        if (compass_stack.isEmpty() && stack.isOf(Items.COMPASS)) {
+            return true;
+        } else if (getWorld().getBlockState(getPos()) != null && stack.isOf(Items.END_CRYSTAL) && getWorld().getBlockState(getPos()).isOf(ModBlocks.END_RELAY)) {
+            stack.decrement(getWorld().getBlockState(getPos()).get(EndRelayBlock.CHARGED) ? 1 : 0);
+            getWorld().setBlockState(getPos(), getWorld().getBlockState(getPos()).with(EndRelayBlock.CHARGED, true));
         }
-        return bl;
+
+        return false;
     }
 
     //NBT data
@@ -178,6 +182,7 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
     }
 
     private void updateState(@Nullable Entity entity, boolean hasCompass) {
+        assert this.world != null;
         if (this.world.getBlockState(this.getPos()) == this.getCachedState()) {
             this.world.setBlockState(this.getPos(), this.getCachedState().with(EndRelayBlock.HAS_COMPASS, hasCompass), Block.NOTIFY_LISTENERS);
             this.world.emitGameEvent(GameEvent.BLOCK_CHANGE, this.getPos(), GameEvent.Emitter.of(entity, this.getCachedState()));
@@ -194,7 +199,7 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
             if (itemStack.isEmpty()) {
                 return false;
             }
-            this.emptyStack();
+            this.removeStack();
             Vec3d vec3d = Vec3d.add(blockPos, 0.5, 1.01, 0.5).addRandom(this.world.random, 0.7f);
             ItemStack itemStack2 = itemStack.copy();
             ItemEntity itemEntity = new ItemEntity(this.world, vec3d.getX(), vec3d.getY(), vec3d.getZ(), itemStack2);
@@ -209,20 +214,15 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
         return dropCompass(false);
     }
 
-    @Override
-    public BlockEntity asBlockEntity() {
-        return this;
-    }
-
 
     //Inventory
     @Override
-    public ItemStack getStack() {
+    public ItemStack getStack(int slot) {
         return compass_stack;
     }
 
     @Override
-    public ItemStack decreaseStack(int count) {
+    public ItemStack removeStack(int slot, int amount) {
         ItemStack itemStack = this.compass_stack;
         this.compass_stack = ItemStack.EMPTY;
         if (!itemStack.isEmpty()) {
@@ -232,13 +232,13 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
     }
 
     @Override
-    public void setStack(ItemStack stack) {
+    public void setStack(int slot, ItemStack stack) {
         if (stack.isOf(Items.COMPASS) && this.world != null) {
             this.compass_stack = stack;
             compassDelay = maxCompassDelay;
             this.updateState(null, true);
         } else if (stack.isEmpty()) {
-            this.decreaseStack(1);
+            this.removeStack(1, 1);
         }
     }
 
@@ -252,6 +252,7 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
             this.compass_stack = stack.copy();
             this.compass_stack.setCount(getMaxCountPerStack());
             updateState(null, !stack.isEmpty());
+            assert this.world != null;
             this.world.updateNeighborsAlways(this.getPos(), this.getCachedState().getBlock());
             this.markDirty();
             compassDelay = maxCompassDelay;
@@ -273,6 +274,11 @@ public class EndRelayBlockEntity extends BlockEntity implements SingleStackInven
     @Override
     public int getMaxCountPerStack() {
         return 1;
+    }
+
+    @Override
+    public boolean canPlayerUse(PlayerEntity player) {
+        return false;
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, EndRelayBlockEntity endRelayBlockEntity) {

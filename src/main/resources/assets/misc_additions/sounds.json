@@ -2,7 +2,7 @@
   "revenge": {
     "sounds": [
       {
-        "name": "misc_additions:revenge",
+        "name": "misc_additions:music_disc/revenge",
         "stream": true
       }
     ]
@@ -10,7 +10,7 @@
   "gilded": {
     "sounds": [
       {
-        "name": "misc_additions:gilded",
+        "name": "misc_additions:music_disc/gilded",
         "stream": true
       }
     ]
@@ -18,7 +18,7 @@
   "guardian": {
     "sounds": [
       {
-        "name": "misc_additions:guardian",
+        "name": "misc_additions:music_disc/guardian",
         "stream": true
       }
     ]
@@ -26,7 +26,7 @@
   "husk": {
     "sounds": [
       {
-        "name": "misc_additions:husk",
+        "name": "misc_additions:music_disc/husk",
         "stream": true
       }
     ]
@@ -34,7 +34,7 @@
   "raiders": {
     "sounds": [
       {
-        "name": "misc_additions:raiders",
+        "name": "misc_additions:music_disc/raiders",
         "stream": true
       }
     ]
@@ -42,7 +42,7 @@
   "shulker": {
     "sounds": [
       {
-        "name": "misc_additions:shulker",
+        "name": "misc_additions:music_disc/shulker",
         "stream": true
       }
     ]
@@ -50,7 +50,7 @@
   "the_ender_dragon": {
     "sounds": [
       {
-        "name": "misc_additions:the_ender_dragon",
+        "name": "misc_additions:music_disc/the_ender_dragon",
         "stream": true
       }
     ]
@@ -58,7 +58,7 @@
   "the_wither": {
     "sounds": [
       {
-        "name": "misc_additions:the_wither",
+        "name": "misc_additions:music_disc/the_wither",
         "stream": true
       }
     ]
@@ -66,7 +66,7 @@
   "brute": {
     "sounds": [
       {
-        "name": "misc_additions:brute",
+        "name": "misc_additions:music_disc/brute",
         "stream": true
       }
     ]
@@ -74,7 +74,7 @@
   "shrieker": {
     "sounds": [
       {
-        "name": "misc_additions:shrieker",
+        "name": "misc_additions:music_disc/shrieker",
         "stream": true
       }
     ]
@@ -82,7 +82,7 @@
   "shrieker_x_brute": {
     "sounds": [
       {
-        "name": "misc_additions:shrieker_x_brute",
+        "name": "misc_additions:music_disc/shrieker_x_brute",
         "stream": true
       }
     ]
@@ -90,7 +90,7 @@
   "warden_run": {
     "sounds": [
       {
-        "name": "misc_additions:warden_run",
+        "name": "misc_additions:music_disc/warden_run",
         "stream": true
       }
     ]
@@ -98,7 +98,7 @@
   "below": {
     "sounds": [
       {
-        "name": "misc_additions:below",
+        "name": "misc_additions:music_disc/below",
         "stream": true
       }
     ]
@@ -106,7 +106,7 @@
   "lightning": {
     "sounds": [
       {
-        "name": "misc_additions:lightning",
+        "name": "misc_additions:music_disc/lightning",
         "stream": true
       }
     ]
@@ -114,7 +114,7 @@
   "mashup": {
     "sounds": [
       {
-        "name": "misc_additions:mashup",
+        "name": "misc_additions:music_disc/mashup",
         "stream": true
       }
     ]
@@ -122,7 +122,7 @@
   "no_escape": {
     "sounds": [
       {
-        "name": "misc_additions:no_escape",
+        "name": "misc_additions:music_disc/no_escape",
         "stream": true
       }
     ]
@@ -130,7 +130,7 @@
   "souless": {
     "sounds": [
       {
-        "name": "misc_additions:souless",
+        "name": "misc_additions:music_disc/souless",
         "stream": true
       }
     ]
@@ -138,7 +138,7 @@
   "fading_memories": {
     "sounds": [
       {
-        "name": "misc_additions:fading_memories",
+        "name": "misc_additions:music_disc/fading_memories",
         "stream": true
       }
     ]
@@ -146,7 +146,7 @@
   "horizons": {
     "sounds": [
       {
-        "name": "misc_additions:horizons",
+        "name": "misc_additions:music_disc/horizons",
         "stream": true
       }
     ]
@@ -154,7 +154,7 @@
   "iron_oath": {
     "sounds": [
       {
-        "name": "misc_additions:iron_oath",
+        "name": "misc_additions:music_disc/iron_oath",
         "stream": true
       }
     ]
@@ -162,7 +162,7 @@
   "last_hallway": {
     "sounds": [
       {
-        "name": "misc_additions:last_hallway",
+        "name": "misc_additions:music_disc/last_hallway",
         "stream": true
       }
     ]
@@ -170,7 +170,7 @@
   "sakura_valley": {
     "sounds": [
       {
-        "name": "misc_additions:sakura_valley",
+        "name": "misc_additions:music_disc/sakura_valley",
         "stream": true
       }
     ]
@@ -178,7 +178,7 @@
   "mineshaft": {
     "sounds": [
       {
-        "name": "misc_additions:mineshaft",
+        "name": "misc_additions:music_disc/mineshaft",
         "stream": true
       }
     ]
@@ -186,7 +186,7 @@
   "whispering_woods": {
     "sounds": [
       {
-        "name": "misc_additions:whispering_woods",
+        "name": "misc_additions:music_disc/whispering_woods",
         "stream": true
       }
     ]
@@ -194,7 +194,7 @@
   "adventure_awaits": {
     "sounds": [
       {
-        "name": "misc_additions:adventure_awaits",
+        "name": "misc_additions:music_disc/adventure_awaits",
         "stream": true
       }
     ]
@@ -202,7 +202,7 @@
   "final_stage": {
     "sounds": [
       {
-        "name": "misc_additions:final_stage",
+        "name": "misc_additions:music_disc/final_stage",
         "stream": true
       }
     ]
@@ -210,7 +210,7 @@
   "pumpkin": {
     "sounds": [
       {
-        "name": "misc_additions:pumpkin",
+        "name": "misc_additions:music_disc/pumpkin",
         "stream": true
       }
     ]
@@ -218,7 +218,7 @@
   "hunted_mansion": {
     "sounds": [
       {
-        "name": "misc_additions:hunted_mansion",
+        "name": "misc_additions:music_disc/hunted_mansion",
         "stream": true
       }
     ]
@@ -226,9 +226,189 @@
   "gold_rush": {
     "sounds": [
       {
-        "name": "misc_additions:gold_rush",
+        "name": "misc_additions:music_disc/gold_rush",
         "stream": true
       }
     ]
+  },
+  "item.copper_horn.sound.bass.0": {
+    "sounds": [
+      "misc_additions:copper_horn/bass0"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.bass"
+  },
+  "item.copper_horn.sound.bass.1": {
+    "sounds": [
+      "misc_additions:copper_horn/bass1"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.bass"
+  },
+  "item.copper_horn.sound.bass.2": {
+    "sounds": [
+      "misc_additions:copper_horn/bass2"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.bass"
+  },
+  "item.copper_horn.sound.bass.3": {
+    "sounds": [
+      "misc_additions:copper_horn/bass3"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.bass"
+  },
+  "item.copper_horn.sound.bass.4": {
+    "sounds": [
+      "misc_additions:copper_horn/bass4"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.bass"
+  },
+  "item.copper_horn.sound.bass.5": {
+    "sounds": [
+      "misc_additions:copper_horn/bass5"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.bass"
+  },
+  "item.copper_horn.sound.bass.6": {
+    "sounds": [
+      "misc_additions:copper_horn/bass6"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.bass"
+  },
+  "item.copper_horn.sound.bass.7": {
+    "sounds": [
+      "misc_additions:copper_horn/bass7"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.bass"
+  },
+  "item.copper_horn.sound.bass.8": {
+    "sounds": [
+      "misc_additions:copper_horn/bass8"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.bass"
+  },
+  "item.copper_horn.sound.bass.9": {
+    "sounds": [
+      "misc_additions:copper_horn/bass9"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.bass"
+  },
+  "item.copper_horn.sound.harmony.0": {
+    "sounds": [
+      "misc_additions:copper_horn/harmony0"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.harmony"
+  },
+  "item.copper_horn.sound.harmony.1": {
+    "sounds": [
+      "misc_additions:copper_horn/harmony1"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.harmony"
+  },
+  "item.copper_horn.sound.harmony.2": {
+    "sounds": [
+      "misc_additions:copper_horn/harmony2"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.harmony"
+  },
+  "item.copper_horn.sound.harmony.3": {
+    "sounds": [
+      "misc_additions:copper_horn/harmony3"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.harmony"
+  },
+  "item.copper_horn.sound.harmony.4": {
+    "sounds": [
+      "misc_additions:copper_horn/harmony4"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.harmony"
+  },
+  "item.copper_horn.sound.harmony.5": {
+    "sounds": [
+      "misc_additions:copper_horn/harmony5"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.harmony"
+  },
+  "item.copper_horn.sound.harmony.6": {
+    "sounds": [
+      "misc_additions:copper_horn/harmony6"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.harmony"
+  },
+  "item.copper_horn.sound.harmony.7": {
+    "sounds": [
+      "misc_additions:copper_horn/harmony7"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.harmony"
+  },
+  "item.copper_horn.sound.harmony.8": {
+    "sounds": [
+      "misc_additions:copper_horn/harmony8"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.harmony"
+  },
+  "item.copper_horn.sound.harmony.9": {
+    "sounds": [
+      "misc_additions:copper_horn/harmony9"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.harmony"
+  },
+  "item.copper_horn.sound.melody.0": {
+    "sounds": [
+      "misc_additions:copper_horn/melody0"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.melody"
+  },
+  "item.copper_horn.sound.melody.1": {
+    "sounds": [
+      "misc_additions:copper_horn/melody1"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.melody"
+  },
+  "item.copper_horn.sound.melody.2": {
+    "sounds": [
+      "misc_additions:copper_horn/melody2"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.melody"
+  },
+  "item.copper_horn.sound.melody.3": {
+    "sounds": [
+      "misc_additions:copper_horn/melody3"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.melody"
+  },
+  "item.copper_horn.sound.melody.4": {
+    "sounds": [
+      "misc_additions:copper_horn/melody4"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.melody"
+  },
+  "item.copper_horn.sound.melody.5": {
+    "sounds": [
+      "misc_additions:copper_horn/melody5"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.melody"
+  },
+  "item.copper_horn.sound.melody.6": {
+    "sounds": [
+      "misc_additions:copper_horn/melody6"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.melody"
+  },
+  "item.copper_horn.sound.melody.7": {
+    "sounds": [
+      "misc_additions:copper_horn/melody7"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.melody"
+  },
+  "item.copper_horn.sound.melody.8": {
+    "sounds": [
+      "misc_additions:copper_horn/melody8"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.melody"
+  },
+  "item.copper_horn.sound.melody.9": {
+    "sounds": [
+      "misc_additions:copper_horn/melody9"
+    ],
+    "subtitle": "subtitles.misc_additions.item.copper_horn.melody"
   }
 }

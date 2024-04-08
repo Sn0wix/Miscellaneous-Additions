@@ -1,4 +1,4 @@
-package net.sn0wix_.misc_additions.common.util;
+package net.sn0wix_.misc_additions.common.util.loot;
 
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.block.Blocks;
@@ -13,7 +13,6 @@ import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.*;
 import net.minecraft.loot.context.LootContext;
 import net.minecraft.loot.entry.ItemEntry;
-import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.*;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
@@ -25,10 +24,6 @@ import net.minecraft.world.biome.BiomeKeys;
 import net.sn0wix_.misc_additions.common.MiscAdditions;
 import net.sn0wix_.misc_additions.common.block.ModBlocks;
 import net.sn0wix_.misc_additions.common.item.ModItems;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ModLootTableModifiers {
     private static final Identifier CREEPER_ID = new Identifier("minecraft", "entities/creeper");
@@ -265,7 +260,6 @@ public class ModLootTableModifiers {
             }
 
 
-
             if (LAPIS_ORE_ID.equals(id)) {
                 LootPool.Builder poolBuilder = LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
@@ -321,12 +315,12 @@ public class ModLootTableModifiers {
                 return LootTable.builder().pool(pool).build();
             }*/
 
-            if (DEEPSLATE_DIAMOND_ORE_ID.equals(id) && MiscAdditions.CONFIG.dropCrushedDiamonds) {
-                LootTable.Builder poolBuilder = BlockLootTableGenerator.dropsWithSilkTouch(Blocks.DEEPSLATE_DIAMOND_ORE, applyExplosionDecay(Blocks.DEEPSLATE_DIAMOND_ORE, ItemEntry.builder(ModItems.CRUSHED_DIAMOND).apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE)))).pool(LootPool.builder()
+            if (DEEPSLATE_DIAMOND_ORE_ID.equals(id) && MiscAdditions.CONFIG.dropDiamondSherds) {
+                LootTable.Builder poolBuilder = BlockLootTableGenerator.dropsWithSilkTouch(Blocks.DEEPSLATE_DIAMOND_ORE, applyExplosionDecay(Blocks.DEEPSLATE_DIAMOND_ORE, ItemEntry.builder(ModItems.DIAMOND_SHERD).apply(ApplyBonusLootFunction.oreDrops(Enchantments.FORTUNE)))).pool(LootPool.builder()
                         .rolls(ConstantLootNumberProvider.create(1))
                         .conditionally(RandomChanceLootCondition.builder(0.3f))
                         .conditionally(InvertedLootCondition.builder(BlockLootTableGenerator.WITH_SILK_TOUCH))
-                        .with(ItemEntry.builder(ModItems.CRUSHED_DIAMOND)));
+                        .with(ItemEntry.builder(ModItems.DIAMOND_SHERD)));
                 return poolBuilder.build();
             }
 

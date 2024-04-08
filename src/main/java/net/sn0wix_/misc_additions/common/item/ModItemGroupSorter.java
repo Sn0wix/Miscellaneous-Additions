@@ -43,7 +43,7 @@ public class ModItemGroupSorter {
 
         /*INGREDIENTS**/
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(entries -> {
-            entries.addBefore(Items.DIAMOND, ModItems.CRUSHED_DIAMOND);
+            entries.addBefore(Items.DIAMOND, ModItems.DIAMOND_SHERD);
 
             entries.addAfter(Items.AMETHYST_SHARD, ModItems.CITRINE_SHARD);
         });

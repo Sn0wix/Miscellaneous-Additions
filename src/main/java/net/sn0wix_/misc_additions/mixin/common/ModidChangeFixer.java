@@ -15,10 +15,17 @@ public abstract class ModidChangeFixer {
     @Mutable
     @Shadow @Final private String namespace;
 
+    @Mutable
+    @Shadow @Final private String path;
+
     @Inject(method = "<init>(Ljava/lang/String;Ljava/lang/String;)V", at = @At("RETURN"))
     private void injectConstructor(String namespace, String path, CallbackInfo ci) {
         if (namespace.equals("villagepillagearise")) {
             this.namespace = MiscAdditions.MOD_ID;
+        }
+
+        if (namespace.equals(MiscAdditions.MOD_ID) && path.equals("crushed_diamond")) {
+            this.path = "diamond_sherd";
         }
     }
 }

@@ -11,7 +11,7 @@
   "item.misc_additions.popcorn": "Popcorn",
   "item.misc_additions.corn_seeds": "Corn Seeds",
   "item.misc_additions.corn_chowder": "Corn Chowder",
-  "item.misc_additions.crushed_diamond": "Crushed Diamond",
+  "item.misc_additions.diamond_sherd": "Diamond Sherd",
   "item.misc_additions.illusioner_spawn_egg": "Illusioner Spawn Egg",
 
 
@@ -175,6 +175,10 @@
 
   "painting.misc_additions.camp_fire.title": "Camp Fire",
   "painting.misc_additions.camp_fire.author": "Better Vanilla Building",
+
+  "subtitles.misc_additions.item.copper_horn.bass": "Copper Horns plays bass",
+  "subtitles.misc_additions.item.copper_horn.melody": "Copper Horns plays melody",
+  "subtitles.misc_additions.item.copper_horn.harmony": "Copper Horns plays harmony",
 
 
   "link.misc_additions.curseforge": "Curseforge",

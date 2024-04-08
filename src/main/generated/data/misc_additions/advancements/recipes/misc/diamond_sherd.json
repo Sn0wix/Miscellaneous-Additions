@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:crushed_diamond"
+        "recipe": "minecraft:diamond_sherd"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:crushed_diamond"
+      "minecraft:diamond_sherd"
     ]
   }
 }

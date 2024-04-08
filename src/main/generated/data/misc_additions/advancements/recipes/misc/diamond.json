@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_crushed_diamond": {
+    "has_diamond_sherd": {
       "conditions": {
         "items": [
           {
             "items": [
-              "misc_additions:crushed_diamond"
+              "misc_additions:diamond_sherd"
             ]
           }
         ]
@@ -23,7 +23,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_crushed_diamond"
+      "has_diamond_sherd"
     ]
   ],
   "rewards": {

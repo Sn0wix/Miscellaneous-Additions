@@ -65,15 +65,14 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
 
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.DIAMOND)
-                .input(ModItems.CRUSHED_DIAMOND, 4)
-                .criterion(FabricRecipeProvider.hasItem(ModItems.CRUSHED_DIAMOND), FabricRecipeProvider.conditionsFromItem(ModItems.CRUSHED_DIAMOND))
+                .input(ModItems.DIAMOND_SHERD, 4)
+                .criterion(FabricRecipeProvider.hasItem(ModItems.DIAMOND_SHERD), FabricRecipeProvider.conditionsFromItem(ModItems.DIAMOND_SHERD))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(Items.DIAMOND)));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CRUSHED_DIAMOND, 4)
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DIAMOND_SHERD, 4)
                 .input(Items.DIAMOND)
                 .criterion(FabricRecipeProvider.hasItem(Items.DIAMOND), FabricRecipeProvider.conditionsFromItem(Items.DIAMOND))
-                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModItems.CRUSHED_DIAMOND)));
-
+                .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModItems.DIAMOND_SHERD)));
 
 
         //lanterns
@@ -98,7 +97,6 @@ public class ModRecipeGenerator extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(Items.SOUL_TORCH), FabricRecipeProvider.conditionsFromItem(Items.SOUL_TORCH))
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.GOLDEN_SOUL_LANTERN_BLOCK), FabricRecipeProvider.conditionsFromItem(ModBlocks.GOLDEN_SOUL_LANTERN_BLOCK))
                 .offerTo(exporter, new Identifier(FabricRecipeProvider.getRecipeName(ModBlocks.GOLDEN_SOUL_LANTERN_BLOCK)));
-
 
 
         //azalea wood

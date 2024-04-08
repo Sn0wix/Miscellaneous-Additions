@@ -11,7 +11,7 @@ import net.sn0wix_.misc_additions.common.item.ModItems;
 import net.sn0wix_.misc_additions.common.networking.ModPackets;
 import net.sn0wix_.misc_additions.common.painting.ModPainting;
 import net.sn0wix_.misc_additions.common.util.CustomTrades;
-import net.sn0wix_.misc_additions.common.util.ModLootTableModifiers;
+import net.sn0wix_.misc_additions.common.util.loot.ModLootTableModifiers;
 import net.sn0wix_.misc_additions.common.util.ModRegisteries;
 import net.sn0wix_.misc_additions.common.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
@@ -25,8 +25,12 @@ public class MiscAdditions implements ModInitializer {
     //TODO redstone equipment - trim texture inventory
     //TODO sus sand not working
     //TODO rename crushed_diamond to diamond_sherd
-    //TODO add golden chainmail armor as loot table to bastions and piglins
     //TODO add golden chainmail armor as armor to undead mobs
+
+    //idea: blackstone tools, they are better then stone, but worse, than iron, wither skeletons have increased head drop rate, better durability?, higher mining speed?
+    //idea: amethyst & citrine horns, amethyst sounds different than citrine
+    //idea: spyglass crossbow
+    //idea: bat meat
 
     @Override
     public void onInitialize() {

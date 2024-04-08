@@ -15,9 +15,9 @@ public class MiscAdditionsDataGeneration implements DataGeneratorEntrypoint {
         pack.addProvider(ModModelGenerator::new);
         pack.addProvider(ModTagsGenerator.ModBlockTagsGenerator::new);
         pack.addProvider(ModTagsGenerator.ModItemTagsGenerator::new);
-        pack.addProvider(ModRecipeGenerator::new);
         pack.addProvider(ModLootTableGenerator::new);
         pack.addProvider(ModWorldGenerator::new);
+        pack.addProvider(ModRecipeGenerator::new);
     }
 
     @Override

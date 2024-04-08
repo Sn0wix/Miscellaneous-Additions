@@ -38,10 +38,10 @@ public class ModItems {
     public static final Item CORN_CHOWDER = registerItem("corn_chowder",
             new StewItem(new FabricItemSettings().food(ModFoodComponents.CORN_CHOWDER).maxCount(1)));
 
-    public static final Item CRUSHED_DIAMOND = registerItem("crushed_diamond",
-            new Item(new FabricItemSettings()));
+    public static final Item DIAMOND_SHERD = registerItem("diamond_sherd", new Item(new FabricItemSettings()));
 
 
+    //Battle axes
     public static final Item WOODEN_BATTLE_AXE = registerItem("wooden_battle_axe",
             new ModBattleAxeItem(ModToolMaterials.BATTLE_AXE_WOOD, 11F, -3.5F, new FabricItemSettings()));
 
@@ -61,6 +61,7 @@ public class ModItems {
             new ModBattleAxeItem(ModToolMaterials.BATTLE_AXE_NETHERITE, 14F, -3.3F, new FabricItemSettings().fireproof()));
 
 
+    //Golden chainmail armor
     public static final ArmorItem GOLDEN_CHAINMAIL_HELMET = (ArmorItem) registerItem("golden_chainmail_helmet",
             new ArmorItem(ModArmorMaterials.GOLDEN_CHAINMAIL, ArmorItem.Type.HELMET, new FabricItemSettings()));
 
@@ -74,6 +75,7 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.GOLDEN_CHAINMAIL, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
 
+    //Lapis equipment
     public static final ArmorItem LAPIS_LAZULI_HELMET = (ArmorItem) registerItem("lapis_lazuli_helmet",
             new ArmorItem(ModArmorMaterials.LAPIS_LAZULI, ArmorItem.Type.HELMET, new FabricItemSettings().fireproof()));
 
@@ -105,6 +107,7 @@ public class ModItems {
             new HoeItem(ModToolMaterials.LAPIS_LAZULI, -4, 0.0f, new FabricItemSettings().fireproof()));
 
 
+    //Redstone equipment
     public static final RedstoneArmorItem REDSTONE_HELMET = (RedstoneArmorItem) registerItem("redstone_helmet",
             new RedstoneArmorItem(ModArmorMaterials.REDSTONE, ArmorItem.Type.HELMET, new FabricItemSettings()));
 
@@ -135,6 +138,7 @@ public class ModItems {
             new RedstoneHoeItem(ModToolMaterials.REDSTONE, -4, 0.0f, new FabricItemSettings().fireproof()));
 
 
+    //Music discs
     public static final Item MUSIC_DISC_REVENGE = registerMusicDisc("music_disc_revenge",
             new MusicDiscItem(15, ModSoundEvents.REVENGE, new FabricItemSettings().maxCount(1), 218));
 
@@ -220,6 +224,7 @@ public class ModItems {
             new MusicDiscItem(1, ModSoundEvents.GOLD_RUSH, new FabricItemSettings().maxCount(1), 166));
 
 
+    //other items
     public static final SignItem AZALEA_SIGN = (SignItem) registerItem("azalea_sign",
             new SignItem(new FabricItemSettings().maxCount(16), ModBlocks.AZALEA_SIGN, ModBlocks.AZALEA_WALL_SIGN));
 

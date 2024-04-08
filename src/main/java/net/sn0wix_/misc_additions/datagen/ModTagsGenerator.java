@@ -82,6 +82,7 @@ public class ModTagsGenerator {
                     .add(ModBlocks.WAXED_WEATHERED_COPPER_TRAPDOOR)
                     .add(ModBlocks.WAXED_OXIDIZED_COPPER_TRAPDOOR);
         }
+
         private void addNeedsStoneTool() {
             getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                     .add(ModBlocks.CITRINE_BLOCK)
